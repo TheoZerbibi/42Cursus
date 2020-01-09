@@ -6,13 +6,32 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 00:32:19 by thzeribi          #+#    #+#             */
-/*   Updated: 2019/12/14 14:01:17 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/01/09 01:15:04 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_printf.h>
 
-int ft_printf(const char *str, ...)
+static int	ft_flags(char **str, va_list op)
 {
-  write(1, "Hello World!\n", 13);
+	(void)op;
+	printf("%s\n", *str);
+	return (0);
+}
+
+int					ft_printf(const char *str, ...)
+{
+	va_list op;
+
+	va_start(op, str);
+	while (*str != '\0')
+	{
+		if (*str == '%')
+			ft_flags((char **)&str, op);
+		else
+			ft_putchar(*str);
+		str++;
+	}
+	va_end(op);
+	return (0);
 }

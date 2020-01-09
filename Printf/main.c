@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/13 00:32:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/01/09 00:22:29 by thzeribi         ###   ########.fr       */
+/*   Created: 2020/01/09 00:00:53 by thzeribi          #+#    #+#             */
+/*   Updated: 2020/01/09 00:48:32 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "./master/includes/ft_printf.h"
 
-# include "libft.h"
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdlib.h>
-# include <stdio.h>
-
-typedef struct	s_flags
+int	main(void)
 {
-
-}				t_flags;
-
-int				ft_printf(const char *str, ...);
-
-#endif
+	ft_printf("Hello World %d !\n", 10);
+	//printf("%.5d", 10);
+	return (0);
+}
