@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 00:32:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/01/09 00:22:29 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/01/10 01:04:48 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,14 @@
 # include <stdlib.h>
 # include <stdio.h>
 
-typedef struct	s_flags
+# define ERROR -1
+
+typedef struct	s_tab
 {
+	const char	*str;
+	int					len;
+}				t_tab;
 
-}				t_flags;
-
-int				ft_printf(const char *str, ...);
+int			ft_printf(const char *str, ...);
 
 #endif
