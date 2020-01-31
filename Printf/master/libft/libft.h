@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 01:25:18 by thzeribi          #+#    #+#             */
-/*   Updated: 2019/11/15 05:43:12 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/01/31 06:35:48 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int				ft_isprint(int c);
 int				ft_isspace(int c);
 int				ft_atoi(const char *str);
 void			ft_bzero(void *s, size_t n);
+char			*ft_strnew(size_t len);
+char			*ft_strndup(const char *s1, size_t n);
 char			*ft_strdup(const char *s1);
 void			*ft_calloc(size_t count, size_t size);
 void			*ft_memset(void *b, int c, size_t len);

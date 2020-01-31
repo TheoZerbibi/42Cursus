@@ -6,20 +6,26 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 00:32:19 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/01/10 01:25:18 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/01/31 03:22:27 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_printf.h>
+#include "ft_printf.h"
 
 /*
-**	functions : ft_params
+**	functions : ft_init
 **	description :
 */
 
-static int	ft_init(t_tab *opt)
+t_tab	*ft_init(t_tab *tab)
 {
+	tab->i = 0;
 	tab->len = 0;
+	tab->convert_list = "cspdiuxX%";
+	tab->combin_list = "-0*";
+	tab->s_parse = (char *)tab->str;
+	tab->s_copy = (char *)tab->str;
+	return (tab);
 }
 
 /*
@@ -27,13 +33,20 @@ static int	ft_init(t_tab *opt)
 **	description :
 */
 
-int			ft_printf(const char *str, ...)
+int		ft_printf(const char *str, ...)
 {
-	t_tab	*opt;
+	t_tab	*tab;
 
-	if (!(opt = (t_tab*)malloc(sizeof(t_tab))))
+	if (!(tab = (t_tab*)malloc(sizeof(t_tab))))
 		return (ERROR);
-	opt->str = str;
-
-	return (0);
+	tab->str = str;
+	tab = ft_init(tab);
+	if (str)
+	{
+		va_start(tab->args, str);
+		tab->len = ft_parser(tab);
+		va_end(tab->args);
+	}
+	free(tab);
+	return (tab->len);
 }

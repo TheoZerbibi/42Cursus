@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 00:32:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/01/10 01:04:48 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/01/31 03:31:06 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,34 @@
 typedef struct	s_tab
 {
 	const char	*str;
-	int					len;
+	char		*s_copy;
+	char		*s_parse;
+	va_list		args;
+	size_t		len;
+	size_t		i;
+	long int	width;
+	long int	precisions;
+	char		flags;
+	char		arg_flag;
+	char		combin[3];
+	char		*convert_list;
+	char		*combin_list;
+
 }				t_tab;
 
 int			ft_printf(const char *str, ...);
+int			ft_parser(t_tab *tab);
+int			get_elems(t_tab *tab);
+t_tab		*ft_init(t_tab *tab);
+t_tab		*init_printf(t_tab *tab);
+t_tab		*parse_combin(t_tab *tab);
+t_tab		*parse_precisions(t_tab *tab);
+t_tab		*parse_width(t_tab *tab);
+t_tab		*parse_convert(t_tab *tab);
+t_tab		*parse_elems(t_tab *tab);
+t_tab		*print_c(t_tab *tab);
+t_tab		*print_s(t_tab *tab);
+void		display(t_tab *tab, int c, int len, int len2);
+
 
 #endif

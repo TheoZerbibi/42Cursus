@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/09 00:00:53 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/01/31 07:00:33 by thzeribi         ###   ########.fr       */
+/*   Created: 2020/01/31 06:23:43 by thzeribi          #+#    #+#             */
+/*   Updated: 2020/01/31 06:32:44 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./master/includes/ft_printf.h"
+#include "libft.h"
 
-int	main(void)
+char	*ft_strndup(const char *s1, size_t n)
 {
-	//ft_printf("Hello World %.c %d!\n", 10, 10);
-	//ft_printf("Hello %s !\n", "slt");
-	ft_printf("\t\t\t\t: |%-915s|\n", "Hello World!");
-	return (0);
+	char	*s2;
+	size_t	i;
+
+	i = 0;
+	if (!(s2 = ft_strnew(n)))
+		return (NULL);
+	while (s1[i] && i < n)
+	{
+		s2[i] = s1[i];
+		i++;
+	}
+	return (s2);
 }

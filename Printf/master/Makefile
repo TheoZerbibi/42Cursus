@@ -6,7 +6,7 @@
 #    By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/04 13:36:23 by thzeribi          #+#    #+#              #
-#    Updated: 2019/12/13 03:26:33 by thzeribi         ###   ########.fr        #
+#    Updated: 2020/01/31 03:28:34 by thzeribi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,16 @@ NAME = libftrintf.a
 PROJECT_NAME = ft_printf
 
 SOURCES_FOLDER = ./srcs/
-INCLUDES_FOLDER = ./includes
+INCLUDES_FOLDER = ./includes/
 OBJECTS_FOLDER = ./objs/
 
 SRCS	=						\
 				ft_printf.c			\
+				parsing.c			\
+				elems.c				\
+				elems_parser.c		\
+				print.c				\
+				display.c			\
 
 OBJS = $(SRCS:.c=.o)
 OBJS := $(subst /,__,$(OBJS))
@@ -30,9 +35,10 @@ OBJS := $(addprefix $(OBJECTS_FOLDER),$(OBJS))
 SOURCES := $(addprefix $(SOURCES_FOLDER),$(SRCS))
 
 FSANITIZE = -fsanitize=address
-FLAGS		=		-Wall -Wextra -Werror -Iincludes
-CC			=		gcc
-RM			=		rm -f
+#FLAGS = -Wall -Wextra -Werror $(FSANITIZE)
+FLAGS = -Wall -Wextra -Werror
+GCC = clang
+RM = rm -f
 
 NO_COLOR 	=	\033[38;5;15m
 OK_COLOR 	=	\033[38;5;2m
@@ -57,7 +63,7 @@ $(OBJECTS_FOLDER)%.o: $(SOURCES_FOLDER)%.c
 	@printf "$(NO_COLOR)Creating $(INFO_COLOR)%-30s $(OK_COLOR)✓$(NO_COLOR)\r" "$@"
 
 norm:
-	norminette ./libft/
+	norminette ./libft/*.c ; norminette ./libft/**/*.c
 	@echo
 	norminette ./$(INCLUDES_FOLDER)
 	@echo

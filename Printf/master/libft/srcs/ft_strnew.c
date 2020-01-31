@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/09 00:00:53 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/01/31 07:00:33 by thzeribi         ###   ########.fr       */
+/*   Created: 2020/01/28 17:56:22 by thzeribi          #+#    #+#             */
+/*   Updated: 2020/01/28 17:59:50 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./master/includes/ft_printf.h"
+#include "libft.h"
 
-int	main(void)
+char	*ft_strnew(size_t len)
 {
-	//ft_printf("Hello World %.c %d!\n", 10, 10);
-	//ft_printf("Hello %s !\n", "slt");
-	ft_printf("\t\t\t\t: |%-915s|\n", "Hello World!");
-	return (0);
+	char *str;
+
+	if (!(str = (char *)malloc((len - 1) * sizeof(*str))))
+		return (NULL);
+	ft_bzero(str, len + 1);
+	return (str);
 }

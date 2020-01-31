@@ -1,0 +1,55 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   elems.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/01/27 09:36:42 by thzeribi          #+#    #+#             */
+/*   Updated: 2020/01/31 06:43:15 by thzeribi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
+
+t_tab	*init_printf(t_tab *tab)
+{
+	tab->flags = '\0';
+	tab->combin[0] = '\0';
+	tab->combin[1] = '\0';
+	tab->combin[2] = '\0';
+	tab->arg_flag = '\0';
+	tab->width = 0;
+	tab->precisions = -1;
+	return (tab);
+}
+
+int		get_elems(t_tab *tab)
+{
+	tab->i++;
+	tab = init_printf(tab);
+	parse_precisions(tab);
+	parse_width(tab);
+	parse_combin(tab);
+	parse_convert(tab);
+	parse_elems(tab);
+	return (tab->len);
+}
+
+int	ft_parser(t_tab *tab)
+{
+	while (tab->s_copy[tab->i] != '\0')
+	{
+		if (tab->s_copy[tab->i] == '%')
+		{
+			get_elems(tab);
+		}
+		else
+		{
+			write(1, &tab->s_copy[tab->i], 1);
+			tab->len++;
+		}
+		tab->i++;
+	}
+	return (tab->len);
+}

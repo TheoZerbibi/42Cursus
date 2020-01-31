@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   elems_parser.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/09 00:00:53 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/01/31 07:00:33 by thzeribi         ###   ########.fr       */
+/*   Created: 2020/01/28 17:01:02 by thzeribi          #+#    #+#             */
+/*   Updated: 2020/01/31 03:22:21 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./master/includes/ft_printf.h"
+#include "ft_printf.h"
 
-int	main(void)
+t_tab	*parse_elems(t_tab *tab)
 {
-	//ft_printf("Hello World %.c %d!\n", 10, 10);
-	//ft_printf("Hello %s !\n", "slt");
-	ft_printf("\t\t\t\t: |%-915s|\n", "Hello World!");
-	return (0);
+	char *flag;
+
+	flag = &tab->arg_flag;
+	if (*flag == 'c')
+		print_c(tab);
+	else if (*flag == 's')
+		print_s(tab);
+	return (tab);
 }
