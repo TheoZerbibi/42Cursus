@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   elems_parser.c                                     :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/28 17:01:02 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/02/13 18:23:05 by thzeribi         ###   ########.fr       */
+/*   Created: 2020/02/09 07:42:26 by thzeribi          #+#    #+#             */
+/*   Updated: 2020/02/09 07:43:12 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-t_tab	*parse_elems(t_tab *tab)
+int		ft_strcmp(const char *s1, const char *s2)
 {
-	char *flag;
-
-	flag = &tab->arg_flag;
-	//printf("\nFlag = %s\n", &tab->arg_flag);
-	if (*flag == 'c')
-		print_c(tab);
-	else if (*flag == 's')
-		print_s(tab);
-	return (tab);
+	if (ft_strlen(s1) > ft_strlen(s2))
+		return (ft_strncmp(s1, s2, (ft_strlen(s1))));
+	return (ft_strncmp(s1, s2, (ft_strlen(s2))));
 }

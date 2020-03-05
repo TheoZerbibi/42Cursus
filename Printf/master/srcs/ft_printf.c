@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 00:32:19 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/01/31 03:22:27 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/02/09 07:39:55 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ t_tab	*ft_init(t_tab *tab)
 
 int		ft_printf(const char *str, ...)
 {
-	t_tab	*tab;
+	t_tab *tab;
 
 	if (!(tab = (t_tab*)malloc(sizeof(t_tab))))
-		return (ERROR);
+		return (-1);
 	tab->str = str;
 	tab = ft_init(tab);
 	if (str)

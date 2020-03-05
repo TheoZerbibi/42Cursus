@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 09:36:42 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/01/31 06:43:15 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/02/20 09:31:39 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,20 @@ t_tab	*init_printf(t_tab *tab)
 	tab->combin[0] = '\0';
 	tab->combin[1] = '\0';
 	tab->combin[2] = '\0';
+	tab->combin[3] = '\0';
 	tab->arg_flag = '\0';
 	tab->width = 0;
-	tab->precisions = -1;
+	tab->precisions = (long int)NULL;
 	return (tab);
 }
 
 int		get_elems(t_tab *tab)
 {
 	tab->i++;
-	tab = init_printf(tab);
-	parse_precisions(tab);
-	parse_width(tab);
+	init_printf(tab);
 	parse_combin(tab);
+	parse_width(tab);
+	parse_precisions(tab);
 	parse_convert(tab);
 	parse_elems(tab);
 	return (tab->len);
@@ -38,12 +39,12 @@ int		get_elems(t_tab *tab)
 
 int	ft_parser(t_tab *tab)
 {
+	if (ft_strcmp(tab->s_copy, "%") == 0)
+		return (0);
 	while (tab->s_copy[tab->i] != '\0')
 	{
 		if (tab->s_copy[tab->i] == '%')
-		{
 			get_elems(tab);
-		}
 		else
 		{
 			write(1, &tab->s_copy[tab->i], 1);

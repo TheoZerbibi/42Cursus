@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 00:00:53 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/02/03 07:06:34 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/03/05 05:19:17 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(void)
 {
 	//ft_printf("Hello World %.c %d!\n", 10, 10);
 	//ft_printf("Hello %s !\n", "World");
-	char *str = NULL;
+	char *str = "slt sv ?";
 	printf("\n\n\n-------STRING-------\n\n");
 	printf("-------TEST 1-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%10.s|)", str));
@@ -33,7 +33,7 @@ int	main(void)
 	printf("-------TEST 5-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%*.*s|)",-10, 3, str));
 	printf(" = vrai = [%d]\n", printf("(|%*.*s|)", -10, 3, str));
-	printf("-------TEST -------\n");
+	printf("-------TEST 6-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%*.*s|)",-5, 8, str));
 	printf(" = vrai = [%d]\n", printf("(|%*.*s|)", -5, 8, str));
 	printf("-------TEST 7-------\n");
@@ -46,8 +46,7 @@ int	main(void)
 	printf(" = mien = [%d]\n", ft_printf("(|%s|)", str));
 	printf(" = vrai = [%d]\n", printf("(|%s|)", str));
 
-	system("leaks test");
-
+	//system("leaks test");
 
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 17:48:44 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/01/31 03:33:37 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/03/05 04:56:56 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	display(t_tab *tab, int c, int len, int len2)
 {
 	char *str;
 
-	(void)tab;
 	if (len > 0)
 	{
 		if (len2)

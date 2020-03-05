@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 00:32:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/01/31 03:31:06 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/02/11 10:47:25 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct	s_tab
 	long int	precisions;
 	char		flags;
 	char		arg_flag;
-	char		combin[3];
+	char		combin[4];
 	char		*convert_list;
 	char		*combin_list;
 
