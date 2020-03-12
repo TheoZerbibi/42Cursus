@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 00:32:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/02/11 10:47:25 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/03/11 02:49:34 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdarg.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include <ctype.h>
 
 # define ERROR -1
 
@@ -52,6 +53,6 @@ t_tab		*parse_elems(t_tab *tab);
 t_tab		*print_c(t_tab *tab);
 t_tab		*print_s(t_tab *tab);
 void		display(t_tab *tab, int c, int len, int len2);
-
+void		display_c(t_tab *tab, wint_t c);
 
 #endif

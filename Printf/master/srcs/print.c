@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 17:08:12 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/03/06 03:03:14 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/03/12 07:04:47 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,22 @@
 t_tab	*print_c(t_tab *tab)
 {
 	char c;
-
 	c = (char)va_arg(tab->args, int);
-	ft_putchar(c);
+	if ((int)c >= 0)
+	{
+		if (tab->combin[1] == '0' && tab->combin[0] != '-')
+			display(tab, '0', tab->width - 1, 1);
+		else if (tab->combin[0] != '-')
+			display(tab, ' ', tab->width - 1, 1);
+		if (tab->precisions == -1)
+			display(tab, ' ', 1, 0);
+		else
+			display_c(tab, c);
+	}
+	if (tab->arg_flag == '%')
+		ft_putchar('%');
+	if (tab->combin[0] == '-')
+		display(tab, ' ', tab->width - 1, 1);
 	return (tab);
 }
 

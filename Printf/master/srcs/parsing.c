@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 09:51:33 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/03/06 03:02:53 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/03/12 06:49:27 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,14 @@ t_tab	*parse_convert(t_tab *tab)
 	i = 0;
 	while (tab->convert_list[i] == tab->s_parse[tab->i])
 		i++;
-	if (tab->convert_list[i+1] != tab->s_parse[tab->i]
-		&& tab->convert_list[i+1] != '\0')
-	{
-		tab->i++;
-		parse_convert(tab);
-	}
 	i = 0;
 	while (tab->convert_list[i] != '\0')
 	{
 		if (tab->convert_list[i] == tab->s_parse[tab->i])
+		{
 			tab->arg_flag = tab->convert_list[i];
+			break;
+		}
 		i++;
 	}
 	return (tab);
