@@ -6,15 +6,22 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 00:32:19 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/03/12 06:38:45 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/04/19 04:07:27 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /*
+** TODO:		conversion : p, u, x, X
+** FIXME:		conversion : d
+** WIP:			conversion : d, i
+** FINISH:	conversion : c, s + parsing (conversion + flags)
+*/
+
+/*
 **	functions : ft_init
-**	description :
+**	description : TODO:
 */
 
 t_tab	*ft_init(t_tab *tab)
@@ -30,7 +37,7 @@ t_tab	*ft_init(t_tab *tab)
 
 /*
 **	functions : ft_printf
-**	description :
+**	description : TODO:
 */
 
 int		ft_printf(const char *str, ...)

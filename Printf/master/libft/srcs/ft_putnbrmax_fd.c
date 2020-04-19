@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display_oct.c                                      :+:      :+:    :+:   */
+/*   ft_putnbrmax_fd.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/11 02:57:34 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/03/25 20:45:34 by thzeribi         ###   ########.fr       */
+/*   Created: 2020/03/25 21:12:35 by thzeribi          #+#    #+#             */
+/*   Updated: 2020/03/25 21:13:11 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	 oct1(wint_t c)
+void	ft_putnbrmax_fd(intmax_t n, int fd)
 {
-	(void)c;
+	if (n == -9223372036854775807 - 1)
+		write(1, "-9223372036854775808", 20);
+	else
+	{
+		if (n < 0)
+		{
+			ft_putchar_fd('-', fd);
+			n *= -1;
+		}
+		if (n > 9)
+			ft_putnbrmax_fd(n / 10, fd);
+		ft_putchar_fd((n % 10) + '0', fd);
+	}
 }
-

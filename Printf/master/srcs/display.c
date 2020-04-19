@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 17:48:44 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/03/11 03:00:12 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/04/19 03:57:00 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,31 @@ void	display_c(t_tab *tab, wint_t c)
 		tab->len += 1;
 		ft_putchar(c);
 	}
+}
+
+t_tab	*display_d(t_tab *tab, intmax_t nbr, int width, int is_neg)
+{
+	int			blank;
+	char		neg_char;
+
+	nbr *= (nbr != (-9223372036854775807 - 1)) ? 1 : -1;
+	neg_char = (is_neg) ? '-' : '\0';
+	blank = width;
+	if (width <= tab->precisions && tab->precisions >= 0)
+		blank = tab->precisions;
+	if (neg_char)
+		blank++;
+	tab->len += (blank <= tab->width) ? tab->width : blank;
+	if (is_neg)
+		display(tab, ' ', tab->width - blank, 0);
+	if (neg_char)
+		write(1, &neg_char, 1);
+	display(tab, '0', tab->precisions - width, 0);
+	if (nbr != (-9223372036854775807 - 1))
+		ft_putnbrmax_fd(nbr, 1);
+	else if ((tab->len += 18) > 0)
+		write(1, "9223372036854775808", 19);
+	if (!is_neg)
+		display(tab, ' ', tab->width - blank, 0);
+	return (tab);
 }

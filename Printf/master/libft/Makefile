@@ -6,7 +6,7 @@
 #    By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/04 13:36:23 by thzeribi          #+#    #+#              #
-#    Updated: 2020/02/09 07:44:44 by thzeribi         ###   ########.fr        #
+#    Updated: 2020/03/25 21:13:56 by thzeribi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,6 +72,7 @@ SOURCES = \
 		ft_substr.c \
 		ft_tolower.c \
 		ft_toupper.c \
+		ft_putnbrmax_fd.c \
 
 
 OBJECTS = $(SOURCES:.c=.o)
