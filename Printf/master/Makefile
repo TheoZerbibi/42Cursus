@@ -6,7 +6,7 @@
 #    By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/04 13:36:23 by thzeribi          #+#    #+#              #
-#    Updated: 2020/04/19 03:50:18 by thzeribi         ###   ########.fr        #
+#    Updated: 2020/04/24 17:03:25 by thzeribi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,8 +37,8 @@ OBJS := $(addprefix $(OBJECTS_FOLDER),$(OBJS))
 SOURCES := $(addprefix $(SOURCES_FOLDER),$(SRCS))
 
 FSANITIZE = -fsanitize=address
-#FLAGS = -Wall -Wextra -Werror $(FSANITIZE)
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror $(FSANITIZE)
+#FLAGS = -Wall -Wextra -Werror
 GCC = clang
 RM = rm -f
 

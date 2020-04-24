@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 15:00:36 by thzeribi          #+#    #+#             */
-/*   Updated: 2019/11/05 02:04:12 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/04/24 17:16:12 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,9 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t pos;
+	size_t	size;
 
-	pos = 0;
-	while (pos < n)
-	{
-		((char *)s)[pos] = 0;
-		pos++;
-	}
+	size = 0;
+	while (n--)
+		((unsigned char *)s)[size++] = 0;
 }

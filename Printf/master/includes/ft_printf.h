@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 00:32:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/04/19 03:47:14 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/04/24 18:44:32 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # include <ctype.h>
 
 # define ERROR -1
+# define CONVERT "cspdiuxX%"
+# define COMBINE "-0*"
 
 typedef struct	s_tab
 {
@@ -35,8 +37,6 @@ typedef struct	s_tab
 	char		flags;
 	char		arg_flag;
 	char		combin[4];
-	char		*convert_list;
-	char		*combin_list;
 
 }				t_tab;
 
@@ -44,7 +44,6 @@ int			ft_printf(const char *str, ...);
 int			ft_parser(t_tab *tab);
 int			get_elems(t_tab *tab);
 int			get_width(intmax_t nbr);
-t_tab		*ft_init(t_tab *tab);
 t_tab		*init_printf(t_tab *tab);
 t_tab		*parse_combin(t_tab *tab);
 t_tab		*parse_precisions(t_tab *tab);

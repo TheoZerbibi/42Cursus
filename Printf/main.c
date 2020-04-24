@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 00:00:53 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/04/19 04:04:46 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/04/24 19:42:20 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	main(void)
 {
-	//printf("%c", 'a');
-	//ft_printf("%c", 'a');
+	/*printf("%c", 'a');
+	ft_printf("%c", 'a');*/
 	printf("-------NEGATIFS-------\n\n");
 	printf("-------TEST 1-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%010.d|)", -10));
@@ -155,7 +155,7 @@ int	main(void)
 	printf("%%\n");
 	ft_printf("%%\n");
 
-	system("leaks test");
+	//system("leaks test");
 
 	return (0);
 }

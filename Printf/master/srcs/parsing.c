@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 09:51:33 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/03/25 20:45:14 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/04/24 18:45:17 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ t_tab	*parse_convert(t_tab *tab)
 	size_t i;
 
 	i = 0;
-	while (tab->convert_list[i] == tab->s_parse[tab->i])
+	while (CONVERT[i] == tab->s_parse[tab->i])
 		i++;
 	i = 0;
-	while (tab->convert_list[i] != '\0')
+	while (CONVERT[i] != '\0')
 	{
-		if (tab->convert_list[i] == tab->s_parse[tab->i])
+		if (CONVERT[i] == tab->s_parse[tab->i])
 		{
-			tab->arg_flag = tab->convert_list[i];
+			tab->arg_flag = CONVERT[i];
 			break;
 		}
 		i++;
@@ -84,9 +84,9 @@ t_tab	*parse_combin(t_tab *tab)
 	int i;
 
 	i = 0;
-	while (tab->combin_list[i] != '\0')
+	while (COMBINE[i] != '\0')
 	{
-		while (tab->combin_list[i] == tab->s_parse[tab->i])
+		while (COMBINE[i] == tab->s_parse[tab->i])
 		{
 			while(tab->s_parse[tab->i] == '-' && tab->i++)
 				tab->combin[0] = '-';

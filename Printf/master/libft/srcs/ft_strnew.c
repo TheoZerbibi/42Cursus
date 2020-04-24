@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 17:56:22 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/01/28 17:59:50 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/04/24 17:09:51 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 char	*ft_strnew(size_t len)
 {
-	char *str;
+	char	*str;
 
-	if (!(str = (char *)malloc((len - 1) * sizeof(*str))))
+	if (!(str = (char *)malloc(sizeof(char) * (len + 1))))
 		return (NULL);
-	ft_bzero(str, len + 1);
+	ft_memset(str, '\0', len + 1);
 	return (str);
 }
