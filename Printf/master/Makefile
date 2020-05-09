@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+         #
+#    By: malallai <malallai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/04 13:36:23 by thzeribi          #+#    #+#              #
-#    Updated: 2020/04/24 17:03:25 by thzeribi         ###   ########.fr        #
+#    Updated: 2020/05/09 22:21:14 by malallai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,12 @@ ifndef VERBOSE
 MAKEFLAGS += --no-print-directory
 endif
 
-NAME = libftrintf.a
-PROJECT_NAME = ft_printf
+NAME = libftprintf.a
+PROJECT_NAME =	ft_printf \
+
 
 SOURCES_FOLDER = ./srcs/
-INCLUDES_FOLDER = ./includes/
+INCLUDES_FOLDER =	./includes/ 
 OBJECTS_FOLDER = ./objs/
 
 SRCS	=					\
@@ -28,7 +29,6 @@ SRCS	=					\
 				elems_parser.c	\
 				print.c			\
 				display.c		\
-				display_oct.c	\
 				d_utils.c	\
 
 OBJS = $(SRCS:.c=.o)

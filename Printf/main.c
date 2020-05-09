@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 00:00:53 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/04/24 19:42:20 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/05/09 23:02:55 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	main(void)
 	printf(" = mien = [%d]\n", ft_printf("(|%.*d|)", 7, -12));
 	printf(" = vrai = [%d]\n", printf("(|%.*d|)", 7, -12));
 
-	printf("\n\n\n-------POSITIFS-------\n\n");
+	/*printf("\n\n\n-------POSITIFS-------\n\n");
 	printf("-------TEST 1-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%010.d|)", 10));
 	printf(" = vrai = [%d]\n", printf("(|%010.d|)", 10));
@@ -153,7 +153,7 @@ int	main(void)
 	printf(" = vrai = [%d]\n", printf("(|%s|)", str));
 
 	printf("%%\n");
-	ft_printf("%%\n");
+	ft_printf("%%\n");*/
 
 	//system("leaks test");
 

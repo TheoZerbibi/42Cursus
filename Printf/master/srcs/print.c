@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 17:08:12 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/04/19 03:53:37 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/05/09 23:06:58 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ t_tab	*print_s(t_tab *tab)
 
 t_tab			*print_d(t_tab *tab)
 {
-	intmax_t	nbr;
+	long int	nbr;
 	int				width;
 	int				indent;
 
@@ -85,6 +85,8 @@ t_tab			*print_d(t_tab *tab)
 	}
 	indent = (tab->combin[0] == '-') ? 1 : 0;
 	width = get_width(nbr);
+	//printf("%ld - %d = %ld\n", tab->precisions, width, (tab->precisions - width));
+	//printf("%ld\n", tab->width);
 	if (tab->combin[1] == '0' && tab->precisions == -1 && !tab->combin[0])
 	{
 		tab->precisions = tab->width;

@@ -6,13 +6,13 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/25 21:12:35 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/03/25 21:13:11 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/05/09 22:54:00 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbrmax_fd(intmax_t n, int fd)
+void	ft_putnbrmax_fd(long int n, int fd)
 {
 	if (n == -9223372036854775807 - 1)
 		write(1, "-9223372036854775808", 20);

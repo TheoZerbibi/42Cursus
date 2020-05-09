@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 01:25:18 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/03/25 21:14:37 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/05/09 22:54:00 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void			ft_lstadd_back(t_list **alst, t_list *new);
 void			ft_lstdelone(t_list *lst, void (*del)(void*));
 void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
-void			ft_putnbrmax_fd(intmax_t n, int fd);
+void			ft_putnbrmax_fd(long int n, int fd);
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 				void (*del)(void *));
 

@@ -6,14 +6,14 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 00:32:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/04/24 18:44:32 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/05/09 22:54:19 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "libft.h"
+# include "../libft/libft.h"
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdlib.h>
@@ -43,7 +43,7 @@ typedef struct	s_tab
 int			ft_printf(const char *str, ...);
 int			ft_parser(t_tab *tab);
 int			get_elems(t_tab *tab);
-int			get_width(intmax_t nbr);
+int			get_width(long int nbr);
 t_tab		*init_printf(t_tab *tab);
 t_tab		*parse_combin(t_tab *tab);
 t_tab		*parse_precisions(t_tab *tab);
@@ -53,8 +53,8 @@ t_tab		*parse_elems(t_tab *tab);
 t_tab		*print_c(t_tab *tab);
 t_tab		*print_s(t_tab *tab);
 t_tab		*print_d(t_tab *tab);
-t_tab		*display_d(t_tab *tab, intmax_t num, int num_width, int align_left);
+t_tab		*display_d(t_tab *tab, long int num, int num_width, int align_left);
 void		display(t_tab *tab, int c, int len, int len2);
-void		display_c(t_tab *tab, wint_t c);
+void		display_c(t_tab *tab, char c);
 
 #endif
