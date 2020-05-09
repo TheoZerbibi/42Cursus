@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 17:48:44 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/05/09 23:08:39 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/05/09 23:28:49 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,15 @@ t_tab	*display_d(t_tab *tab, long int nbr, int width, int is_neg)
 	if (neg_char)
 		blank++;
 	tab->len += (blank <= tab->width) ? tab->width : blank;
-	if (is_neg)
+	//printf("%ld\n", tab->precisions);
+	if (is_neg && tab->precisions <= 0)
 		display(tab, ' ', tab->width - blank, 0);
-	if (neg_char)
+	else if (is_neg && tab->precisions > 0) {
+		write(1, &neg_char, 1);
+		display(tab, '0', tab->width - blank, 0);
+	}
+
+	if (neg_char && tab->precisions <= 0)
 		write(1, &neg_char, 1);
 	//printf("%ld - %d = %ld\n", tab->precisions, width, (tab->precisions - width));
 	display(tab, '0', tab->precisions - width, 0);
