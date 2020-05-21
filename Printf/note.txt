@@ -6,3 +6,12 @@
 	4 = Nombre de zero a afficher en prenant en compte le nombre de base
 	Dans l'exemple, nombre de base = 10 (On retire le - qui n'influe pas) soit 2 charatere
 	On affiche donc 2 zero, car les deux char de 10 plus les 2 zero = 4
+	
+	
+	printf(" = mien = [%d]\n", ft_printf("(|%-*d|)", 4, -12));
+	printf(" = vrai = [%d]\n", printf("(|%-*d|)", 4, -12));
+	ou
+	printf(" = mien = [%d]\n", ft_printf("(|%0*d|)", -4, -12));
+	printf(" = vrai = [%d]\n", printf("(|%0*d|)", -4, -12));
+	
+	Si la width est negatif, ou que aucune precision n'est donnez, le retour final sera aligner a droite

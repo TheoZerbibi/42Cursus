@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 00:00:53 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/05/11 08:29:30 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/05/21 12:33:16 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	main(void)
 	printf(" = vrai = [%d]\n", printf("(|%04d|)", -10));
 
 
-	/*printf("\n\n\n-------POSITIFS-------\n\n");
+	printf("\n\n\n-------POSITIFS-------\n\n");
 	printf("-------TEST 1-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%010.d|)", 10));
 	printf(" = vrai = [%d]\n", printf("(|%010.d|)", 10));
@@ -106,8 +106,9 @@ int	main(void)
 	printf("-------TEST 9-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%d|)", 0));
 	printf(" = vrai = [%d]\n", printf("(|%d|)", 0));
-	printf("-------TEST 10------\n");
+	/*printf("-------TEST 10------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%1d|)"));
+	printf(" = vrai = [%d]\n", printf("(|%1d|)"));*/
 
 	printf("\n\n\n-----------CHAR-----------\n\n");
 	printf("-------TEST 1-------\n");
@@ -157,7 +158,7 @@ int	main(void)
 	printf(" = vrai = [%d]\n", printf("(|%s|)", str));
 
 	printf("%%\n");
-	ft_printf("%%\n");*/
+	ft_printf("%%\n");
 
 	//system("leaks test");
 

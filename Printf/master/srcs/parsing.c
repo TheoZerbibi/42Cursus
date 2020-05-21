@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 09:51:33 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/05/11 08:24:41 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/05/21 12:10:04 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ t_tab	*parse_width(t_tab *tab)
 		if (tmp < 0)
 		{
 			tab->combin[0] = '-';
+			tab->width_is_neg = 1;
 			tab->width = tmp * -1;
 		}
 		else
