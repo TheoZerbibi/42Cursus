@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 17:08:12 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/05/11 08:14:28 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/05/23 18:42:41 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,16 @@ t_tab	*print_c(t_tab *tab)
 	{
 		if (tab->combin[1] == '0' && tab->combin[0] != '-')
 			display(tab, '0', tab->width - 1, 1);
-		else if (tab->combin[0] != '-')
+		else if (tab->width_is_neg == 0)
 			display(tab, ' ', tab->width - 1, 1);
-		if (tab->precisions == -1)
+		if (tab->width_is_neg == -1)
 			display(tab, ' ', 1, 0);
 		else
 			display_c(tab, c);
 	}
 	if (tab->arg_flag == '%')
 		ft_putchar('%');
-	if (tab->combin[0] == '-')
+	if (tab->width_is_neg == 1)
 		display(tab, ' ', tab->width - 1, 1);
 	return (tab);
 }
@@ -54,13 +54,13 @@ t_tab	*print_s(t_tab *tab)
 	tab->len += len;
 	if (tab->combin[1] == '0' && tab->combin[0] != '-')
 		display(tab, '0', tab->width - len, 1);
-	else if (tab->combin[0] != '-')
+	else if (tab->width_is_neg == 0)
 		display(tab, ' ', tab->width - len, 1);
 	if (tab->precisions == -1)
 		display(tab, ' ', len, 0);
 	else
 		ft_putstr(str);
-	if (tab->combin[0] == '-')
+	if (tab->width_is_neg == 1)
 		display(tab, ' ', tab->width - len, 1);
 	free(str);
 	return (tab);
@@ -73,11 +73,13 @@ t_tab			*print_d(t_tab *tab)
 	int				indent;
 
 	nbr = (int)(va_arg(tab->args, int));
-	if (nbr == 0 && tab->precisions == 0)
+	if (nbr == 0 && tab->precisions < 0)
 	{
 		display(tab, ' ', tab->width, 1);
 		return (tab);
 	}
+	if (tab->precisions < 0)
+		tab->prec_neg = 1;
 	if (nbr < 0)
 	{
 		tab->combin[0] = '-';
@@ -85,8 +87,6 @@ t_tab			*print_d(t_tab *tab)
 	}
 	indent = (tab->combin[0] == '-') ? 1 : 0;
 	width = get_width(nbr);
-	//printf("%ld - %d = %ld\n", tab->precisions, width, (tab->precisions - width));
-	//printf("%ld\n", tab->width);
 	if (tab->combin[1] == '0' && tab->precisions == -1 && !tab->combin[0])
 	{
 		tab->precisions = tab->width;

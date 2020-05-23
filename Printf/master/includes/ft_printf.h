@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 00:32:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/05/21 11:58:37 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/05/23 18:23:24 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct	s_tab
 	char		arg_flag;
 	char		combin[4];
 	int			width_is_neg;
+	int			prec_neg;
 	int			param;
 
 }				t_tab;
@@ -58,5 +59,7 @@ t_tab		*print_d(t_tab *tab);
 t_tab		*display_d(t_tab *tab, long int num, int num_width, int align_left);
 void		display(t_tab *tab, int c, int len, int len2);
 void		display_c(t_tab *tab, char c);
+void	print_minus(t_tab *tab, long int nbr, int width, int is_neg);
+void	print_positive(t_tab *tab, long int nbr, int width);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malallai <malallai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 00:32:19 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/05/09 22:32:08 by malallai         ###   ########.fr       */
+/*   Updated: 2020/05/23 18:46:29 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 /*
 ** TODO:		conversion : p, u, x, X
-** FIXME:		conversion : d
-** WIP:			conversion : d, i
-** FINISH:	conversion : c, s + parsing (conversion + flags)
+** FIXME:		conversion : d (0 test 3)
+** WIP:			conversion : x, X
+** FINISH:	conversion : i ,c, s + parsing (conversion + flags)
 */
 
 /*
