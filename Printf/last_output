@@ -2,6 +2,7 @@
 printf successfully compiled. ✓                    
 -------NEGATIFS-------
 
+
 -------TEST 1-------
 (|       -10|) = mien = [14]
 (|       -10|) = vrai = [14]
@@ -41,28 +42,28 @@ printf successfully compiled. ✓
 -------POSITIFS-------
 
 -------TEST 1-------
-(|0000000010|) = mien = [14]
+(|        10|) = mien = [14]
 (|        10|) = vrai = [14]
 -------TEST 2-------
 (|10|) = mien = [6]
 (|10|) = vrai = [6]
 -------TEST 3-------
-(|10|) = mien = [14]
+(|        10|) = mien = [14]
 (|        10|) = vrai = [14]
 -------TEST 4-------
 (|10|) = mien = [6]
 (|10|) = vrai = [6]
 -------TEST 5-------
-(|      -010|) = mien = [14]
+(|010       |) = mien = [14]
 (|010       |) = vrai = [14]
 -------TEST 6-------
-(|-00000010|) = mien = [13]
+(|00000010|) = mien = [12]
 (|00000010|) = vrai = [12]
 -------TEST 7-------
 (|10|) = mien = [6]
 (|10|) = vrai = [6]
 -------TEST 8-------
-(|-10       |) = mien = [14]
+(|10        |) = mien = [14]
 (|10        |) = vrai = [14]
 
 
@@ -70,31 +71,31 @@ printf successfully compiled. ✓
 -----------ZERO-----------
 
 -------TEST 1-------
-(|0000000000|) = mien = [14]
+(|          |) = mien = [14]
 (|          |) = vrai = [14]
 -------TEST 2-------
-(|0|) = mien = [5]
+(||) = mien = [4]
 (||) = vrai = [4]
 -------TEST 3-------
-(|00|) = mien = [14]
+(|         00|) = mien = [14]
 (|        00|) = vrai = [14]
 -------TEST 4-------
-(||) = mien = [4]
+(|0|) = mien = [5]
 (|0|) = vrai = [5]
 -------TEST 5-------
-(|      -000|) = mien = [14]
+(|000       |) = mien = [14]
 (|000       |) = vrai = [14]
 -------TEST 6-------
-(|-00000000|) = mien = [13]
+(|00000000|) = mien = [12]
 (|00000000|) = vrai = [12]
 -------TEST 7-------
-(||) = mien = [4]
+(|0|) = mien = [5]
 (|0|) = vrai = [5]
 -------TEST 8-------
-(|          |) = mien = [14]
+(|0         |) = mien = [14]
 (|0         |) = vrai = [14]
 -------TEST 9-------
-(||) = mien = [4]
+(|0|) = mien = [5]
 (|0|) = vrai = [5]
 
 
@@ -106,7 +107,6 @@ printf successfully compiled. ✓
 (|         |) = vrai = [14]
 -------TEST 2-------
 (|000000000%|) = mien = [14]
-==6727==AddressSanitizer: WARNING: unexpected format specifier in printf interceptor: %0*% (reported once per process)
 (|000000000%|) = vrai = [14]
 -------TEST 3-------
 (|         j|) = mien = [14]

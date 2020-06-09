@@ -37,8 +37,8 @@ OBJS := $(addprefix $(OBJECTS_FOLDER),$(OBJS))
 SOURCES := $(addprefix $(SOURCES_FOLDER),$(SRCS))
 
 FSANITIZE = -fsanitize=address
-FLAGS = -Wall -Wextra -Werror $(FSANITIZE)
-#FLAGS = -Wall -Wextra -Werror
+#FLAGS = -Wall -Wextra -Werror $(FSANITIZE)
+FLAGS = -Wall -Wextra -Werror
 GCC = clang
 RM = rm -f
 

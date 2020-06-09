@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 00:32:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/05/23 18:23:24 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/05/30 18:29:26 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # include <ctype.h>
 
 # define ERROR -1
+# define TRUE 1
+# define FALSE 0
 # define CONVERT "cspdiuxX%"
 # define COMBINE "-0*"
 
