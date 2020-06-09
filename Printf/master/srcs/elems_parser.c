@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 17:01:02 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/05/23 17:54:28 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/06/09 15:49:13 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,7 @@ t_tab	*parse_elems(t_tab *tab)
 		print_s(tab);
 	else if (*flag == 'd' || *flag == 'i')
 		print_d(tab);
+	else if (*flag == 'x' || *flag == 'X')
+		print_x(tab);
 	return (tab);
 }

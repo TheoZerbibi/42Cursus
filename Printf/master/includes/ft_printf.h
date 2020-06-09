@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 00:32:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/05/30 18:29:26 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/06/09 15:50:08 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ t_tab		*parse_elems(t_tab *tab);
 t_tab		*print_c(t_tab *tab);
 t_tab		*print_s(t_tab *tab);
 t_tab		*print_d(t_tab *tab);
+t_tab		*print_x(t_tab *tab);
 t_tab		*display_d(t_tab *tab, long int num, int num_width, int align_left);
 void		display(t_tab *tab, int c, int len, int len2);
 void		display_c(t_tab *tab, char c);
