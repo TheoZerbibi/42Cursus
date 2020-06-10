@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 01:25:18 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/06/09 17:55:27 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/06/10 14:51:27 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ char			*ft_strcpy(char *dest, char *src);
 void			*ft_memcpy(void *dst, const void *src, size_t n);
 char			*ft_strnstr(const char *haystack, const char *needle,
 				size_t len);
+int				ft_putlnbr_base(unsigned long int nbr, const char *base);
 char			*ft_strchr(const char *s, int c);
 char			*ft_strrchr(const char *s, int c);
 void			*ft_memccpy(void *dst, const void *src, int c, size_t n);

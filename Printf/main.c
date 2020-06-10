@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 00:00:53 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/05/23 18:05:00 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/06/10 15:04:41 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(void)
 	/*printf("%c", 'a');
 	ft_printf("%c", 'a');*/
 	
-	printf("-------NEGATIFS-------\n\n");
+	/*printf("-------NEGATIFS-------\n\n");
 	printf("-------TEST 1-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%010.d|)", -10));
 	printf(" = vrai = [%d]\n", printf("(|%010.d|)", -10));
@@ -156,7 +156,57 @@ int	main(void)
 	printf(" = vrai = [%d]\n", printf("(|%*s|)", -10, str));
 	printf("-------TEST 9-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%s|)", str));
-	printf(" = vrai = [%d]\n", printf("(|%s|)", str));
+	printf(" = vrai = [%d]\n", printf("(|%s|)", str));*/
+
+	printf("\n\n\n-------HEXA LOWER-------\n\n");
+	printf("-------TEST 1-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%x|)", 60));
+	printf(" = vrai = [%d]\n", printf("(|%x|)", 60));
+	printf("-------TEST 2-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%10x|)", 60));
+	printf(" = vrai = [%d]\n", printf("(|%10x|)", 60));
+	printf("-------TEST 3-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%*x|)", 8, 60));
+	printf(" = vrai = [%d]\n", printf("(|%*x|)", 8, 60));
+	printf("-------TEST 4-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%*.x|)", 8, 60));
+	printf(" = vrai = [%d]\n", printf("(|%*.x|)", 8, 60));
+	printf("-------TEST 5-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%*.5x|)", 8, 60));
+	printf(" = vrai = [%d]\n", printf("(|%*.5x|)", 8, 60));
+	printf("-------TEST 6-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%*.*x|)", 8, 3, 60));
+	printf(" = vrai = [%d]\n", printf("(|%*.*x|)", 8, 3, 60));
+	printf("-------TEST 7-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%*.*x|)", -5, 3, 60));
+	printf(" = vrai = [%d]\n", printf("(|%*.*x|)", -5, 3, 60));
+	printf("-------TEST 8-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%*.*x|)", -5, -3, 60));
+	printf(" = vrai = [%d]\n", printf("(|%*.*x|)", -5, -3, 60));
+	printf("-------TEST 9-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%*.*x|)", -5, -3, -60));
+	printf(" = vrai = [%d]\n", printf("(|%*.*x|)", -5, -3, -60));
+	printf("-------TEST 10-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%0*.*x|)", -10, 8, -60));
+	printf(" = vrai = [%d]\n", printf("(|%0*.*x|)", -10, 8, -60));
+	printf("-------TEST 11-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%05x|)", 60));
+	printf(" = vrai = [%d]\n", printf("(|%05x|)", 60));
+	printf("-------TEST 12-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%05.10x|)", 60));
+	printf(" = vrai = [%d]\n", printf("(|%05.10x|)", 60));
+	printf("-------TEST 13-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%0*.*x|)", -3, 5, 60));
+	printf(" = vrai = [%d]\n", printf("(|%0*.*x|)", -3, 5,  60));
+	printf("-------TEST 14-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%0*.*x|)", -3, -5, 60));
+	printf(" = vrai = [%d]\n", printf("(|%0*.*x|)", -3, -5, 60));
+	printf("-------TEST 15-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%.*x|)", -10, 0));
+	printf(" = vrai = [%d]\n", printf("(|%.*x|)", -10, 0));
+	printf("-------TEST 16-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%0*.*x|)", -3, -5, 0));
+	printf(" = vrai = [%d]\n", printf("(|%0*.*x|)", -3, -5, 0));
 
 	printf("%%\n");
 	ft_printf("%%\n");
