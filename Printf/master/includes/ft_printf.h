@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 00:32:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/06/09 15:50:08 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/07/30 20:39:59 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <ctype.h>
+
+# define malloc($) 0
 
 # define ERROR -1
 # define TRUE 1

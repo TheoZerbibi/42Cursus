@@ -15,6 +15,9 @@
 # ifndef END_LINE
 #  define END_LINE '\n'
 # endif
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
 # include <stdio.h>
 # include <stdlib.h>
