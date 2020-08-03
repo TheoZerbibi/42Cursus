@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 17:08:12 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/07/28 05:49:37 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/08/03 17:16:25 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,7 @@ t_tab		*print_x(t_tab *tab)
 	//char			c;
 	int				indent;
 	char			*base;
+	int				len;
 
 	base = 	"0123456789abcdef";
 	nbr = (int)(va_arg(tab->args, int));
@@ -120,7 +121,9 @@ t_tab		*print_x(t_tab *tab)
 		tab->precisions = tab->width;
 	if (!indent)
 		display(tab, ' ', tab->width - 2, 0);
-	//display(tab, '0', tab->width - 2, 0);
+	len = (tab->width - ft_nbrlen(nbr));
+	printf("|%ld|", tab->width - len);
+	display(tab, '0', tab->width, 0);
 	ft_putlnbr_base(nbr, base);
 	if (indent)
 		display(tab, ' ', tab->width - 2, 0);
