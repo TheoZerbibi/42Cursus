@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 00:32:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/08/03 09:52:12 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/08/10 01:55:05 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # define FALSE 0
 # define CONVERT "cspdiuxX%"
 # define COMBINE "-0*"
+# define BASE "0123456789abcdef"
 
 typedef struct	s_tab
 {

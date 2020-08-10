@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 17:08:12 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/08/03 17:16:25 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/08/10 01:55:01 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,32 +100,24 @@ t_tab			*print_d(t_tab *tab)
 t_tab		*print_x(t_tab *tab)
 {
 	long int	nbr;
-	//char			str;
-	//char			c;
 	int				indent;
-	char			*base;
 	int				len;
+	int				blank;
 
-	base = 	"0123456789abcdef";
 	nbr = (int)(va_arg(tab->args, int));
 	indent = (tab->combin[0] == '-') ? 1 : 0;
-	printf("%hhd ", tab->combin[0]);
-	if (nbr == 0 && tab->precisions < 0)
-	{
-		//printf("0");
-		display(tab, ' ', tab->width, 1);
-		write(1, "0", 1);
-		return (tab);
-	}
-	if (tab->combin[1] == '0' && tab->precisions == -1 && !tab->combin[0])
-		tab->precisions = tab->width;
-	if (!indent)
-		display(tab, ' ', tab->width - 2, 0);
-	len = (tab->width - ft_nbrlen(nbr));
-	printf("|%ld|", tab->width - len);
-	display(tab, '0', tab->width, 0);
-	ft_putlnbr_base(nbr, base);
-	if (indent)
-		display(tab, ' ', tab->width - 2, 0);
+
+	len = ft_nbrlen(nbr);
+	blank = len;
+	if (len <= tab->precisions && tab->precisions >= 0)
+		blank = tab->precisions;
+	tab->len += (blank <= tab->width) ? tab->width : blank;
+	if (tab->width_is_neg == 0)
+		display(tab, ' ', tab->width - len, 0);
+	if (tab->prec_neg == 0)
+		display(tab, '0', tab->precisions - len, 0);
+	ft_putlnbr_base(nbr, BASE);
+	if (tab->width_is_neg == 1)
+		display(tab, ' ', tab->width - blank, 0);
 	return (tab);
 }
