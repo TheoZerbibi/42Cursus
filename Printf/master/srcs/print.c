@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 17:08:12 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/08/10 01:55:01 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/08/11 20:53:09 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,9 +113,15 @@ t_tab		*print_x(t_tab *tab)
 		blank = tab->precisions;
 	tab->len += (blank <= tab->width) ? tab->width : blank;
 	if (tab->width_is_neg == 0)
-		display(tab, ' ', tab->width - len, 0);
+		display(tab, ' ', tab->width - blank, 0);
 	if (tab->prec_neg == 0)
+	{
+		printf("%ld", tab->precisions - len);
+		printf(" - %ld", tab->precisions);
+		printf(" - %d", len);
+		// Possible : quand -3 (soit precision neg) Pas de 0
 		display(tab, '0', tab->precisions - len, 0);
+	}
 	ft_putlnbr_base(nbr, BASE);
 	if (tab->width_is_neg == 1)
 		display(tab, ' ', tab->width - blank, 0);
