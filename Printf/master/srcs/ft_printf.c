@@ -6,16 +6,16 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 00:32:19 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/05/30 18:27:27 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/08/14 02:44:25 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /*
-** TODO:		conversion : p, u
-** FIXME:		conversion : d (0 test 3)
-** WIP:			conversion : x, X
+** TODO:		conversion : u
+** FIXME:		conversion : d (0 test 3), Xx (all good until Test 9 +  Fix negative Hexa), p (While infinite)
+** WIP:			conversion : xX, p
 ** FINISH:	conversion : i ,c, s + parsing (conversion + flags)
 */
 

@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 01:25:18 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/06/10 14:51:27 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/08/14 02:28:04 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char			*ft_strcpy(char *dest, char *src);
 void			*ft_memcpy(void *dst, const void *src, size_t n);
 char			*ft_strnstr(const char *haystack, const char *needle,
 				size_t len);
-int				ft_putlnbr_base(unsigned long int nbr, const char *base);
+int				ft_putlnbr_base(unsigned long int nbr, const char *base, int upper);
 char			*ft_strchr(const char *s, int c);
 char			*ft_strrchr(const char *s, int c);
 void			*ft_memccpy(void *dst, const void *src, int c, size_t n);
@@ -70,6 +70,7 @@ char			*ft_strtrim(char const *s1, char const *set);
 char			**ft_split(char const *s, char c);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char			*ft_itoa(int n);
+char			*ft_itoa_base(int nbr, int base);
 t_list			*ft_lstnew(void *content);
 void			ft_lstadd_front(t_list **alst, t_list *new);
 int				ft_lstsize(t_list *lst);

@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 17:08:12 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/08/14 01:49:17 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/08/14 02:34:16 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ t_tab			*print_d(t_tab *tab)
 	return (tab);
 }
 
-t_tab		*print_x(t_tab *tab)
+t_tab		*print_x(t_tab *tab, int upper)
 {
 	long int	nbr;
 	int				indent;
@@ -106,7 +106,6 @@ t_tab		*print_x(t_tab *tab)
 
 	nbr = (int)(va_arg(tab->args, int));
 	indent = (tab->combin[0] == '-') ? 1 : 0;
-
 	len = ft_nbrlen(nbr);
 	blank = len;
 	if (len <= tab->precisions && tab->precisions >= 0)
@@ -118,8 +117,30 @@ t_tab		*print_x(t_tab *tab)
 		display(tab, '0', tab->precisions - len, 0);
 	else
 		blank = len;
-	ft_putlnbr_base(nbr, BASE);
+	ft_putlnbr_base(nbr, BASE, upper);
 	if (tab->width_is_neg == 1)
 		display(tab, ' ', tab->width - blank, 0);
+	return (tab);
+}
+
+t_tab		*print_p(t_tab *tab)
+{
+	char			*str;
+	long int	nbr;
+	int				indent;
+
+	indent = 0;
+	nbr = (unsigned long)(va_arg(tab->args, unsigned long int));
+	indent = (tab->combin[0] == '-') ? 1 : 0;
+	if (!(str = ft_itoa_base(nbr, 16)))
+		exit(ERROR);
+	if (tab->precisions == 0 && nbr == 0)
+		*str = '\0';
+	if (tab->combin[1] == '0' && tab->precisions == -1 && !tab->combin[0])
+	{
+		tab->precisions = tab->width;
+		tab->width = 0;
+	}
+	display_p(tab, str, indent);
 	return (tab);
 }
