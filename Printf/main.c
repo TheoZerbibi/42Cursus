@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 00:00:53 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/08/14 02:43:55 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/08/14 02:47:22 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,14 @@
 int	main(void)
 {
 	//int hexa = 60;
-	char a = 10;
+	//char a = 10;
 	//char *str = NULL;
 
-	printf(" = mien = [%d]", ft_printf("%p\n", &a));
-	printf(" = vrai = [%d]", printf("%p\n", &a));
+	printf(" = mien = [%d]\n", ft_printf("(|%0*.*x|)", -10, 8, -60));
+	printf(" = vrai = [%d]\n", printf("(|%0*.*x|)", -10, 8, -60));
+
+	//printf(" = mien = [%d]", ft_printf("%p\n", &a));
+	//printf(" = vrai = [%d]", printf("%p\n", &a));
 
 
 	/*printf("-------NEGATIFS-------\n\n");
