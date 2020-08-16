@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 17:08:12 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/08/14 02:46:37 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/08/16 00:40:27 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,11 @@ t_tab		*print_p(t_tab *tab)
 	indent = 0;
 	nbr = (unsigned long)(va_arg(tab->args, unsigned long int));
 	indent = (tab->combin[0] == '-') ? 1 : 0;
-	if (!(str = ft_itoa_base(nbr, 16)))
+	if (tab->combin[0] == '-' || tab->width_is_neg == 1)
+		indent = 1;
+	else
+		indent = 0;
+	if (!(str = ft_itoa_base(nbr, 16, 'a')))
 		exit(ERROR);
 	if (tab->precisions == 0 && nbr == 0)
 		*str = '\0';
