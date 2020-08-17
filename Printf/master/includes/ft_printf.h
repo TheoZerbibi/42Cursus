@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 00:32:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/08/14 02:33:12 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/08/18 00:52:47 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,13 @@
 # define COMBINE "-0*"
 # define BASE "0123456789abcdef"
 
+/*
+** Subject : Combin[3]
+** Combin[0] = '-'
+** Combin[1] = '0'
+** Combin[2] = '*'
+*/
+
 typedef struct	s_tab
 {
 	const char	*str;
@@ -39,7 +46,7 @@ typedef struct	s_tab
 	long int	precisions;
 	char		flags;
 	char		arg_flag;
-	char		combin[4];
+	char		combin[3];
 	int			width_is_neg;
 	int			prec_neg;
 	int			param;

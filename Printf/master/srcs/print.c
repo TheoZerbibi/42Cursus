@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 17:08:12 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/08/16 00:40:27 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/08/18 00:49:48 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,21 +105,26 @@ t_tab		*print_x(t_tab *tab, int upper)
 	int				blank;
 
 	nbr = (unsigned)(va_arg(tab->args, unsigned int));
+	if ((int)nbr < 0)
+		tab->combin[0] = '-';
 	indent = (tab->combin[0] == '-') ? 1 : 0;
 	len = ft_nbrlen(nbr);
 	blank = len;
 	if (len <= tab->precisions && tab->precisions >= 0)
 		blank = tab->precisions;
+	// Calcul mauvais, Size trop grand sur certain cas
 	tab->len += (blank <= tab->width) ? tab->width : blank;
 	if (tab->width_is_neg == 0)
-		display(tab, ' ', tab->width - blank, 0);
-	if (tab->param == 0)
-		display(tab, '0', tab->precisions - len, 0);
+		display(tab, ' ', tab->width - blank, FALSE);
+	if (tab->param == 0 && tab->combin[0] != '-')
+		display(tab, '0', tab->precisions - len, FALSE);
 	else
 		blank = len;
 	ft_putlnbr_base(nbr, BASE, upper);
-	if (tab->width_is_neg == 1)
-		display(tab, ' ', tab->width - blank, 0);
+	if (tab->width_is_neg == 1 && tab->combin[0] != '-')
+		display(tab, ' ', tab->width - blank, FALSE);
+	else if (tab->width_is_neg == 1 && tab->combin[0] == '-')
+		display(tab, ' ', tab->width - (blank + len + 2), FALSE);
 	return (tab);
 }
 
