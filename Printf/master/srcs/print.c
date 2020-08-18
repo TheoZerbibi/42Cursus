@@ -6,15 +6,16 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 17:08:12 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/08/18 00:49:48 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/08/18 22:47:46 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_tab	*print_c(t_tab *tab)
+t_tab		*print_c(t_tab *tab)
 {
 	char c;
+
 	c = (char)va_arg(tab->args, int);
 	if ((int)c >= 0)
 	{
@@ -34,7 +35,7 @@ t_tab	*print_c(t_tab *tab)
 	return (tab);
 }
 
-t_tab	*print_s(t_tab *tab)
+t_tab		*print_s(t_tab *tab)
 {
 	char		*str;
 	int			len;
@@ -66,11 +67,10 @@ t_tab	*print_s(t_tab *tab)
 	return (tab);
 }
 
-t_tab			*print_d(t_tab *tab)
+t_tab		*print_d(t_tab *tab)
 {
 	long int	nbr;
-	int				width;
-	int				indent;
+	int			indent;
 
 	nbr = (int)(va_arg(tab->args, int));
 	if (nbr == 0 && tab->precisions < 0)
@@ -86,23 +86,26 @@ t_tab			*print_d(t_tab *tab)
 		nbr *= -1;
 	}
 	indent = (tab->combin[0] == '-') ? 1 : 0;
-	width = get_width(nbr);
 	if (tab->combin[1] == '0' && tab->precisions == -1 && !tab->combin[0])
 	{
 		tab->precisions = tab->width;
 		if (nbr < 0 || tab->combin[0])
 			tab->precisions--;
 	}
-	display_d(tab, nbr, width, indent);
+	display_d(tab, nbr, get_width(nbr), indent);
 	return (tab);
 }
+
+/*
+** Soucis sur le calcul de tab->len
+*/
 
 t_tab		*print_x(t_tab *tab, int upper)
 {
 	long int	nbr;
-	int				indent;
-	int				len;
-	int				blank;
+	int			indent;
+	int			len;
+	int			blank;
 
 	nbr = (unsigned)(va_arg(tab->args, unsigned int));
 	if ((int)nbr < 0)
@@ -112,7 +115,6 @@ t_tab		*print_x(t_tab *tab, int upper)
 	blank = len;
 	if (len <= tab->precisions && tab->precisions >= 0)
 		blank = tab->precisions;
-	// Calcul mauvais, Size trop grand sur certain cas
 	tab->len += (blank <= tab->width) ? tab->width : blank;
 	if (tab->width_is_neg == 0)
 		display(tab, ' ', tab->width - blank, FALSE);
@@ -130,9 +132,9 @@ t_tab		*print_x(t_tab *tab, int upper)
 
 t_tab		*print_p(t_tab *tab)
 {
-	char			*str;
+	char		*str;
 	long int	nbr;
-	int				indent;
+	int			indent;
 
 	indent = 0;
 	nbr = (unsigned long)(va_arg(tab->args, unsigned long int));

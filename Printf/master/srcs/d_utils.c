@@ -6,15 +6,15 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/25 20:43:16 by thezerbibi        #+#    #+#             */
-/*   Updated: 2020/06/09 14:48:13 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/08/18 22:43:33 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
- #include "ft_printf.h"
+#include "ft_printf.h"
 
-int	get_width(long int nbr)
+int		get_width(long int nbr)
 {
-		int width;
+	int width;
 
 	width = 1;
 	while ((nbr /= 10) > 0)
@@ -37,7 +37,7 @@ void	print_minus(t_tab *tab, long int nbr, int width, int is_neg)
 	if (neg_char)
 		blank++;
 	tab->len += (blank <= tab->width) ? tab->width : blank;
-	if (is_neg && tab->param == 0 && tab->precisions != 0 )
+	if (is_neg && tab->param == 0 && tab->precisions != 0)
 		display(tab, ' ', tab->width - blank, 0);
 	else if (tab->precisions == 0 && tab->width_is_neg == 0)
 	{
@@ -45,7 +45,8 @@ void	print_minus(t_tab *tab, long int nbr, int width, int is_neg)
 		display(tab, '0', tab->width - blank, 0);
 		already_neg = 1;
 	}
-	else if (tab->param == -1) {
+	else if (tab->param == -1)
+	{
 		write(1, &neg_char, 1);
 		display(tab, '0', tab->width - blank, 0);
 		already_neg = 1;
@@ -57,14 +58,15 @@ void	print_minus(t_tab *tab, long int nbr, int width, int is_neg)
 		ft_putnbrmax_fd(nbr, 1);
 	else if ((tab->len += 18) > 0)
 		write(1, "9223372036854775808", 19);
-	if (tab->width > 0 && tab->precisions == 0 && tab->combin[0] == '-' && tab->width_is_neg == 1)
+	if (tab->width > 0 && tab->precisions == 0 && tab->combin[0] == '-' &&
+		tab->width_is_neg == 1)
 		display(tab, ' ', tab->width - blank, 0);
 }
 
 void	print_positive(t_tab *tab, long int nbr, int width)
 {
 	int			blank;
-	
+
 	nbr *= (nbr != (-9223372036854775807 - 1)) ? 1 : -1;
 	blank = width;
 	if (width <= tab->precisions && tab->precisions >= 0)
