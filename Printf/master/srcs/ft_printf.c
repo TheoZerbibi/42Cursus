@@ -6,18 +6,18 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 00:32:19 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/08/18 22:30:43 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/08/18 22:51:14 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /*
-** TODO:		conversion : u
+** TODO:		conversion : /
 ** FIXME:		conversion : d (0 test 3), Xx (all good until Test 11,
 **						Test 9 bad size)
-** WIP:			conversion : xX, p
-** FINISH:	conversion : i ,c, s + parsing (conversion + flags)
+** WIP:			conversion : xX, u
+** FINISH:	conversion : i ,c, s, p + parsing (conversion + flags)
 */
 
 /*
