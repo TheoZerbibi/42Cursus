@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 09:36:42 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/08/18 00:51:39 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/08/18 22:31:24 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int		get_elems(t_tab *tab)
 	return (tab->len);
 }
 
-int	ft_parser(t_tab *tab)
+int		ft_parser(t_tab *tab)
 {
 	if (ft_strcmp(tab->s_copy, "%") == 0)
 		return (0);

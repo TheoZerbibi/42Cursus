@@ -6,15 +6,15 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/10 14:49:04 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/08/14 02:04:47 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/08/18 22:15:17 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_putlnbr_base(unsigned long int nbr, const char *base, int upper)
+int	ft_putlnbr_base(unsigned long int nbr, const char *base, int upper)
 {
-	int						i;
+	int				i;
 	unsigned int	base_len;
 
 	base_len = ft_strlen(base);

@@ -6,13 +6,13 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 17:48:44 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/08/16 00:40:53 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/08/18 22:29:12 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	display(t_tab *tab, int c, int len, int update_len)
+void		display(t_tab *tab, int c, int len, int update_len)
 {
 	char *str;
 
@@ -28,13 +28,13 @@ void	display(t_tab *tab, int c, int len, int update_len)
 	}
 }
 
-void	display_c(t_tab *tab, char c)
+void		display_c(t_tab *tab, char c)
 {
-		tab->len += 1;
-		ft_putchar(c);
+	tab->len += 1;
+	ft_putchar(c);
 }
 
-t_tab	*display_d(t_tab *tab, long int nbr, int width, int is_neg)
+t_tab		*display_d(t_tab *tab, long int nbr, int width, int is_neg)
 {
 	if (is_neg)
 		print_minus(tab, nbr, width, is_neg);

@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 00:32:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/08/18 00:52:47 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/08/18 22:27:00 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ t_tab		*display_d(t_tab *tab, long int num, int num_width, int align_left);
 t_tab		*display_p(t_tab *tab, char *str, int indent);
 void		display(t_tab *tab, int c, int len, int len2);
 void		display_c(t_tab *tab, char c);
-void	print_minus(t_tab *tab, long int nbr, int width, int is_neg);
-void	print_positive(t_tab *tab, long int nbr, int width);
+void		print_minus(t_tab *tab, long int nbr, int width, int is_neg);
+void		print_positive(t_tab *tab, long int nbr, int width);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/14 02:26:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/08/16 00:32:04 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/08/18 22:11:55 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,3 @@ char		*ft_itoa_base(uintmax_t num, uintmax_t base, char c)
 	str = ft_generate_string(num, base, c);
 	return (str);
 }
-
