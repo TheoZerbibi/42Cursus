@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 17:08:12 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/08/19 00:29:03 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/08/24 07:01:04 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,14 +170,8 @@ t_tab		*print_u(t_tab *tab)
 		return (tab);
 	}
 	len = get_width(nbr);
-	if ((int)nbr < 0)
-	{
-		tab->combin[0] = '-';
-		nbr *= -1;
-	}
-	indent = (tab->combin[0] == '-') ? 1 : 0;
 	if (tab->combin[1] == '0' && tab->precisions == -1 && !tab->combin[0])
 		tab->precisions = tab->width;
-	display_u(tab, nbr, get_width(nbr), indent);
+	display_u(tab, nbr, get_width(nbr));
 	return (tab);
 }
