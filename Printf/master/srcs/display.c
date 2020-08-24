@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 17:48:44 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/08/19 00:13:24 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/08/19 00:29:55 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,7 @@ t_tab		*display_p(t_tab *tab, char *str, int indent)
 
 t_tab		*display_u(t_tab *tab, int nbr, int len, int indent)
 {
-	if (indent)
-		print_minus(tab, nbr, len, indent);
-	else
+	(void)indent;
 		print_positive(tab, nbr, len);
 	return (tab);
 }

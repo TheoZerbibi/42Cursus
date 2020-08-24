@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/25 20:43:16 by thezerbibi        #+#    #+#             */
-/*   Updated: 2020/08/18 22:43:33 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/08/24 06:50:57 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	print_positive(t_tab *tab, long int nbr, int width)
 		blank = tab->precisions;
 	tab->len += (blank <= tab->width) ? tab->width : blank;
 	if (tab->width_is_neg == 0)
-		display(tab, ' ', tab->width - width, 0);
+		display(tab, ' ', tab->width - blank, 0);
 	if (tab->prec_neg == 0)
 		display(tab, '0', tab->precisions - width, 0);
 	if (nbr != (-9223372036854775807 - 1))

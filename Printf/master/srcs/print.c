@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 17:08:12 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/08/19 00:23:20 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/08/19 00:29:03 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,19 +158,19 @@ t_tab		*print_p(t_tab *tab)
 
 t_tab		*print_u(t_tab *tab)
 {
-	unsigned int	nbr;
+	long int	nbr;
 	int			indent;
 	int			len;
 
 	indent = 0;
-	nbr = (unsigned int)(va_arg(tab->args, unsigned int));
+	nbr = (unsigned long)(va_arg(tab->args, unsigned long int));
 	if (nbr == 0 && tab->precisions < 0)
 	{
 		display(tab, ' ', tab->width, 1);
 		return (tab);
 	}
 	len = get_width(nbr);
-	if (nbr < 0)
+	if ((int)nbr < 0)
 	{
 		tab->combin[0] = '-';
 		nbr *= -1;
