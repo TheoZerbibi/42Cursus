@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/25 20:43:16 by thezerbibi        #+#    #+#             */
-/*   Updated: 2020/08/27 23:43:43 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/08/27 23:59:46 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ void	print_positive(t_tab *tab, long int nbr, int width)
 	tab->len += (blank <= tab->width) ? tab->width : blank;
 	if (tab->width_is_neg == 0)
 		display(tab, ' ', tab->width - blank, 0);
-	printf("%c", tab->arg_flag);
 	if (tab->prec_neg == 0 && tab->arg_flag != 'u')
 		display(tab, '0', tab->precisions - width, 0);
 	else if (tab->arg_flag == 'u' && tab->combin[3] != '.')
