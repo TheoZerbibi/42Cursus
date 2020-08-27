@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 09:51:33 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/08/18 22:28:24 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/08/27 23:11:17 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ t_tab	*parse_precisions(t_tab *tab)
 	{
 		tab->i++;
 		tab->precisions = -1;
+		tab->combin[3] = '.';
 	}
 	while (ft_isdigit(tab->s_parse[tab->i]) == 1)
 	{

@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 00:00:53 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/08/26 12:24:54 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/08/27 23:18:36 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,17 @@
 
 int	main(void)
 {
-	int hexa = 60;
-	char a = 10;
-	char *str = NULL;
+	//int hexa = 60;
+	//char a = 10;
+	//char *str = NULL;
 
-	//printf(" = mien = [%d]\n", ft_printf("(|%0*.*x|)", -10, 8, -hexa));
-	//printf(" = vrai = [%d]\n", printf("(|%0*.*x|)", -10, 8, -hexa));
+	printf(" = mien = [%d]\n", ft_printf("(|%010.d|)", 10));
+	printf(" = vrai = [%d]\n", printf("(|%010.d|)", 10));
+	printf(" = mien = [%d]\n", ft_printf("(|%010.u|)", 10));
+	printf(" = vrai = [%d]\n", printf("(|%010.u|)", 10));
 
-	printf(" = mien = [%d]\n", ft_printf("(|%*p|)", -20, &a));
-	printf(" = vrai = [%d]\n", printf("(|%*p|)", -20, &a));
+	//printf(" = mien = [%d]\n", ft_printf("(|%*p|)", -20, &a));
+	//printf(" = vrai = [%d]\n", printf("(|%*p|)", -20, &a));
 
 
 	printf("-------INT NEGATIFS-------\n\n");
@@ -119,7 +121,7 @@ int	main(void)
 //	printf(" = mien = [%d]\n", ft_printf("(|%1d|)"));
 //	printf(" = vrai = [%d]\n", printf("(|%1d|)"));
 
-	printf("\n\n\n-----------CHAR-----------\n\n");
+	/*printf("\n\n\n-----------CHAR-----------\n\n");
 	printf("-------TEST 1-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%10c|)", '\0'));
 	printf(" = vrai = [%d]\n", printf("(|%10c|)", '\0'));
@@ -304,7 +306,7 @@ int	main(void)
 	printf(" = vrai = [%d]\n", printf("(|%0*u|)", -10, 0));
 	printf("-------TEST 9-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%u|)", 0));
-	printf(" = vrai = [%d]\n", printf("(|%u|)", 0));
+	printf(" = vrai = [%d]\n", printf("(|%u|)", 0));*/
 
 	//printf("%%\n");
 	//ft_printf("%%\n");

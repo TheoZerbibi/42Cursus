@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 00:32:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/08/24 07:01:17 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/08/27 23:10:46 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef struct	s_tab
 	long int	precisions;
 	char		flags;
 	char		arg_flag;
-	char		combin[3];
+	char		combin[4];
 	int			width_is_neg;
 	int			prec_neg;
 	int			param;
