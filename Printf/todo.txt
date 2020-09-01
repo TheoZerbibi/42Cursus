@@ -4,7 +4,7 @@
 	Negative
 		Test 5, Bad ident charactere			[x]
 %Xx
-	Test 9, Bad size 							[x]
+	Test 9, Bad size 							[√]
 	Test 11, Bad ident charactere				[x]
 	Test 12, Bad ident charactere + bad size	[x]
 	Test 14, Bad size							[x]
