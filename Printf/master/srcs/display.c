@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 17:48:44 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/08/24 07:00:58 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/02 22:09:59 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,5 @@ t_tab		*display_p(t_tab *tab, char *str, int indent)
 	if (indent)
 		display(tab, ' ', tab->width - blank, 0);
 	free(str);
-	return (tab);
-}
-
-t_tab		*display_u(t_tab *tab, long int nbr, int len)
-{
-	print_positive(tab, nbr, len);
 	return (tab);
 }

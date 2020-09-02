@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 17:08:12 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/02 22:04:11 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/02 22:10:37 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,30 +93,6 @@ t_tab		*print_d(t_tab *tab)
 /*
 ** Soucis sur le calcul de tab->len
 */
-
-t_tab		*display_x(t_tab *tab, long int nbr, char *str, int indent)
-{
-	int			n_b;
-	int			n_w;
-
-	if ((n_w = ft_strlen(str)) && nbr &&
-			tab->combin[1] == '0' && tab->width)
-		n_w += 2;
-	else if ((n_w = ft_strlen(str)) && nbr)
-	{
-		tab->width -= 2;
-		tab->len += 2;
-	}
-	n_b = (n_w <= tab->precisions && tab->precisions > 0) ? tab->precisions : n_w;
-	tab->len += (n_b <= tab->width) ? tab->width : n_b;
-	if (!indent)
-		display(tab, ' ', tab->width - n_b, 0);
-	display(tab, '0', tab->precisions - n_w, 0);
-	ft_putstr(str);
-	if (indent)
-		display(tab, ' ', tab->width - n_b, 0);
-	return (tab);
-}
 
 t_tab		*print_x(t_tab *tab, int upper)
 {
@@ -229,6 +205,6 @@ t_tab		*print_u(t_tab *tab)
 	len = get_width(nbr);
 	if (tab->combin[1] == '0' && tab->precisions == -1 && !tab->combin[0])
 		tab->precisions = tab->width;
-	display_u(tab, nbr, get_width(nbr));
+	display_d(tab, nbr, get_width(nbr), 0);
 	return (tab);
 }

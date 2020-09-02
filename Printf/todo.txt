@@ -1,12 +1,12 @@
 %u
 	Positive
-		Test 1, Bad ident charactere						[x]
+		Test 1, Bad indent charactere						[x]
 	Negative
-		Test 5, Bad ident charactere						[x]
+		Test 5, Bad indent charactere						[x]
 %Xx
 	Test 9, Bad size 													[√]
-	Test 11, Bad ident charactere							[x]
-	Test 12, Bad ident charactere + bad size	[x]
+	Test 11, Bad indent charactere							[x]
+	Test 12, Bad indent charactere + bad size	[x]
 	Test 14, Bad size													[√]
 	Test 15, Bad size													[x]
 	Test 16, Bad size													[√]
