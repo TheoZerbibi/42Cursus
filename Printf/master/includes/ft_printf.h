@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 00:32:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/02 22:10:09 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/02 22:13:41 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,27 +53,28 @@ typedef struct	s_tab
 
 }				t_tab;
 
-int			ft_printf(const char *str, ...);
-int			ft_parser(t_tab *tab);
-int			get_elems(t_tab *tab);
-int			get_width(long int nbr);
-t_tab		*init_printf(t_tab *tab);
-t_tab		*parse_combin(t_tab *tab);
-t_tab		*parse_precisions(t_tab *tab);
-t_tab		*parse_width(t_tab *tab);
-t_tab		*parse_convert(t_tab *tab);
-t_tab		*parse_elems(t_tab *tab);
-t_tab		*print_c(t_tab *tab);
-t_tab		*print_s(t_tab *tab);
-t_tab		*print_d(t_tab *tab);
-t_tab		*print_x(t_tab *tab, int upper);
-t_tab		*print_p(t_tab *tab);
-t_tab		*display_d(t_tab *tab, long int num, int num_width, int align_left);
-t_tab		*display_p(t_tab *tab, char *str, int indent);
-t_tab		*print_u(t_tab *tab);
-void		display(t_tab *tab, int c, int len, int len2);
-void		display_c(t_tab *tab, char c);
-void		print_minus(t_tab *tab, long int nbr, int width, int is_neg);
-void		print_positive(t_tab *tab, long int nbr, int width);
+int				ft_printf(const char *str, ...);
+int				ft_parser(t_tab *tab);
+int				get_elems(t_tab *tab);
+int				get_width(long int nbr);
+t_tab			*init_printf(t_tab *tab);
+t_tab			*parse_combin(t_tab *tab);
+t_tab			*parse_precisions(t_tab *tab);
+t_tab			*parse_width(t_tab *tab);
+t_tab			*parse_convert(t_tab *tab);
+t_tab			*parse_elems(t_tab *tab);
+t_tab			*print_c(t_tab *tab);
+t_tab			*print_s(t_tab *tab);
+t_tab			*print_d(t_tab *tab);
+t_tab			*print_x(t_tab *tab, int upper);
+t_tab			*print_p(t_tab *tab);
+t_tab			*display_d(t_tab *tab, long int num, int num_width,
+				int align_left);
+t_tab			*display_p(t_tab *tab, char *str, int indent);
+t_tab			*print_u(t_tab *tab);
+void			display(t_tab *tab, int c, int len, int len2);
+void			display_c(t_tab *tab, char c);
+void			print_minus(t_tab *tab, long int nbr, int width, int is_neg);
+void			print_positive(t_tab *tab, long int nbr, int width);
 
 #endif
