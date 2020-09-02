@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 17:08:12 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/02 22:10:37 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/02 22:19:55 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,8 @@ t_tab		*print_x(t_tab *tab, int upper)
 
 //	printf(" len : %d | prec : %ld | ", len, tab->precisions);
 
-	blank = (len <= tab->precisions && tab->precisions > 0) ? tab->precisions : len;
+	blank = (len <= tab->precisions && tab->precisions > 0) ?
+	tab->precisions : len;
 
 //	printf("blank : %d | width : %ld | tablen bef : %ld | ", blank, tab->width, tab->len);
 //	printf("%d - %d | ", tab->width_is_neg, tab->prec_neg);
@@ -132,36 +133,37 @@ t_tab		*print_x(t_tab *tab, int upper)
 	return (tab);
 }
 
-t_tab		*print_x_old(t_tab *tab, int upper)
-{
-	long int	nbr;
-	int			indent;
-	int			len;
-	int			blank;
-
-	nbr = (unsigned)(va_arg(tab->args, unsigned int));
-	if ((int)nbr < 0)
-		tab->combin[0] = '-';
-	indent = (tab->combin[0] == '-') ? 1 : 0;
-	len = ft_nbrlen(nbr);
-	blank = len;
-
-	if (len <= tab->precisions && tab->precisions >= 0)
-		blank = tab->precisions;
-	tab->len += (blank <= tab->width) ? tab->width : blank;
-	if (tab->width_is_neg == 0)
-		display(tab, ' ', tab->width - blank, FALSE);
-	if (tab->param == 0 && tab->combin[0] != '-')
-		display(tab, '0', tab->precisions - len, FALSE);
-	else
-		blank = len;
-	ft_putlnbr_base(nbr, BASE, upper, TRUE);
-	if (tab->width_is_neg == 1 && tab->combin[0] != '-')
-		display(tab, ' ', tab->width - blank, FALSE);
-	else if (tab->width_is_neg == 1 && tab->combin[0] == '-')
-		display(tab, ' ', tab->width - (blank + len + 2), FALSE);
-	return (tab);
-}
+/*
+** t_tab		*print_x_old(t_tab *tab, int upper)
+** {
+** 	long int	nbr;
+** 	int			indent;
+** 	int			len;
+** 	int			blank;
+**
+** 	nbr = (unsigned)(va_arg(tab->args, unsigned int));
+** 	if ((int)nbr < 0)
+** 		tab->combin[0] = '-';
+** 	indent = (tab->combin[0] == '-') ? 1 : 0;
+** 	len = ft_nbrlen(nbr);
+** 	blank = len;
+** 	if (len <= tab->precisions && tab->precisions >= 0)
+** 		blank = tab->precisions;
+** 	tab->len += (blank <= tab->width) ? tab->width : blank;
+** 	if (tab->width_is_neg == 0)
+** 		display(tab, ' ', tab->width - blank, FALSE);
+** 	if (tab->param == 0 && tab->combin[0] != '-')
+** 		display(tab, '0', tab->precisions - len, FALSE);
+** 	else
+** 		blank = len;
+** 	ft_putlnbr_base(nbr, BASE, upper, TRUE);
+** 	if (tab->width_is_neg == 1 && tab->combin[0] != '-')
+** 		display(tab, ' ', tab->width - blank, FALSE);
+** 	else if (tab->width_is_neg == 1 && tab->combin[0] == '-')
+** 		display(tab, ' ', tab->width - (blank + len + 2), FALSE);
+** 	return (tab);
+** }
+*/
 
 t_tab		*print_p(t_tab *tab)
 {
