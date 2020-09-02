@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 17:08:12 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/02 21:51:39 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/02 22:04:11 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,16 +130,18 @@ t_tab		*print_x(t_tab *tab, int upper)
 		tab->combin[0] = '-';
 	indent = (tab->combin[0] == '-') ? 1 : 0;
 	len = ft_putlnbr_base(nbr, BASE, upper, FALSE);
-	printf(" len : %d | ", len);
-	printf("prec : %ld | ", tab->precisions);
-	blank = (len <= tab->precisions && tab->precisions > 0 && tab->prec_neg == 1) ? tab->precisions : len;
-	printf("blank : %d | ", blank);
-	printf("width : %ld | ", tab->width);
-	printf("tablen bef : %ld | ", tab->len);
-	printf("%d - %d | ", tab->width_is_neg, tab->prec_neg);
-	//tab->len += tab->width;
+
+//	printf(" len : %d | prec : %ld | ", len, tab->precisions);
+
+	blank = (len <= tab->precisions && tab->precisions > 0) ? tab->precisions : len;
+
+//	printf("blank : %d | width : %ld | tablen bef : %ld | ", blank, tab->width, tab->len);
+//	printf("%d - %d | ", tab->width_is_neg, tab->prec_neg);
+
 	tab->len += (blank <= tab->width || tab->width_is_neg == 1) ? tab->width : blank;
-	printf("tablen af : %ld", tab->len);
+
+//	printf("tablen af : %ld", tab->len);
+
 	if (tab->width_is_neg == 0)
 		display(tab, ' ', tab->width - blank, FALSE);
 	if (tab->param == 0 && tab->combin[0] != '-')
