@@ -1,3 +1,6 @@
 *.o
 *.a
 printf
+ft_printf_test/
+42TESTERS-PRINTF/
+ft_printf-testing-tools/
