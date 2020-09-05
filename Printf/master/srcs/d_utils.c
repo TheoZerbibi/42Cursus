@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/25 20:43:16 by thezerbibi        #+#    #+#             */
-/*   Updated: 2020/09/03 21:56:45 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/05 22:18:20 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,18 +69,28 @@ void	print_positive(t_tab *tab, long int nbr, int width)
 
 	nbr *= (nbr != (-9223372036854775807 - 1)) ? 1 : -1;
 	blank = width;
-	if ((width <= tab->precisions && tab->precisions >= 0))
+	if (width <= tab->precisions && tab->precisions >= 0)
 		blank = tab->precisions;
+
 	tab->len += (blank <= tab->width) ? tab->width : blank;
 	if (tab->width_is_neg == 0)
 	{
-		if (tab->arg_flag == 'u' && tab->combin[3] == '.')
+		if (tab->arg_flag == 'u' && tab->combin[3] == '.'&& tab->combin[2] != '*')
 			display(tab, ' ', tab->width - width, 0);
 		else
 			display(tab, ' ', tab->width - blank, 0);
 	}
 	if (tab->prec_neg == 0)
-		display(tab, '0', tab->precisions - width, 0);
+	{
+		if (tab->arg_flag != 'u')
+			display(tab, '0', tab->precisions - width, 0);
+		else
+		{
+			//printf("%ld", tab->precisions);
+			if (tab->combin[3] == '.' && tab->combin[2] == '*')
+				display(tab, '0', tab->precisions - width, 0);
+		}
+	}
 	if (nbr != (-2147483647 - 1))
 		ft_putnbrmax_fd(nbr, 1);
 	else if ((tab->len += 9) > 0)

@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 09:36:42 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/08/27 23:11:33 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/05 22:18:08 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,11 @@ int		get_elems(t_tab *tab)
 	parse_width(tab);
 	parse_precisions(tab);
 	parse_convert(tab);
+	if (tab->arg_flag == '\0')
+	{
+		//printf("Return");
+		return (tab->len);
+	}
 	parse_elems(tab);
 	return (tab->len);
 }
