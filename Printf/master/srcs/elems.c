@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 09:36:42 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/05 22:18:08 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/06 01:12:11 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ t_tab	*init_printf(t_tab *tab)
 	tab->precisions = 0;
 	tab->width_is_neg = 0;
 	tab->prec_neg = 0;
+	tab->nbr_is_neg = 0;
 	return (tab);
 }
 

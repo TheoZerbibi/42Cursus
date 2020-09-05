@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 00:00:53 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/06 00:04:28 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/06 01:45:59 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 void succes(void)
 {
 	printf("\033[1;32m");
-	printf("OK   %25s\n", "✓");
-	printf("\033[0m");
+	printf("OK   %25s\n", "✓\033[0m");
 }
 
 void fail(char *reason)
@@ -100,8 +99,12 @@ int	main(void)
 	printf(" = mien = [%d]\n", ft_printf("(|%4d|)", -12));
 	printf(" = vrai = [%d]\n", printf("(|%4d|)", -12));
 	succes();
+	printf("-------TEST 14-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%-.0d|)", 0));
+	printf(" = vrai = [%d]\n", printf("(|%-.0d|)", 0));
+	succes();
 
-
+/*
 	printf("\n\n\n-------\033[1;32m✓\033[0m INT POSITIFS \033[1;32m✓\033[0m-------\n\n");
 	printf("-------TEST 1-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%010.d|)", 10));
@@ -138,6 +141,10 @@ int	main(void)
 	printf("-------TEST 9-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%d|)", 2147483647));
 	printf(" = vrai = [%d]\n", printf("(|%d|)", 2147483647));
+	succes();
+	printf("-------TEST 10-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%3.0d|)", 0));
+	printf(" = vrai = [%d]\n", printf("(|%3.0d|)", 0));
 	succes();
 
 	printf("\n\n\n-----------\033[1;32m✓\033[0m INT ZERO \033[1;32m✓\033[0m-----------\n\n");
@@ -181,7 +188,6 @@ int	main(void)
 //	printf(" = mien = [%d]\n", ft_printf("(|%1d|)"));
 //	printf(" = vrai = [%d]\n", printf("(|%1d|)"));
 
-/*
 	printf("\n\n\n-----------\033[1;32m✓\033[0m CHAR \033[1;32m✓\033[0m-----------\n\n");
 	printf("-------TEST 1-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%10c|)", '\0'));
@@ -307,7 +313,6 @@ int	main(void)
 	printf(" = mien = [%d]\n", ft_printf("(|%0*.*x|)", -3, -5, 0));
 	printf(" = vrai = [%d]\n", printf("(|%0*.*x|)", -3, -5, 0));
 	succes();
-*/
 
 	printf("\n\n\n-------\033[1;31mx\033[0m UNSIGNED POSITIVE \033[1;31mx\033[0m-------\n\n");
 	printf("-------TEST 1-------\n");
@@ -401,7 +406,6 @@ int	main(void)
 	printf(" = vrai = [%d]\n", printf("(|%04u|)", -10));
 	succes();
 
-/*
 	printf("\n\n\n-----------\033[1;32m✓\033[0m UNSIGNED ZERO \033[1;32m✓\033[0m-----------\n\n");
 	printf("-------TEST 1-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%010.u|)", 0));
@@ -444,7 +448,35 @@ int	main(void)
 //	printf("%%\n");
 //	ft_printf("%%\n");
 //	succes();
-
 //	system("leaks printf");
+	int		a = -4;
+	//int		b = 0;
+	char	c = 'a';
+	int		d = 2147483647;
+	int		e = -2147483648;
+	//int		f = 42;
+	//int		g = 25;
+	//int		h = 4200;
+	int		i = 8;
+	int		j = -12;
+	int		k = 123456789;
+	int		l = 0;
+	int		m = -12345678;
+
+	//printf(" = mien = [%d]\n", ft_printf("|%*d|",a, j));
+	//printf(" = vrai = [%d]\n", printf("|%*d|",a, j));
+
+	printf(" = mien = [%d]\n", ft_printf("|%*i|, |%*d|, |%*d|, |%*d|, |%*d|, |%*d|, |%*d|, |%*d|", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d));
+	printf(" = vrai = [%d]\n\n", printf("|%*i|, |%*d|, |%*d|, |%*d|, |%*d|, |%*d|, |%*d|, |%*d|", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d));
+
+	printf(" = mien = [%d]\n", ft_printf("|%0*i|, |%0*d|, |%0*d|, |%0*d|, |%0*d|, |%0*d|, |%0*d|, |%0*d|", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d));
+	printf(" = vrai = [%d]\n\n", printf("|%0*i|, |%0*d|, |%0*d|, |%0*d|, |%0*d|, |%0*d|, |%0*d|, |%0*d|", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d));
+
+	printf(" = mien = [%d]\n", ft_printf("|%-*i|, |%-*d|, |%-*d|, |%-*d|, |%-*d|, |%-*d|, |%-*d|, |%-*d|", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d));
+	printf(" = vrai = [%d]\n\n", printf("|%-*i|, |%-*d|, |%-*d|, |%-*d|, |%-*d|, |%-*d|, |%-*d|, |%-*d|", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d));
+
+	printf(" = mien = [%d]\n", ft_printf("|%.*i|, |%.*d|, |%.*d|, |%.*d|, |%.*d|, |%.*d|, |%.*d|, |%.*d|", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d));
+	printf(" = vrai = [%d]\n\n", printf("|%.*i|, |%.*d|, |%.*d|, |%.*d|, |%.*d|, |%.*d|, |%.*d|, |%.*d|", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d));
+
 	return (0);
 }
