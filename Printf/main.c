@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 00:00:53 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/04 22:50:27 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/05 22:29:13 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,21 +31,22 @@ void fail(char *reason)
 		indent -= size - 1;
 	printf("\033[1;31m");
 	printf("Fail : %5.10s %*s\n", reason, indent, "x");
-	printf("\033[0m;");
+	printf("\033[0m");
 }
 
 int	main(void)
 {
-	int hexa = 60;
-	char a = 10;
-	char *str = NULL;
+	//int hexa = 60;
+	//char a = 10;
+	//char *str = NULL;
+
 
 	printf("\n\n\n|-------PRINTF-MAIN-BREAKER-------|\n\n");
-	printf("\n-------\033[1;32m✓\033[0m POINTER\033 [1;32m✓\033[0m-------\n\n");
+	/*printf("\n-------\033[1;32m✓\033[0m POINTER\033 [1;32m✓\033[0m-------\n\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%*p|)", -20, &a));
 	printf(" = vrai = [%d]\n", printf("(|%*p|)", -20, &a));
 	succes();
-
+*/
 	printf("\n\n\n-------\033[1;32m✓\033[0m INT NEGATIFS \033[1;32m✓\033[0m-------\n\n");
 	printf("-------TEST 1-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%010.d|)", -10));
@@ -95,6 +96,10 @@ int	main(void)
 	printf(" = mien = [%d]\n", ft_printf("(|%d|)", -2147483648));
 	printf(" = vrai = [%d]\n", printf("(|%ld|)", -2147483648));
 	succes();
+	printf("-------TEST 13-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%4d|)", -12));
+	printf(" = vrai = [%d]\n", printf("(|%4d|)", -12));
+	fail("All");
 
 
 	printf("\n\n\n-------\033[1;32m✓\033[0m INT POSITIFS \033[1;32m✓\033[0m-------\n\n");
@@ -176,6 +181,7 @@ int	main(void)
 //	printf(" = mien = [%d]\n", ft_printf("(|%1d|)"));
 //	printf(" = vrai = [%d]\n", printf("(|%1d|)"));
 
+/*
 	printf("\n\n\n-----------\033[1;32m✓\033[0m CHAR \033[1;32m✓\033[0m-----------\n\n");
 	printf("-------TEST 1-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%10c|)", '\0'));
@@ -301,6 +307,7 @@ int	main(void)
 	printf(" = mien = [%d]\n", ft_printf("(|%0*.*x|)", -3, -5, 0));
 	printf(" = vrai = [%d]\n", printf("(|%0*.*x|)", -3, -5, 0));
 	succes();
+*/
 
 	printf("\n\n\n-------\033[1;31mx\033[0m UNSIGNED POSITIVE \033[1;31mx\033[0m-------\n\n");
 	printf("-------TEST 1-------\n");
@@ -320,9 +327,9 @@ int	main(void)
 	printf(" = vrai = [%d]\n", printf("(|%00u|)", 10));
 	succes();
 	printf("-------TEST 5-------\n");
-	printf(" = mien = [%d]\n", ft_printf("(|%0*.*u|)",-10, 3, 10));
-	printf(" = vrai = [%d]\n", printf("(|%0*.*u|)", -10, 3, 10));
-	succes();
+	printf(" = mien = [%d]\n", ft_printf("(|%0*.*u|)",-10, -5, 10));
+	printf(" = vrai = [%d]\n", printf("(|%0*.*u|)", -10, -5, 10));
+	fail("Bad indentation");
 	printf("-------TEST 6-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%0*.*u|)",-5, 8, 10));
 	printf(" = vrai = [%d]\n", printf("(|%0*.*u|)", -5, 8, 10));
@@ -338,10 +345,14 @@ int	main(void)
 	printf("-------TEST 9-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%0*.*u|)",5, 8, 10));
 	printf(" = vrai = [%d]\n", printf("(|%0*.*u|)", 5, 8, 10));
-	fail("Bad indentation");
+	succes();
 	printf("-------TEST 10-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%0*.*u|)",5, -8, 10));
 	printf(" = vrai = [%d]\n", printf("(|%0*.*u|)", 5, -8, 10));
+	fail("Bad indentation");
+	printf("-------TEST 11-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%0*.*u|)",6, -8, 10));
+	printf(" = vrai = [%d]\n", printf("(|%0*.*u|)", 6, -8, 10));
 	fail("Bad indentation");
 
 	printf("\n\n\n-------\033[1;31mx\033[0m UNSIGNED NEGATIFS \033[1;31mx\033[0m-------\n\n");
@@ -390,6 +401,7 @@ int	main(void)
 	printf(" = vrai = [%d]\n", printf("(|%04u|)", -10));
 	succes();
 
+/*
 	printf("\n\n\n-----------\033[1;32m✓\033[0m UNSIGNED ZERO \033[1;32m✓\033[0m-----------\n\n");
 	printf("-------TEST 1-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%010.u|)", 0));
@@ -427,12 +439,12 @@ int	main(void)
 	printf(" = mien = [%d]\n", ft_printf("(|%u|)", 0));
 	printf(" = vrai = [%d]\n", printf("(|%u|)", 0));
 	succes();
+*/
 
 //	printf("%%\n");
 //	ft_printf("%%\n");
 //	succes();
 
 //	system("leaks printf");
-
 	return (0);
 }
