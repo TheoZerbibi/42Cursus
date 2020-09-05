@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/25 20:43:16 by thezerbibi        #+#    #+#             */
-/*   Updated: 2020/09/05 22:18:20 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/06 00:03:39 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,9 @@ void	print_minus(t_tab *tab, long int nbr, int width, int is_neg)
 	tab->len += (blank <= tab->width) ? tab->width : blank;
 	if (is_neg && tab->param == 0 && tab->precisions != 0)
 		display(tab, ' ', tab->width - blank, 0);
-	else if (tab->precisions == 0 && tab->width_is_neg == 0)
+	else if (is_neg && tab->param == 0 && tab->combin[1] != '0')
+			display(tab, ' ', tab->width - blank, 0);
+	else if (tab->precisions == 0 && tab->width_is_neg == 0 && tab->combin[1] == '0')
 	{
 		write(1, &neg_char, 1);
 		display(tab, '0', tab->width - blank, 0);

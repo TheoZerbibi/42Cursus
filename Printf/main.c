@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 00:00:53 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/05 22:29:13 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/06 00:04:28 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	main(void)
 	printf(" = vrai = [%d]\n", printf("(|%*p|)", -20, &a));
 	succes();
 */
-	printf("\n\n\n-------\033[1;32m✓\033[0m INT NEGATIFS \033[1;32m✓\033[0m-------\n\n");
+	printf("\n\n\n-------\033[1;32m✓\033[0m INT NEGATIF \033[1;32m✓\033[0m-------\n\n");
 	printf("-------TEST 1-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%010.d|)", -10));
 	printf(" = vrai = [%d]\n", printf("(|%010.d|)", -10));
@@ -99,7 +99,7 @@ int	main(void)
 	printf("-------TEST 13-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%4d|)", -12));
 	printf(" = vrai = [%d]\n", printf("(|%4d|)", -12));
-	fail("All");
+	succes();
 
 
 	printf("\n\n\n-------\033[1;32m✓\033[0m INT POSITIFS \033[1;32m✓\033[0m-------\n\n");
