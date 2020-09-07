@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 01:25:18 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/01 22:03:45 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/08 00:45:00 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ char			*ft_strrev(char *str);
 int				ft_tolower(int c);
 int				ft_isalnum(int c);
 int				ft_isascii(int c);
-int				ft_nbrlen(int nbr);
+int				ft_nbrlen(long int nbr);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 char			*ft_strncat(char *s1, const char *s2, size_t n);
 size_t			ft_strlcat(char *dst, const char *src, size_t dstsize);

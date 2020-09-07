@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/25 20:43:16 by thezerbibi        #+#    #+#             */
-/*   Updated: 2020/09/06 01:39:10 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/08 00:56:07 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,23 +82,23 @@ void	print_positive(t_tab *tab, long int nbr, int width)
 
 	nbr *= (nbr != (-9223372036854775807 - 1)) ? 1 : -1;
 	blank = width;
-	if (width <= tab->precisions && tab->precisions >= 0)
+	if (width <= tab->precisions && tab->precisions >= 0 && tab->param == 0)
 		blank = tab->precisions;
 
 	tab->len += (blank <= tab->width) ? tab->width : blank;
-	if (nbr == 0 && tab->precisions == 0 && tab->combin[3] == '.')
+	if (nbr == 0 && tab->precisions == 0 && tab->combin[3] == '.' && tab->combin[1] != '0')
 	{
 		if (tab->width > 0)
 			display(tab, ' ', tab->width, FALSE);
 		else
-		tab->len -= 1;
+			tab->len -= 1;
 		return ;
 	}
 	if (tab->width_is_neg == 0)
 	{
-		if (tab->arg_flag == 'u' && tab->combin[3] == '.'&& tab->combin[2] != '*')
+		if (tab->arg_flag == 'u' && tab->combin[3] == '.'&& tab->combin[2] != '*' && tab->param == 0)
 			display(tab, ' ', tab->width - width, 0);
-		else
+		else if (tab->arg_flag != 'u')
 			display(tab, ' ', tab->width - blank, 0);
 	}
 	if (tab->prec_neg == 0)
@@ -107,9 +107,16 @@ void	print_positive(t_tab *tab, long int nbr, int width)
 			display(tab, '0', tab->precisions - width, 0);
 		else
 		{
-			//printf("%ld", tab->precisions);
-			if (tab->combin[3] == '.' && tab->combin[2] == '*')
+			printf("%ld", tab->precisions - width + 1);
+			if (tab->combin[3] == '.' && tab->param == 0 && (int)nbr >= 0)
+			{
 				display(tab, '0', tab->precisions - width, 0);
+			}
+			else if (tab->combin[3] == '.' && tab->combin[2] == '*' && tab->param == -1 && tab->width_is_neg == 0)
+			{
+				width = tab->width - ft_nbrlen(nbr);
+				display(tab, '0', width, 0);
+			}
 		}
 	}
 	if (nbr != (-2147483647 - 1))
