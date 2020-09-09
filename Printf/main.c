@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 00:00:53 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/08 17:57:40 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/09 22:21:16 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,14 @@ int	main(void)
 	printf("\n\n\n|-------PRINTF-MAIN-BREAKER-------|\n\n");
 
 	printf("\n-------%s POINTER %s-------\n\n", SUCCES, SUCCES);
-	calc_test(1);
+	calc_test(2);
+	printf("-------TEST 1-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%*p|)", -20, &p));
 	printf(" = vrai = [%d]\n", printf("(|%*p|)", -20, &p));
+	success();
+	printf("-------TEST 2-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%p|)", NULL));
+	printf(" = vrai = [%d]\n", printf("(|%p|)", NULL));
 	success();
 
 	printf("\n-------%s INT NEGATIF %s-------\n\n", SUCCES, SUCCES);
@@ -227,7 +232,7 @@ int	main(void)
 	success();
 
 	printf("\n-------%s STRING %s-------\n\n", SUCCES, SUCCES);
-	calc_test(12);
+	calc_test(13);
 	printf("-------TEST 1-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%10.s|)", STR));
 	printf(" = vrai = [%d]\n", printf("(|%10.s|)", STR));
@@ -275,6 +280,10 @@ int	main(void)
 	printf("-------TEST 12-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%--2s|)", STR));
 	printf(" = vrai = [%d]\n", printf("(|%---2s|)", STR));
+	success();
+	printf("-------TEST 13-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%.0s|)", STR));
+	printf(" = vrai = [%d]\n", printf("(|%.0s|)", STR));
 	success();
 
 	printf("\n-------%s HEXA %s-------\n\n", FAIL, FAIL);
@@ -344,12 +353,12 @@ int	main(void)
 	printf(" = vrai = [%d]\n", printf("(|%0*.*x|)", -3, -5, 0));
 	success();
 
-	printf("\n-------%s UNSIGNED POSITIFS %s-------\n\n", FAIL, FAIL);
+	printf("\n-------%s UNSIGNED POSITIFS %s-------\n\n", SUCCES, SUCCES);
 	calc_test(11);
 	printf("-------TEST 1-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%010.u|)", 10));
 	printf(" = vrai = [%d]\n", printf("(|%010.u|)", 10));
-	fail("Bad Indentation");
+	success();
 	printf("-------TEST 2-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%00.u|)", 10));
 	printf(" = vrai = [%d]\n", printf("(|%00.u|)", 10));
@@ -438,7 +447,7 @@ int	main(void)
 	printf(" = vrai = [%d]\n", printf("(|%04u|)", -10));
 	success();
 
-	printf("\n-------%s UNSIGNED ZERO %s-------\n\n", FAIL, FAIL);
+	printf("\n-------%s UNSIGNED ZERO %s-------\n\n", SUCCES, SUCCES);
 	calc_test(9);
 	printf("-------TEST 1-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%010.u|)", 0));
@@ -451,7 +460,7 @@ int	main(void)
 	printf("-------TEST 3-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%010.2u|)", 0));
 	printf(" = vrai = [%d]\n", printf("(|%010.2u|)", 0));
-	fail("Bad spacing");
+	success();
 	printf("-------TEST 4-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%00u|)", 0));
 	printf(" = vrai = [%d]\n", printf("(|%00u|)", 0));
@@ -488,18 +497,6 @@ int	main(void)
 	calc_test(1);
 	system("leaks printf");*/
 
-	ft_putstr("\n\n=================================DEBUGGER=================================\n");
-	printf("-------TEST 3-------\n");
-	printf(" = mien = [%d]\n", ft_printf("(|%010.2u|)", 0));
-	printf(" = vrai = [%d]\n", printf("(|%010.2u|)", 0));
-	fail("Bad indentation");
-	printf("-------TEST 1-------\n");
-	printf(" = mien = [%d]\n", ft_printf("(|%010.u|)", 10));
-	printf(" = vrai = [%d]\n", printf("(|%010.u|)", 10));
-	fail("Bad indentation");
-	ft_putstr("==========================================================================\n");
-
 	printf("\n\nScore : %d/%d\n", (GLOBAL_TEST - GLOBAL_ERR), GLOBAL_TEST);
-
 	return (0);
 }

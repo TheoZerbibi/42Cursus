@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/25 20:43:16 by thezerbibi        #+#    #+#             */
-/*   Updated: 2020/09/08 18:52:53 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/09 22:16:07 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,22 +98,20 @@ void	print_positive(t_tab *tab, long int nbr, int width)
 	{
 		if (tab->arg_flag == 'u' && tab->combin[3] == '.'&& tab->combin[2] != '*' && tab->param == 0)
 		{
-			printf(" HERE1 | ");
-			display(tab, ' ', tab->width - width, 0);
+			if (tab->prec_neg == 1)
+				display(tab, ' ', tab->width - width, 0);
+			else
+				display(tab, ' ', tab->width - blank, 0);
 		}
 		else if (tab->arg_flag != 'u')
-		{
-			printf(" HERE2 | ");
 			display(tab, ' ', tab->width - blank, 0);
-		}
 	}
-	if (tab->prec_neg == 0)
+	if (tab->prec_neg == 0 && tab->combin[1] == '0')
 	{
-		if (tab->arg_flag != 'u')
+		if (tab->arg_flag != 'u' && tab->width > 0)
 			display(tab, '0', tab->precisions - width, 0);
-		else
+		else if (tab->arg_flag == 'u')
 		{
-			printf("%ld", tab->precisions - width + 1);
 			if (tab->combin[3] == '.' && tab->param == 0 && (int)nbr >= 0)
 			{
 				display(tab, '0', tab->precisions - width, 0);
