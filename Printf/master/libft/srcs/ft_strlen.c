@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 21:23:50 by thzeribi          #+#    #+#             */
-/*   Updated: 2019/11/14 03:35:24 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/09 23:44:20 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@ size_t	ft_strlen(const char *s)
 	int i;
 
 	i = 0;
+	if (s == NULL)
+		return (0);
+	else if (s[0] == '\0')
+		return (0);
 	while (s[i] != '\0')
 		i++;
 	return (i);

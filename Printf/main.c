@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 00:00:53 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/09 22:21:16 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/09 23:56:32 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -493,9 +493,13 @@ int	main(void)
 	printf(" = vrai = [%d]\n", printf("(|%%|)"));
 	success();
 
-	/*printf("\n-------%s LEAKS %s-------\n\n", FAIL, FAIL);
+	printf("\n-------%s LEAKS %s-------\n\n", SUCCES, SUCCES);
 	calc_test(1);
-	system("leaks printf");*/
+	system("leaks printf");
+	success();
+
+	//ft_putstr("\n============================================= DEBUGGER =============================================\n");
+
 
 	printf("\n\nScore : %d/%d\n", (GLOBAL_TEST - GLOBAL_ERR), GLOBAL_TEST);
 	return (0);

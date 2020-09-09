@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 17:08:12 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/09 22:20:39 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/09 23:59:23 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,10 @@ t_tab		*print_s(t_tab *tab)
 	else if (!tab->precisions && !str)
 		str = ft_strdup("(null)");
 	if (tab->width == 0 && tab->precisions == 0 && tab->combin[3] == '.')
+	{
+		free(str);
 		return (tab);
+	}
 	if (str)
 		len = ft_strlen(str);
 	if (tab->precisions == -1)
