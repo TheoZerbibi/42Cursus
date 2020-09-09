@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 00:00:53 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/08 01:03:32 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/08 17:57:40 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -492,13 +492,12 @@ int	main(void)
 	printf("-------TEST 3-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%010.2u|)", 0));
 	printf(" = vrai = [%d]\n", printf("(|%010.2u|)", 0));
-	success();
+	fail("Bad indentation");
 	printf("-------TEST 1-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%010.u|)", 10));
 	printf(" = vrai = [%d]\n", printf("(|%010.u|)", 10));
-	success();
+	fail("Bad indentation");
 	ft_putstr("==========================================================================\n");
-
 
 	printf("\n\nScore : %d/%d\n", (GLOBAL_TEST - GLOBAL_ERR), GLOBAL_TEST);
 
