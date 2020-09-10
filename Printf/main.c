@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 00:00:53 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/10 01:35:14 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/11 00:10:41 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -487,7 +487,7 @@ int	main(void)
 	success();
 
 	printf("\n-------%s CAS SPECIFIC %s-------\n\n", SUCCES, SUCCES);
-	calc_test(3);
+	calc_test(5);
 	printf("-------TEST 1-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%%|)"));
 	printf(" = vrai = [%d]\n", printf("(|%%|)"));
@@ -495,11 +495,19 @@ int	main(void)
 	printf("-------TEST 2-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%5%|)"));
 	printf(" = vrai = [%d]\n", printf("(|%5%|)"));
-	success();
+	fail("Bad indentation");
 	printf("-------TEST 3-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%-5%|)"));
 	printf(" = vrai = [%d]\n", printf("(|%-5%|)"));
-	success();
+	fail("Bad indentation");
+	printf("-------TEST 4-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%05.%|)"));
+	printf(" = vrai = [%d]\n", printf("(|%05.%|)"));
+	fail("Bad indentation");
+	printf("-------TEST 5-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%0-5.%|)"));
+	printf(" = vrai = [%d]\n", printf("(|%0-5.%|)"));
+	fail("Bad indentation");
 
 	printf("\n-------%s LEAKS %s-------\n\n", SUCCES, SUCCES);
 	calc_test(1);
