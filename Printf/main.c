@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 00:00:53 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/11 18:38:46 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/11 18:47:12 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -521,6 +521,6 @@ int	main(void)
 	//ft_putstr("\n============================================= DEBUGGER =============================================\n");
 
 
-	printf("\n\nScore : %d/%d\n", (GLOBAL_TEST - GLOBAL_ERR), GLOBAL_TEST);
+	printf("\n\n\033[1;32mScore : %d/%d\033[0m\n\033[1;33mBugs  : %d\033[0m\n", (GLOBAL_TEST - GLOBAL_ERR), GLOBAL_TEST, GLOBAL_ERR);
 	return (0);
 }
