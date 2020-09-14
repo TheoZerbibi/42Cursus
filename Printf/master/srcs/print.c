@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 17:08:12 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/14 08:32:25 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/14 10:05:12 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,22 +120,33 @@ t_tab		*print_x(t_tab *tab, int upper)
 	indent = (tab->combin[0] == '-') ? 1 : 0;
 	len = ft_putlnbr_base(nbr, BASE, upper, FALSE);
 
-//	printf(" len : %d | prec : %ld | ", len, tab->precisions);
+	printf(" len : %d | prec : %ld | ", len, tab->precisions);
 
-	blank = (len <= tab->precisions && tab->precisions > 0) ?
+	blank = (len <= tab->precisions && tab->precisions > 0 && tab->width > 0) ?
 	tab->precisions : len;
 
-//	printf("blank : %d | width : %ld | tablen bef : %ld | ", blank, tab->width, tab->len);
-//	printf("%d - %d | ", tab->width_is_neg, tab->prec_neg);
+	printf("blank : %d | width : %ld | tablen bef : %ld | ", blank, tab->width, tab->len);
+	printf("%d - %d - %d | ", tab->width_is_neg, tab->prec_neg, tab->param);
 
-	tab->len += (blank <= tab->width || tab->width_is_neg == 1) ? tab->width : blank;
+	if (blank <= tab->width)
+	{
+		printf("ICI1 |");
+		tab->len += tab->width;
+	}
+	else if (tab->width_is_neg == 1)
+		tab->len += blank;
+	else
+	{
+		printf("ICI2 |");
+		tab->len += blank;
+	}
 
-//	printf("tablen af : %ld", tab->len);
+	printf("tablen af : %ld", tab->len);
 	if (tab->width_is_neg == 0 && tab->combin[1] != '0')
 		display(tab, ' ', tab->width - blank, FALSE);
-	if (tab->param == 0 && tab->combin[0] != '-' && tab->precisions > 0)
+	if (tab->param == 0 && tab->combin[0] != '-' && tab->precisions >= 0)
 	{
-		if (tab->precisions == 0)
+		if (tab->combin[1] == '0' && tab->precisions == 0)
 			display(tab, '0', tab->width - len, FALSE);
 		else
 			display(tab, '0', tab->precisions - len, FALSE);
