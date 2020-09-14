@@ -6,11 +6,38 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/25 20:43:16 by thezerbibi        #+#    #+#             */
-/*   Updated: 2020/09/14 10:44:55 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/14 22:38:17 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+t_tab	*print_d(t_tab *tab)
+{
+	long int	nbr;
+	int			indent;
+
+	nbr = (int)(va_arg(tab->args, int));
+	if (nbr == 0 && tab->precisions < 0)
+	{
+		display(tab, ' ', tab->width, 1);
+		return (tab);
+	}
+	if (nbr == 0 && tab->width <= 0 && tab->precisions <= 0
+		&& tab->combin[3] == '.')
+		return (tab);
+	if (tab->precisions < 0)
+		tab->prec_neg = 1;
+	if (nbr < 0)
+	{
+		tab->combin[0] = '-';
+		nbr *= -1;
+		tab->nbr_is_neg = 1;
+	}
+	indent = (tab->combin[0] == '-') ? 1 : 0;
+	display_d(tab, nbr, get_width(nbr), indent);
+	return (tab);
+}
 
 int		get_width(long int nbr)
 {
@@ -20,6 +47,45 @@ int		get_width(long int nbr)
 	while ((nbr /= 10) > 0)
 		width++;
 	return (width);
+}
+
+static t_tab	*d_utils_minus(t_tab *tab, int blank,
+	char neg_char, int already_neg)
+{
+	if (tab->param == 0 && tab->precisions != 0)
+		display(tab, ' ', tab->width - blank, 0);
+	else if (tab->param == 0 && tab->combin[1] != '0' && tab->width_is_neg != 1)
+		display(tab, ' ', tab->width - blank, 0);
+	else if (tab->precisions == 0 && tab->width_is_neg == 0
+		&& tab->combin[1] == '0')
+	{
+		write(1, &neg_char, 1);
+		display(tab, '0', tab->width - blank, 0);
+		already_neg = 1;
+	}
+	else if (tab->param == -1)
+	{
+		write(1, &neg_char, 1);
+		display(tab, '0', tab->width - blank, 0);
+		already_neg = 1;
+	}
+	if (tab->param == 0 && already_neg == 0 && tab->nbr_is_neg == 1)
+		write(1, &neg_char, 1);
+	else if (already_neg == 0)
+		tab->len -= 1;
+	return (tab);
+}
+
+static void	d_utils_minus_print(t_tab *tab, long int nbr, int width, int blank)
+{
+	display(tab, '0', tab->precisions - width, 0);
+	if (nbr != (-9223372036854775807 - 1))
+		ft_putnbrmax_fd(nbr, 1);
+	else if ((tab->len += 18) > 0)
+		write(1, "9223372036854775808", 19);
+	if (tab->width > 0 && tab->precisions == 0 && tab->combin[0] == '-' &&
+		tab->width_is_neg == 1)
+		display(tab, ' ', tab->width - blank, 0);
 }
 
 void	print_minus(t_tab *tab, long int nbr, int width, int is_neg)
@@ -46,34 +112,8 @@ void	print_minus(t_tab *tab, long int nbr, int width, int is_neg)
 			tab->len -= 1;
 		return ;
 	}
-	if (tab->param == 0 && tab->precisions != 0)
-		display(tab, ' ', tab->width - blank, 0);
-	else if (tab->param == 0 && tab->combin[1] != '0' && tab->width_is_neg != 1)
-			display(tab, ' ', tab->width - blank, 0);
-	else if (tab->precisions == 0 && tab->width_is_neg == 0 && tab->combin[1] == '0')
-	{
-		write(1, &neg_char, 1);
-		display(tab, '0', tab->width - blank, 0);
-		already_neg = 1;
-	}
-	else if (tab->param == -1)
-	{
-		write(1, &neg_char, 1);
-		display(tab, '0', tab->width - blank, 0);
-		already_neg = 1;
-	}
-	if (tab->param == 0 && already_neg == 0 && tab->nbr_is_neg == 1)
-		write(1, &neg_char, 1);
-	else if (already_neg == 0)
-		tab->len -= 1;
-	display(tab, '0', tab->precisions - width, 0);
-	if (nbr != (-9223372036854775807 - 1))
-		ft_putnbrmax_fd(nbr, 1);
-	else if ((tab->len += 18) > 0)
-		write(1, "9223372036854775808", 19);
-	if (tab->width > 0 && tab->precisions == 0 && tab->combin[0] == '-' &&
-		tab->width_is_neg == 1)
-		display(tab, ' ', tab->width - blank, 0);
+	d_utils_minus(tab, blank, neg_char, already_neg);
+	d_utils_minus_print(tab, nbr, width, blank);
 }
 
 void	print_positive(t_tab *tab, long int nbr, int width)
@@ -84,9 +124,9 @@ void	print_positive(t_tab *tab, long int nbr, int width)
 	blank = width;
 	if (width <= tab->precisions && tab->precisions >= 0 && tab->param == 0)
 		blank = tab->precisions;
-
 	tab->len += (blank <= tab->width) ? tab->width : blank;
-	if (nbr == 0 && tab->precisions == 0 && tab->combin[3] == '.' && tab->combin[1] != '0')
+	if (nbr == 0 && tab->precisions == 0 && tab->combin[3] == '.'
+		&& tab->combin[1] != '0')
 	{
 		if (tab->width > 0)
 			display(tab, ' ', tab->width, FALSE);
@@ -96,7 +136,8 @@ void	print_positive(t_tab *tab, long int nbr, int width)
 	}
 	if (tab->width_is_neg == 0)
 	{
-		if (tab->arg_flag == 'u' && tab->combin[3] == '.'&& tab->combin[2] != '*' && tab->param == 0)
+		if (tab->arg_flag == 'u' && tab->combin[3] == '.'
+			&& tab->combin[2] != '*' && tab->param == 0)
 		{
 			if (tab->prec_neg == 1)
 				display(tab, ' ', tab->width - width, 0);
@@ -114,7 +155,8 @@ void	print_positive(t_tab *tab, long int nbr, int width)
 		{
 			if (tab->combin[3] == '.' && tab->param == 0 && (int)nbr >= 0)
 				display(tab, '0', tab->precisions - width, 0);
-			else if (tab->combin[3] == '.' && tab->combin[2] == '*' && tab->param == -1 && tab->width_is_neg == 0)
+			else if (tab->combin[3] == '.' && tab->combin[2] == '*'
+				&& tab->param == -1 && tab->width_is_neg == 0)
 			{
 				width = tab->width - ft_nbrlen(nbr);
 				display(tab, '0', width, 0);

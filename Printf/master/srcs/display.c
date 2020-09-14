@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 17:48:44 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/14 22:07:16 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/14 22:28:05 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,17 @@ t_tab		*display_s(t_tab *tab, char *str)
 		tab->len += len;
 	if (tab->combin[1] == '0' && tab->combin[0] != '-')
 		display(tab, '0', tab->width - len, 1);
-	else if (tab->width_is_neg == 0 && tab->precisions != -1 && tab->combin[0] != '-')
+	else if (tab->width_is_neg == 0 && tab->precisions != -1
+		&& tab->combin[0] != '-')
 		display(tab, ' ', tab->width - len, 1);
 	if (tab->precisions == -1)
 		display(tab, ' ', tab->width, 0);
 	else
 		ft_putstr(str);
-	if (tab->width_is_neg == 1|| tab->combin[0] == '-')
+	if (tab->width_is_neg == 1 || tab->combin[0] == '-')
 		display(tab, ' ', tab->width - len, 1);
 	free(str);
+	return (tab);
 }
 
 t_tab		*display_d(t_tab *tab, long int nbr, int width, int is_neg)
@@ -78,4 +80,27 @@ t_tab		*display_p(t_tab *tab, char *str, int indent)
 		display(tab, ' ', tab->width - blank, 0);
 	free(str);
 	return (tab);
+}
+
+void		display_x(t_tab *tab, long int nbr, int blank, int upper)
+{
+	int len;
+
+	len = ft_putlnbr_base(nbr, BASE, upper, FALSE);
+	if (tab->width_is_neg == 0 && tab->combin[1] != '0')
+		display(tab, ' ', tab->width - blank, FALSE);
+	if (tab->param == 0 && tab->combin[0] != '-' && tab->precisions >= 0)
+	{
+		if (tab->combin[1] == '0' && tab->precisions == 0)
+			display(tab, '0', tab->width - len, FALSE);
+		else
+			display(tab, '0', tab->precisions - len, FALSE);
+	}
+	else
+		blank = len;
+	ft_putlnbr_base(nbr, BASE, upper, TRUE);
+	if (tab->width_is_neg == 1 && tab->combin[0] != '-')
+		display(tab, ' ', tab->width - blank, FALSE);
+	else if (tab->width_is_neg == 1 && tab->combin[0] == '-')
+		display(tab, ' ', tab->width - len, FALSE);
 }
