@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 00:00:53 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/14 10:10:40 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/14 10:42:19 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -513,74 +513,13 @@ int	main(void)
 	printf(" = vrai = [%d]\n", printf("(|%0-5.%|)"));
 	success();
 
-	/*printf("\n-------%s LEAKS %s-------\n\n", SUCCES, SUCCES);
+	/*printf("\n-------%s LEAKS %s-------\n\n", SUCCESS, SUCCESS);
 	calc_test(1);
 	system("leaks printf");
 	success();*/
 
-	ft_putstr("\n============================================= DEBUGGER =============================================\n");
-	printf("-------TEST 1-------\n");
-	printf(" = mien = [%d]\n", ft_printf("(|%x|)", HEXA));
-	printf(" = vrai = [%d]\n", printf("(|%x|)", HEXA));
-	success();
-	printf("-------TEST 2-------\n");
-	printf(" = mien = [%d]\n", ft_printf("(|%10x|)", HEXA));
-	printf(" = vrai = [%d]\n", printf("(|%10x|)", HEXA));
-	success();
-	printf("-------TEST 3-------\n");
-	printf(" = mien = [%d]\n", ft_printf("(|%*x|)", 8, HEXA));
-	printf(" = vrai = [%d]\n", printf("(|%*x|)", 8, HEXA));
-	success();
-	printf("-------TEST 4-------\n");
-	printf(" = mien = [%d]\n", ft_printf("(|%*.x|)", 8, HEXA));
-	printf(" = vrai = [%d]\n", printf("(|%*.x|)", 8, HEXA));
-	success();
-	printf("-------TEST 5-------\n");
-	printf(" = mien = [%d]\n", ft_printf("(|%*.5x|)", 8, HEXA));
-	printf(" = vrai = [%d]\n", printf("(|%*.5x|)", 8, HEXA));
-	success();
-	printf("-------TEST 6-------\n");
-	printf(" = mien = [%d]\n", ft_printf("(|%*.*x|)", 8, 3, HEXA));
-	printf(" = vrai = [%d]\n", printf("(|%*.*x|)", 8, 3, HEXA));
-	success();
-	printf("-------TEST 7-------\n");
-	printf(" = mien = [%d]\n", ft_printf("(|%*.*x|)", -5, 3, HEXA));
-	printf(" = vrai = [%d]\n", printf("(|%*.*x|)", -5, 3, HEXA));
-	success();
-	printf("-------TEST 8-------\n");
-	printf(" = mien = [%d]\n", ft_printf("(|%*.*x|)", -5, -3, HEXA));
-	printf(" = vrai = [%d]\n", printf("(|%*.*x|)", -5, -3, HEXA));
-	success();
-	printf("-------TEST 9 %s-------\n", FAIL);
-	printf(" = mien = [%d]\n", ft_printf("(|%*.*x|)", -5, -3, -HEXA));
-	printf(" = vrai = [%d]\n", printf("(|%*.*x|)", -5, -3, -HEXA));
-	printf("-------TEST 10-------\n");
-	printf(" = mien = [%d]\n", ft_printf("(|%0*.*x|)", -10, 8, -HEXA));
-	printf(" = vrai = [%d]\n", printf("(|%0*.*x|)", -10, 8, -HEXA));
-	success();
-	printf("-------TEST 11-------\n");
-	printf(" = mien = [%d]\n", ft_printf("(|%05x|)", HEXA));
-	printf(" = vrai = [%d]\n", printf("(|%05x|)", HEXA));
-	success();
-	printf("-------TEST 12-------\n");
-	printf(" = mien = [%d]\n", ft_printf("(|%05.10x|)", HEXA));
-	printf(" = vrai = [%d]\n", printf("(|%05.10x|)", HEXA));
-	success();
-	printf("-------TEST 13 %s-------\n", FAIL);
-	printf(" = mien = [%d]\n", ft_printf("(|%0*.*x|)", -3, 5, HEXA));
-	printf(" = vrai = [%d]\n", printf("(|%0*.*x|)", -3, 5,  HEXA));
-	printf("-------TEST 14 %s-------\n", FAIL);
-	printf(" = mien = [%d]\n", ft_printf("(|%0*.*x|)", -3, -5, HEXA));
-	printf(" = vrai = [%d]\n", printf("(|%0*.*x|)", -3, -5, HEXA));
-	printf("-------TEST 15 -------\n" );
-	printf(" = mien = [%d]\n", ft_printf("(|%.*x|)", -10, 0));
-	printf(" = vrai = [%d]\n", printf("(|%.*x|)", -10, 0));
-	success();
-	printf("-------TEST 16 %s-------\n", FAIL);
-	printf(" = mien = [%d]\n", ft_printf("(|%0*.*x|)", -3, -5, 0));
-	printf(" = vrai = [%d]\n", printf("(|%0*.*x|)", -3, -5, 0));
-	ft_putstr("====================================================================================================\n");
-
+	/*ft_putstr("\n============================================= DEBUGGER =============================================\n");
+	ft_putstr("====================================================================================================\n");*/
 	printf("\n\n\033[1;32mScore : %d/%d\033[0m\n\033[1;33mBugs  : %d\033[0m\n", (GLOBAL_TEST - GLOBAL_ERR), GLOBAL_TEST, GLOBAL_ERR);
 	return (0);
 }
