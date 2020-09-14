@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 00:00:53 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/14 10:42:19 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/14 10:48:37 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -513,10 +513,10 @@ int	main(void)
 	printf(" = vrai = [%d]\n", printf("(|%0-5.%|)"));
 	success();
 
-	/*printf("\n-------%s LEAKS %s-------\n\n", SUCCESS, SUCCESS);
+	printf("\n-------%s LEAKS %s-------\n\n", SUCCESS, SUCCESS);
 	calc_test(1);
 	system("leaks printf");
-	success();*/
+	success();
 
 	/*ft_putstr("\n============================================= DEBUGGER =============================================\n");
 	ft_putstr("====================================================================================================\n");*/
