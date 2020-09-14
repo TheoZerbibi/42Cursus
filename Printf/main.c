@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 00:00:53 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/11 18:47:12 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/11 19:14:29 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -286,9 +286,9 @@ int	main(void)
 	printf(" = vrai = [%d]\n", printf("(|%.0s|)", STR));
 	success();
 	printf("-------TEST 14-------\n");
-	printf(" = mien = [%d]\n", ft_printf("\033[1;33mFail : %5.14s %*s\033[0m", "Test TestTest", 1, "x"));
-	printf(" = vrai = [%d]\n", printf("\033[1;33mFail : %5.14s %*s\033[0m", "Test TestTest", 1, "x"));
-	fail("Bad indentation");
+	printf(" = mien = [%d]\n", ft_printf("(| %s %-5.10s|)", "oui", "non"));
+	printf(" = vrai = [%d]\n", printf("(| %s %-5.10s|)", "oui", "non"));
+	success();
 
 	printf("\n-------%s HEXA %s-------\n\n", FAIL, FAIL);
 	calc_test(16);
