@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 00:32:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/14 22:53:36 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/14 22:59:02 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,10 +82,10 @@ void			print_positive(t_tab *tab, long int nbr, int width);
 void			print_minus(t_tab *tab, long int nbr, int width, int is_neg);
 t_tab			*d_utils_minus(t_tab *tab, int blank,
 				char neg_char, int already_neg);
-void			d_utils_minus_print(t_tab *tab, long int nbr, int width, int blank);
+void			d_utils_minus_print(t_tab *tab, long int nbr,
+				int width, int blank);
 void			d_utils_positive_print(t_tab *tab, long int nbr,
 				int width, int blank);
 void			d_utils_positive(t_tab *tab, int width, int blank);
-
 
 #endif
