@@ -6,50 +6,13 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/25 20:43:16 by thezerbibi        #+#    #+#             */
-/*   Updated: 2020/09/14 22:38:17 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/14 22:53:39 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_tab	*print_d(t_tab *tab)
-{
-	long int	nbr;
-	int			indent;
-
-	nbr = (int)(va_arg(tab->args, int));
-	if (nbr == 0 && tab->precisions < 0)
-	{
-		display(tab, ' ', tab->width, 1);
-		return (tab);
-	}
-	if (nbr == 0 && tab->width <= 0 && tab->precisions <= 0
-		&& tab->combin[3] == '.')
-		return (tab);
-	if (tab->precisions < 0)
-		tab->prec_neg = 1;
-	if (nbr < 0)
-	{
-		tab->combin[0] = '-';
-		nbr *= -1;
-		tab->nbr_is_neg = 1;
-	}
-	indent = (tab->combin[0] == '-') ? 1 : 0;
-	display_d(tab, nbr, get_width(nbr), indent);
-	return (tab);
-}
-
-int		get_width(long int nbr)
-{
-	int width;
-
-	width = 1;
-	while ((nbr /= 10) > 0)
-		width++;
-	return (width);
-}
-
-static t_tab	*d_utils_minus(t_tab *tab, int blank,
+t_tab	*d_utils_minus(t_tab *tab, int blank,
 	char neg_char, int already_neg)
 {
 	if (tab->param == 0 && tab->precisions != 0)
@@ -76,7 +39,7 @@ static t_tab	*d_utils_minus(t_tab *tab, int blank,
 	return (tab);
 }
 
-static void	d_utils_minus_print(t_tab *tab, long int nbr, int width, int blank)
+void	d_utils_minus_print(t_tab *tab, long int nbr, int width, int blank)
 {
 	display(tab, '0', tab->precisions - width, 0);
 	if (nbr != (-9223372036854775807 - 1))
@@ -88,65 +51,9 @@ static void	d_utils_minus_print(t_tab *tab, long int nbr, int width, int blank)
 		display(tab, ' ', tab->width - blank, 0);
 }
 
-void	print_minus(t_tab *tab, long int nbr, int width, int is_neg)
+void	d_utils_positive_print(t_tab *tab, long int nbr,
+int width, int blank)
 {
-	int			blank;
-	char		neg_char;
-	int			already_neg;
-
-	nbr *= (nbr != (-9223372036854775807 - 1)) ? 1 : -1;
-	neg_char = (is_neg) ? '-' : '\0';
-	blank = width;
-	already_neg = 0;
-	if (width <= tab->precisions && tab->precisions >= 0)
-		blank = tab->precisions;
-	if (neg_char)
-		blank++;
-	tab->len += (blank <= tab->width) ? tab->width : blank;
-	if (nbr == 0 && tab->precisions == 0 && tab->combin[3] == '.')
-	{
-		tab->len -= 1;
-		if (tab->width > 0)
-			display(tab, ' ', tab->width, FALSE);
-		else
-			tab->len -= 1;
-		return ;
-	}
-	d_utils_minus(tab, blank, neg_char, already_neg);
-	d_utils_minus_print(tab, nbr, width, blank);
-}
-
-void	print_positive(t_tab *tab, long int nbr, int width)
-{
-	int			blank;
-
-	nbr *= (nbr != (-9223372036854775807 - 1)) ? 1 : -1;
-	blank = width;
-	if (width <= tab->precisions && tab->precisions >= 0 && tab->param == 0)
-		blank = tab->precisions;
-	tab->len += (blank <= tab->width) ? tab->width : blank;
-	if (nbr == 0 && tab->precisions == 0 && tab->combin[3] == '.'
-		&& tab->combin[1] != '0')
-	{
-		if (tab->width > 0)
-			display(tab, ' ', tab->width, FALSE);
-		else
-			tab->len -= 1;
-		return ;
-	}
-	if (tab->width_is_neg == 0)
-	{
-		if (tab->arg_flag == 'u' && tab->combin[3] == '.'
-			&& tab->combin[2] != '*' && tab->param == 0)
-		{
-			if (tab->prec_neg == 1)
-				display(tab, ' ', tab->width - width, 0);
-			else
-				display(tab, ' ', tab->width - blank, 0);
-		}
-		else if (tab->arg_flag != 'u')
-			display(tab, ' ', tab->width - blank, 0);
-	}
 	if (tab->prec_neg == 0 && tab->combin[1] == '0')
 	{
 		if (tab->arg_flag != 'u' && tab->width > 0)
@@ -169,4 +76,21 @@ void	print_positive(t_tab *tab, long int nbr, int width)
 		write(1, "2147483647", 10);
 	if (tab->width_is_neg == 1)
 		display(tab, ' ', tab->width - blank, 0);
+}
+
+void	d_utils_positive(t_tab *tab, int width, int blank)
+{
+	if (tab->width_is_neg == 0)
+	{
+		if (tab->arg_flag == 'u' && tab->combin[3] == '.'
+			&& tab->combin[2] != '*' && tab->param == 0)
+		{
+			if (tab->prec_neg == 1)
+				display(tab, ' ', tab->width - width, 0);
+			else
+				display(tab, ' ', tab->width - blank, 0);
+		}
+		else if (tab->arg_flag != 'u')
+			display(tab, ' ', tab->width - blank, 0);
+	}
 }

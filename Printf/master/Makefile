@@ -6,7 +6,7 @@
 #    By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/04 13:36:23 by thzeribi          #+#    #+#              #
-#    Updated: 2020/08/10 23:14:17 by thzeribi         ###   ########.fr        #
+#    Updated: 2020/09/14 22:49:29 by thzeribi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ PROJECT_NAME =	ft_printf \
 
 
 SOURCES_FOLDER = ./srcs/
-INCLUDES_FOLDER =	./includes/ 
+INCLUDES_FOLDER =	./includes/
 OBJECTS_FOLDER = ./objs/
 
 SRCS	=					\
@@ -29,7 +29,8 @@ SRCS	=					\
 				elems_parser.c	\
 				print.c			\
 				display.c		\
-				d_utils.c	\
+				d_utils.c		\
+				do_d.c		\
 
 OBJS = $(SRCS:.c=.o)
 OBJS := $(subst /,__,$(OBJS))
