@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/14 02:26:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/09 21:55:19 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/14 22:00:41 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static char	ft_calculate_char(int mod, char c)
 	return (return_char);
 }
 
-static int	ft_get_len(uintmax_t num, uintmax_t base)
+static int	ft_get_len(long int num, long int base)
 {
 	int		len;
 
@@ -41,9 +41,9 @@ static int	ft_get_len(uintmax_t num, uintmax_t base)
 	return (len);
 }
 
-static char	*ft_generate_string(uintmax_t num, uintmax_t base, char c)
+static char	*ft_generate_string(long int num, long int base, char c)
 {
-	uintmax_t	sum;
+	long int	sum;
 	int			mod;
 	int			len;
 	int			i;
@@ -70,7 +70,7 @@ static char	*ft_generate_string(uintmax_t num, uintmax_t base, char c)
 	return (str);
 }
 
-char		*ft_itoa_base(uintmax_t num, uintmax_t base, char c)
+char		*ft_itoa_base(long int num, long int base, char c)
 {
 	char	*str;
 

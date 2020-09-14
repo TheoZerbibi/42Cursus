@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 17:48:44 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/09 21:15:42 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/14 22:07:16 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,28 @@ void		display(t_tab *tab, int c, int len, int update_len)
 	}
 }
 
-void		display_c(t_tab *tab, char c)
+t_tab		*display_s(t_tab *tab, char *str)
 {
-	tab->len += 1;
-	ft_putchar(c);
+	int len;
+
+	len = 0;
+	if (str)
+		len = ft_strlen(str);
+	if (tab->precisions == -1)
+		tab->len += tab->width;
+	else
+		tab->len += len;
+	if (tab->combin[1] == '0' && tab->combin[0] != '-')
+		display(tab, '0', tab->width - len, 1);
+	else if (tab->width_is_neg == 0 && tab->precisions != -1 && tab->combin[0] != '-')
+		display(tab, ' ', tab->width - len, 1);
+	if (tab->precisions == -1)
+		display(tab, ' ', tab->width, 0);
+	else
+		ft_putstr(str);
+	if (tab->width_is_neg == 1|| tab->combin[0] == '-')
+		display(tab, ' ', tab->width - len, 1);
+	free(str);
 }
 
 t_tab		*display_d(t_tab *tab, long int nbr, int width, int is_neg)

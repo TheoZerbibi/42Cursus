@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 09:51:33 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/14 08:23:06 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/14 22:02:36 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ t_tab	*parse_precisions(t_tab *tab)
 		tab->precisions = 0;
 	while (ft_isdigit(tab->s_parse[tab->i]) == 1)
 	{
-		if (tab->s_parse[tab->i] == 0)
-			break;
 		tab->precisions *= 10;
 		tab->precisions += (tab->s_parse[tab->i] - 48);
 		tab->i++;

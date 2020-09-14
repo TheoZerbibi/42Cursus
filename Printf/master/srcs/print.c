@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 17:08:12 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/14 10:39:26 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/14 22:07:56 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ t_tab		*print_c(t_tab *tab)
 		if (tab->width_is_neg == -1)
 			display(tab, ' ', 1, 0);
 		else
-			display_c(tab, c);
+		{
+			tab->len += 1;
+			ft_putchar(c);
+		}
 	}
 	if (tab->width_is_neg == 1 || tab->combin[0] == '-')
 		display(tab, ' ', tab->width - 1, 1);
@@ -55,24 +58,7 @@ t_tab		*print_s(t_tab *tab)
 		free(str);
 		return (tab);
 	}
-	if (str)
-		len = ft_strlen(str);
-	if (tab->precisions == -1)
-		tab->len += tab->width;
-	else
-		tab->len += len;
-	if (tab->combin[1] == '0' && tab->combin[0] != '-')
-		display(tab, '0', tab->width - len, 1);
-	else if (tab->width_is_neg == 0 && tab->precisions != -1 && tab->combin[0] != '-')
-		display(tab, ' ', tab->width - len, 1);
-	if (tab->precisions == -1)
-		display(tab, ' ', tab->width, 0);
-	else
-		ft_putstr(str);
-
-	if (tab->width_is_neg == 1|| tab->combin[0] == '-')
-		display(tab, ' ', tab->width - len, 1);
-	free(str);
+	display_s(tab, str);
 	return (tab);
 }
 
