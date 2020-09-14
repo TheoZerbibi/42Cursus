@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 17:08:12 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/11 19:09:00 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/14 08:32:25 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,18 +131,22 @@ t_tab		*print_x(t_tab *tab, int upper)
 	tab->len += (blank <= tab->width || tab->width_is_neg == 1) ? tab->width : blank;
 
 //	printf("tablen af : %ld", tab->len);
-
-	if (tab->width_is_neg == 0)
+	if (tab->width_is_neg == 0 && tab->combin[1] != '0')
 		display(tab, ' ', tab->width - blank, FALSE);
-	if (tab->param == 0 && tab->combin[0] != '-')
-		display(tab, '0', tab->precisions - len, FALSE);
+	if (tab->param == 0 && tab->combin[0] != '-' && tab->precisions > 0)
+	{
+		if (tab->precisions == 0)
+			display(tab, '0', tab->width - len, FALSE);
+		else
+			display(tab, '0', tab->precisions - len, FALSE);
+	}
 	else
 		blank = len;
 	ft_putlnbr_base(nbr, BASE, upper, TRUE);
 	if (tab->width_is_neg == 1 && tab->combin[0] != '-')
 		display(tab, ' ', tab->width - blank, FALSE);
 	else if (tab->width_is_neg == 1 && tab->combin[0] == '-')
-		display(tab, ' ', tab->width - (blank + len + 2), FALSE);
+		display(tab, ' ', tab->width - len, FALSE);
 	return (tab);
 }
 
