@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 00:32:19 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/08/26 12:30:57 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/15 20:16:45 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ** FIXME:		conversion :Xx (all good until Test 11 +
 **						Test 9,12,14,15,16 bad size) - u 5eme Negative Test +
 **						d Test Positive 1
-** WIP:			conversion : xX, u
+** WIP:		conversion : xX, u
 ** FINISH:	conversion : i ,c, s, p + parsing (conversion + flags)
 */
 
