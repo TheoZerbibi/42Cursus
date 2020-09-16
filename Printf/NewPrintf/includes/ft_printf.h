@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 00:32:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/16 01:09:06 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/16 03:53:40 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ typedef struct	s_tab
 	char		flag;
 	char		combin[4];
 	int			width_is_neg;
-	int			prec_neg;
+	int			prec_is_neg;
 	int			nbr_is_neg;
 
 }				t_tab;
@@ -62,7 +62,7 @@ typedef struct	s_tab
 */
 
 int				ft_printf(const char *str, ...);
-int				ft_parser(t_tab tab);
+int				ft_parser(t_tab *tab);
 
 /*
 **	PARSING
@@ -99,5 +99,8 @@ t_tab			*print_s(t_tab *tab);
 t_tab			*print_d(t_tab *tab);
 t_tab			*print_x(t_tab *tab, int upper);
 t_tab			*print_p(t_tab *tab);
+t_tab			*print_u(t_tab *tab);
+
+void			display(t_tab *tab, int c, int len, int update_len);
 
 #endif

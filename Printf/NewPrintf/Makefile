@@ -6,7 +6,7 @@
 #    By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/04 13:36:23 by thzeribi          #+#    #+#              #
-#    Updated: 2020/09/16 00:34:23 by thzeribi         ###   ########.fr        #
+#    Updated: 2020/09/16 03:44:37 by thzeribi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,14 +22,18 @@ SOURCES_FOLDER = ./srcs/
 INCLUDES_FOLDER =	./includes/
 OBJECTS_FOLDER = ./objs/
 
-SRCS	=					\
-				ft_printf.c		\
-				elems.c		\
+SRCS	:=	ft_printf.c	\
+				elems.c				\
+				ft_parsing.c	\
+				\
+				flags/do_s.c	\
+				\
+				utils/display.c
 
 OBJS = $(SRCS:.c=.o)
-OBJS := $(subst /,__,$(OBJS))
 OBJS := $(addprefix $(OBJECTS_FOLDER),$(OBJS))
 SOURCES := $(addprefix $(SOURCES_FOLDER),$(SRCS))
+
 
 FSANITIZE = -fsanitize=address
 #FLAGS = -Wall -Wextra -Werror $(FSANITIZE)
@@ -56,6 +60,8 @@ $(NAME): $(OBJS)
 
 $(OBJECTS_FOLDER)%.o: $(SOURCES_FOLDER)%.c
 	@mkdir -p $(OBJECTS_FOLDER)
+	@mkdir -p $(OBJECTS_FOLDER)/flags
+	@mkdir -p $(OBJECTS_FOLDER)/utils
 	@$(CC) $(FLAGS) -I$(INCLUDES_FOLDER) -c $< -o $@
 	@printf "$(NO_COLOR)Creating $(INFO_COLOR)%-30s $(OK_COLOR)✓$(NO_COLOR)\r" "$@"
 
@@ -80,4 +86,54 @@ doclean: all clean
 
 re: fclean all
 
-.PHONY: all re norm clean fclean libft doclean
+.PHONY: all re norm clean fclean libft m
+
+
+
+# SRC_DIR  := ./srcs
+# INC_DIR  := ./includes
+# OBJ_DIR  := ./objs
+
+# SRC	:=	ft_printf.c	\
+# 				elems.c				\
+# 				ft_parsing.c	\
+# 				\
+# 				flags/do_s.c
+
+# OBJ		:= $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
+
+# # compiler
+# CC		:= gcc
+# CFLAGS	:= -Wall -Wextra -Werror
+# CFLAGS	+= -O3 -march=native -pipe
+
+# NAME	:= $(PRINTF_NAME)
+
+# # rules
+# all: $(NAME)
+
+# $(OBJ_DIR):
+# 	mkdir -p $(OBJ_DIR)
+# 	mkdir -p $(OBJ_DIR)/flags
+
+# $(OBJ_DIR)/%.o:$(SRC_DIR)/%.c
+# 	$(CC) $(CFLAGS) $(LIB_INC) -o $@ -c $<
+
+# $(NAME): $(OBJ_DIR) $(OBJ)
+# 	ar rc $(PRINTF_NAME) $(OBJ)
+# 	ranlib $(PRINTF_NAME)
+
+# test:
+# 	@$(MAKE) -C $(TEST_DIR) --no-print-directory
+
+# clean:
+# 	rm -rf $(OBJ_DIR)
+
+# fclean: clean
+# 	rm -f $(PRINTF_NAME)
+
+# re:
+# 	@$(MAKE) fclean --no-print-directory
+# 	@$(MAKE) all --no-print-directory
+
+# .PHONY: all clean fclean re relibs test
