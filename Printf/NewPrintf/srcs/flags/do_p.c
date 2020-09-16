@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 05:50:20 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/16 08:43:09 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/16 11:16:31 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@
 **	display_p() [Static Function] :
 **				Call by print_p(), this function
 **				will display the calculated elements in print_p().
-**				@param t_tab *tab & char *str, int indent
-**				@return tab
+**
+**			@param t_tab *tab & char *str, int indent
+**			@return tab
 */
 
 static t_tab	*display_p(t_tab *tab, char *str, int indent)
@@ -44,8 +45,9 @@ static t_tab	*display_p(t_tab *tab, char *str, int indent)
 **				Call by select_flag() when current flag is `p`.
 **				This threat `p` flag, mainly used to prepare display
 **				It will call the display_p() for general display
-**				@param t_tab *tab
-**				@return tab
+**
+**			@param t_tab *tab
+**			@return tab
 */
 
 t_tab			*print_p(t_tab *tab)

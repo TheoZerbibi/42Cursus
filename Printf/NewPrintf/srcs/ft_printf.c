@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:16:52 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/16 08:46:41 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/16 11:11:42 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 /*
 **	ft_init() :
 **			Call by ft_printf(), this function is for init structure for parsing
-**			@param t_tab *tab & const char *str
-**			@return *tab
+**
+**		@param t_tab *tab & const char *str
+**		@return *tab
 */
 
 static t_tab	ft_init(t_tab *tab, const char *str)
@@ -32,9 +33,11 @@ static t_tab	ft_init(t_tab *tab, const char *str)
 /*
 **	ft_printf() :
 **			This function is the main function for PrintF
-**			@param char *str & va_arg
-**			@return tab.len
-**			NOTE : check man printf
+**
+**		@param char *str & va_arg
+**		@return tab.len
+**
+**	NOTE : check man printf
 */
 
 int				ft_printf(const char *str, ...)

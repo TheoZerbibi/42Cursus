@@ -6,11 +6,26 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:35:34 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/16 03:53:50 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/16 11:12:13 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+/*
+**	parse_combin() :
+**				Call by get_elems(), this function parse the different combination.
+**				COMBIN[4] :
+**						combin[0] = '-'
+**						combin[1] = '0'
+**						combin[2] = '*'
+**				combin[3] ('.') is parse in parse_precisions()
+**
+**			@param t_tab *tab
+**			@return tab
+**
+**	NOTE - Check MACRO COMBINE
+*/
 
 t_tab	*parse_combin(t_tab *tab)
 {
@@ -33,6 +48,15 @@ t_tab	*parse_combin(t_tab *tab)
 	}
 	return (tab);
 }
+
+/*
+**	parse_width() :
+**				Call by get_elems(), this function parse the width
+**				and stock him in tab->width.
+**
+**			@param t_tab *tab
+**			@return tab
+*/
 
 t_tab	*parse_width(t_tab *tab)
 {
@@ -57,6 +81,15 @@ t_tab	*parse_width(t_tab *tab)
 	}
 	return (tab);
 }
+
+/*
+**	parse_precisions() :
+**				Call by get_elems(), this function parse the precisions
+**				and stock him in tab->precisions.
+**
+**			@param t_tab *tab
+**			@return tab
+*/
 
 t_tab	*parse_precisions(t_tab *tab)
 {
@@ -86,6 +119,18 @@ t_tab	*parse_precisions(t_tab *tab)
 	}
 	return (tab);
 }
+
+
+/*
+**	parse_flags() :
+**				Call by get_elems(), this function parse the flags
+**				and stock him in tab->precisions.
+**
+**			@param t_tab *tab
+**			@return tab
+**
+**	NOTE - Check MACRO FLAGS
+*/
 
 t_tab	*parse_flags(t_tab *tab)
 {

@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 06:33:00 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/16 09:35:47 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/16 11:15:48 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@
 **	display_x() [Static Function] :
 **				Call by print_x(), this function
 **				will display the calculated elements in print_x().
-**				@param t_tab *tab & long int nbr, int blank, int upper [BOOLEAN]
-**					int upper :
-**						[FALSE](0)	the result will be lowercase [x]
-**						[TRUE](1)		the result will be uppercase [X]
+**
+**			@param t_tab *tab & long int nbr, int blank, int upper [BOOLEAN]
+**				int upper :
+**					[FALSE](0)	the result will be lowercase [x]
+**					[TRUE](1)		the result will be uppercase [X]
 */
 
 static void	display_x(t_tab *tab, long int nbr, int blank, int upper)
@@ -54,46 +55,18 @@ static void	display_x(t_tab *tab, long int nbr, int blank, int upper)
 **	calc_len() [Static Function] :
 **				Call by print_x().
 **				This function will calculate the final return len of printf
-**				@param t_tab *tab
-**				@return tab
+**
+**			@param t_tab *tab, int blank
+**			@return tab
 */
 
-static t_tab	*calc_len(t_tab *tab)
+static t_tab	*calc_len(t_tab *tab, long int nbr, int upper)
 {
-
-	return (tab);
-}
-
-/*
-**	print_x() :
-**				Call by select_flag() when current flag is `x` or `X`.
-**				This fnction threat `x` or `X` flag, mainly used
-**				to prepare display and calculated tab->len.
-**				It will call the display_x() for general display
-**				@param t_tab *tab & int upper [BOOLEAN]
-**					int upper :
-**						[FALSE](0)	the result will be lowercase [x]
-**						[TRUE](1)		the result will be uppercase [X]
-**				@return tab
-*/
-
-t_tab		*print_x(t_tab *tab, int upper)
-{
-	long int	nbr;
-	int			indent;
-	int			len;
-	int			blank;
-
-	nbr = (unsigned)(va_arg(tab->args, unsigned int));
-	if ((int)nbr < 0)
-		tab->nbr_is_neg = 1;
-	if (tab->width == 0 && tab->combin[3] == '.' && tab->precisions == 0
-		&& nbr == 0)
-		return (tab);
-	indent = (tab->combin[0] == '-') ? 1 : 0;
-	len = ft_putlnbr_base(nbr, BASE, upper, FALSE);
-	blank = (len <= tab->precisions && tab->precisions > 0 && tab->width > 0) ?
-	tab->precisions : len;
+	int	width;
+	int	blank;
+	
+	width = ft_putlnbr_base(nbr, BASE, upper, FALSE);
+	blank = (width <= tab->precisions && tab->precisions > 0 && tab->width >= 0) ? tab->precisions : width;
 	if (tab->width_is_neg == 1 && tab->combin[1] == '0'
 		&& (tab->combin[0] == '-' || tab->nbr_is_neg == 1))
 		tab->len += tab->width;
@@ -106,5 +79,37 @@ t_tab		*print_x(t_tab *tab, int upper)
 	else
 		tab->len += blank;
 	display_x(tab, nbr, blank, upper);
+	return (tab);
+}
+
+/*
+**	print_x() :
+**				Call by select_flag() when current flag is `x` or `X`.
+**				This fnction threat `x` or `X` flag, mainly used
+**				to prepare display and calculated tab->len.
+**				It will call the display_x() for general display
+**
+**			@param t_tab *tab & int upper [BOOLEAN]
+**				int upper :
+**					[FALSE](0)	the result will be lowercase [x]
+**					[TRUE](1)		the result will be uppercase [X]
+**			@return tab
+*/
+
+t_tab		*print_x(t_tab *tab, int upper)
+{
+	long int	nbr;
+	int			indent;
+	int			len;
+
+	nbr = (unsigned)(va_arg(tab->args, unsigned int));
+	if ((int)nbr < 0)
+		tab->nbr_is_neg = 1;
+	if (tab->width == 0 && tab->combin[3] == '.' && tab->precisions == 0
+		&& nbr == 0)
+		return (tab);
+	indent = (tab->combin[0] == '-') ? 1 : 0;
+	len = ft_putlnbr_base(nbr, BASE, upper, FALSE);
+	calc_len(tab, nbr, upper);
 	return (tab);
 }
