@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:34:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/16 07:20:22 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/16 09:30:30 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -295,7 +295,7 @@ int	main(void)
 	success();
 
 	printf("\n-------%s HEXA %s-------\n\n", SUCCESS, SUCCESS);
-	calc_test(17);
+	calc_test(18);
 	printf("-------TEST 1-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%x|)", HEXA));
 	printf(" = vrai = [%d]\n", printf("(|%x|)", HEXA));
@@ -363,6 +363,15 @@ int	main(void)
 	printf("-------TEST 17-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%.0x|)", 1));
 	printf(" = vrai = [%d]\n", printf("(|%.0x|)", 1));
+	success();
+	printf("-------TEST 18-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%-6x|)", 0xdd66));
+	printf(" = vrai = [%d]\n", printf("(|%-6x|)", 0xdd66));
+	success();
+	printf("-------TEST 19-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|test%---10.6x et %01X et %0x !!\\n|)", 0xaabb, (unsigned int)0, 0));
+	printf(" = vrai = [%d]\n", printf("(|test%---10.6x et %01X et %0x !!\\n|)", 0xaabb, (unsigned int)0, 0));
+	success();
 
 	/*printf("\n-------%s UNSIGNED POSITIFS %s-------\n\n", SUCCESS, SUCCESS);
 	calc_test(11);
@@ -545,10 +554,6 @@ int	main(void)
 	printf(" = vrai = [%d]\n", printf("(|%.4x|)", 0x78));
 	printf(" = mien = [%d]\n", ft_printf("(|%.7X|)", 0xaa));
 	printf(" = vrai = [%d]\n", printf("(|%.7X|)", 0xaa));
-	printf(" = mien = [%d]\n", ft_printf("(|%-6x|)", 0xdd66));
-	printf(" = vrai = [%d]\n", printf("(|%-6x|)", 0xdd66));
-	printf(" = mien = [%d]\n", ft_printf("(|test%---10.6x et %01X et %0x !!\\n|)", 0xaabb, (unsigned int)0, 0));
-	printf(" = vrai = [%d]\n", printf("(|test%---10.6x et %01X et %0x !!\\n|)", 0xaabb, (unsigned int)0, 0));
 	ft_putstr("====================================================================================================\n");
 	printf("\n\n\033[1;32mScore : %d/%d\033[0m\n\033[1;33mBugs  : %d\033[0m\n", (GLOBAL_TEST - GLOBAL_ERR), GLOBAL_TEST, GLOBAL_ERR);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 06:33:00 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/16 08:44:39 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/16 09:35:47 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ static void	display_x(t_tab *tab, long int nbr, int blank, int upper)
 	int len;
 
 	len = ft_putlnbr_base(nbr, BASE, upper, FALSE);
-	if (tab->width_is_neg == 0 && tab->combin[1] != '0')
+	if (tab->width_is_neg == 0 && tab->combin[1] != '0' && tab->combin[0] != '-')
 		display(tab, ' ', tab->width - blank, FALSE);
-	if (tab->prec_is_neg == 0 && tab->combin[0] != '-' && tab->precisions >= 0)
+	if (tab->prec_is_neg == 0 && tab->precisions >= 0)
 	{
 		if (tab->combin[1] == '0' && tab->precisions == 0)
 			display(tab, '0', tab->width - len, FALSE);
@@ -41,15 +41,34 @@ static void	display_x(t_tab *tab, long int nbr, int blank, int upper)
 	ft_putlnbr_base(nbr, BASE, upper, TRUE);
 	if (tab->width_is_neg == 1 && tab->combin[0] != '-')
 		display(tab, ' ', tab->width - blank, FALSE);
-	else if (tab->width_is_neg == 1 && tab->combin[0] == '-')
-		display(tab, ' ', tab->width - len, FALSE);
+	else if (tab->combin[0] == '-')
+	{
+		if (tab->prec_is_neg == 0 && tab->precisions >= 0 && tab->combin[3] == '.')
+			display(tab, ' ', tab->width - (len + 2), FALSE);
+		else
+			display(tab, ' ', tab->width - len , FALSE);
+	}
+}
+
+/*
+**	calc_len() [Static Function] :
+**				Call by print_x().
+**				This function will calculate the final return len of printf
+**				@param t_tab *tab
+**				@return tab
+*/
+
+static t_tab	*calc_len(t_tab *tab)
+{
+
+	return (tab);
 }
 
 /*
 **	print_x() :
 **				Call by select_flag() when current flag is `x` or `X`.
-**				This threat `x` or `X` flag, mainly used to prepare display
-**				and calculated tab->len.
+**				This fnction threat `x` or `X` flag, mainly used
+**				to prepare display and calculated tab->len.
 **				It will call the display_x() for general display
 **				@param t_tab *tab & int upper [BOOLEAN]
 **					int upper :
