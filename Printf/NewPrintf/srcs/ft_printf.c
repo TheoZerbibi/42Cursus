@@ -6,12 +6,11 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:16:52 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/16 03:47:41 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/16 08:46:41 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-
 
 /*
 **	ft_init() :

@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:18:16 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/16 06:35:21 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/16 08:49:20 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,12 @@ static t_tab	*select_flag(t_tab *tab)
 		print_x(tab, 0);
 	else if (*flag == 'X')
 		print_x(tab, 1);
-	/*else if (*flag == 'd' || *flag == 'i')
-		print_d(tab);
-	else if (*flag == 'u')
-		print_u(tab);*/
+/*
+** 	else if (*flag == 'd' || *flag == 'i')
+**		print_d(tab);
+** 	else if (*flag == 'u')
+**		print_u(tab);
+*/
 	return (tab);
 }
 
@@ -72,7 +74,7 @@ static t_tab	*select_flag(t_tab *tab)
 **				@return tab.len
 */
 
-static int	get_elems(t_tab *tab)
+static int		get_elems(t_tab *tab)
 {
 	tab->i++;
 	init_printf(tab);
@@ -93,7 +95,7 @@ static int	get_elems(t_tab *tab)
 **				@return tab.len
 */
 
-int		ft_parser(t_tab *tab)
+int				ft_parser(t_tab *tab)
 {
 	if (ft_strcmp(tab->s_copy, "%") == 0)
 		return (0);

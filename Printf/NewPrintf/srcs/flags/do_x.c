@@ -6,13 +6,23 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 06:33:00 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/16 07:16:38 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/16 08:44:39 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-void		display_x(t_tab *tab, long int nbr, int blank, int upper)
+/*
+**	display_x() [Static Function] :
+**				Call by print_x(), this function
+**				will display the calculated elements in print_x().
+**				@param t_tab *tab & long int nbr, int blank, int upper [BOOLEAN]
+**					int upper :
+**						[FALSE](0)	the result will be lowercase [x]
+**						[TRUE](1)		the result will be uppercase [X]
+*/
+
+static void	display_x(t_tab *tab, long int nbr, int blank, int upper)
 {
 	int len;
 
@@ -34,6 +44,19 @@ void		display_x(t_tab *tab, long int nbr, int blank, int upper)
 	else if (tab->width_is_neg == 1 && tab->combin[0] == '-')
 		display(tab, ' ', tab->width - len, FALSE);
 }
+
+/*
+**	print_x() :
+**				Call by select_flag() when current flag is `x` or `X`.
+**				This threat `x` or `X` flag, mainly used to prepare display
+**				and calculated tab->len.
+**				It will call the display_x() for general display
+**				@param t_tab *tab & int upper [BOOLEAN]
+**					int upper :
+**						[FALSE](0)	the result will be lowercase [x]
+**						[TRUE](1)		the result will be uppercase [X]
+**				@return tab
+*/
 
 t_tab		*print_x(t_tab *tab, int upper)
 {

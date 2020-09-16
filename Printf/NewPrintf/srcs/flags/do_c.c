@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 06:17:55 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/16 06:30:34 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/16 08:45:39 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 /*
 **	print_c() :
 **				Call by select_flag() when current flag is `c` or `%`.
-**				This threat `c` or `%` flag, is used to prepared and show display
+**				This threat `c` or `%` flag, is used to prepared and
+**				show display.
 **				@param t_tab *tab
 **				@return tab
 */
 
-t_tab		*print_c(t_tab *tab)
+t_tab	*print_c(t_tab *tab)
 {
 	char c;
 

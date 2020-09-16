@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 05:50:20 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/16 06:21:30 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/16 08:43:09 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 /*
 **	display_p() [Static Function] :
-**				Call by print_x(), this function
+**				Call by print_p(), this function
 **				will display the calculated elements in print_p().
 **				@param t_tab *tab & char *str, int indent
 **				@return tab
 */
 
-static t_tab		*display_p(t_tab *tab, char *str, int indent)
+static t_tab	*display_p(t_tab *tab, char *str, int indent)
 {
 	int			blank;
 	int			width;
@@ -48,7 +48,7 @@ static t_tab		*display_p(t_tab *tab, char *str, int indent)
 **				@return tab
 */
 
-t_tab		*print_p(t_tab *tab)
+t_tab			*print_p(t_tab *tab)
 {
 	char		*str;
 	long int	nbr;
