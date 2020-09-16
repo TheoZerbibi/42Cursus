@@ -32,8 +32,6 @@ WARN_COLOR =	\033[38;5;3m
 SILENT_COLOR =	\033[38;5;245m
 INFO_COLOR =	\033[38;5;140m
 
-.PHONY: all re clean fclean NewPrintf force doclean
-
 all: $(NAME)
 
 $(LIBS):
@@ -72,3 +70,5 @@ fclean: clean
 doclean: all clean
 
 re: fclean all
+
+.PHONY: all re clean fclean NewPrintf force doclean

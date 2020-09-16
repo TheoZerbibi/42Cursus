@@ -6,7 +6,7 @@
 #    By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/04 13:36:23 by thzeribi          #+#    #+#              #
-#    Updated: 2020/09/16 06:35:49 by thzeribi         ###   ########.fr        #
+#    Updated: 2020/09/17 01:07:29 by thzeribi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,8 +30,10 @@ SRCS	:=	ft_printf.c	\
 				flags/do_p.c	\
 				flags/do_c.c	\
 				flags/do_x.c	\
+				flags/do_d.c	\
 				\
-				utils/display.c
+				utils/display.c	\
+				utils/d_utils.c	\
 
 OBJS = $(SRCS:.c=.o)
 OBJS := $(addprefix $(OBJECTS_FOLDER),$(OBJS))
@@ -89,54 +91,4 @@ doclean: all clean
 
 re: fclean all
 
-.PHONY: all re norm clean fclean libft m
-
-
-
-# SRC_DIR  := ./srcs
-# INC_DIR  := ./includes
-# OBJ_DIR  := ./objs
-
-# SRC	:=	ft_printf.c	\
-# 				elems.c				\
-# 				ft_parsing.c	\
-# 				\
-# 				flags/do_s.c
-
-# OBJ		:= $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
-
-# # compiler
-# CC		:= gcc
-# CFLAGS	:= -Wall -Wextra -Werror
-# CFLAGS	+= -O3 -march=native -pipe
-
-# NAME	:= $(PRINTF_NAME)
-
-# # rules
-# all: $(NAME)
-
-# $(OBJ_DIR):
-# 	mkdir -p $(OBJ_DIR)
-# 	mkdir -p $(OBJ_DIR)/flags
-
-# $(OBJ_DIR)/%.o:$(SRC_DIR)/%.c
-# 	$(CC) $(CFLAGS) $(LIB_INC) -o $@ -c $<
-
-# $(NAME): $(OBJ_DIR) $(OBJ)
-# 	ar rc $(PRINTF_NAME) $(OBJ)
-# 	ranlib $(PRINTF_NAME)
-
-# test:
-# 	@$(MAKE) -C $(TEST_DIR) --no-print-directory
-
-# clean:
-# 	rm -rf $(OBJ_DIR)
-
-# fclean: clean
-# 	rm -f $(PRINTF_NAME)
-
-# re:
-# 	@$(MAKE) fclean --no-print-directory
-# 	@$(MAKE) all --no-print-directory
-
-# .PHONY: all clean fclean re relibs test
+.PHONY: all re norm clean fclean libft doclean
