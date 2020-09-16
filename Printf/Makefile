@@ -20,9 +20,9 @@ OBJECTS := $(subst /,__,$(OBJECTS))
 OBJECTS := $(addprefix $(OBJECTS_FOLDER),$(OBJECTS))
 SOURCES := $(addprefix $(SOURCES_FOLDER),$(SOURCES))
 
-FSANITIZE = -fsanitize=address
-#FLAGS = -Wall -Wextra -Werror $(FSANITIZE)
-FLAGS = -Wall -Wextra -Werror
+FSANITIZE = -g3 -fsanitize=address
+FLAGS = -Wall -Wextra -Werror $(FSANITIZE)
+#FLAGS = -Wall -Wextra -Werror
 CC = clang
 
 NO_COLOR =		\033[38;5;15m

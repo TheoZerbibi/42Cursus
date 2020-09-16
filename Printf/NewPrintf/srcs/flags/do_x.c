@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 06:33:00 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/16 11:35:55 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/17 00:13:22 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,58 +30,26 @@ static void	display_x(t_tab *tab, long int nbr, int blank, int upper)
 
 	len = ft_putlnbr_base(nbr, BASE, upper, FALSE);
 	if (tab->width_is_neg == 0 && tab->combin[1] != '0' && tab->combin[0] != '-')
-		display(tab, ' ', tab->width - blank, FALSE);
+		display(tab, ' ', tab->width - blank, TRUE);
 	if (tab->prec_is_neg == 0 && tab->precisions >= 0)
 	{
 		if (tab->combin[1] == '0' && tab->precisions == 0)
-			display(tab, '0', tab->width - len, FALSE);
+			display(tab, '0', tab->width - len, TRUE);
 		else
-			display(tab, '0', tab->precisions - len, FALSE);
+			display(tab, '0', tab->precisions - len, TRUE);
 	}
 	else
 		blank = len;
-	ft_putlnbr_base(nbr, BASE, upper, TRUE);
+	tab->len += ft_putlnbr_base(nbr, BASE, upper, TRUE);
 	if (tab->width_is_neg == 1 && tab->combin[0] != '-')
-		display(tab, ' ', tab->width - blank, FALSE);
+		display(tab, ' ', tab->width - blank, TRUE);
 	else if (tab->combin[0] == '-')
 	{
 		if (tab->prec_is_neg == 0 && tab->precisions >= 0 && tab->combin[3] == '.')
-			display(tab, ' ', tab->width - (len + 2), FALSE);
+			display(tab, ' ', tab->width - (len + 2), TRUE);
 		else
-			display(tab, ' ', tab->width - len , FALSE);
+			display(tab, ' ', tab->width - len , TRUE);
 	}
-}
-
-/*
-**	calc_len() [Static Function] :
-**				Call by print_x().
-**				This function will calculate the final return len of printf
-**				It will call the display_x() for general display
-**
-**			@param t_tab *tab, int blank
-**			@return tab
-*/
-
-static t_tab	*calc_len(t_tab *tab, long int nbr, int upper)
-{
-	int	width;
-	int	blank;
-	
-	width = ft_putlnbr_base(nbr, BASE, upper, FALSE);
-	blank = (width <= tab->precisions && tab->precisions > 0 && tab->width >= 0) ? tab->precisions : width;
-	if (tab->width_is_neg == 1 && tab->combin[1] == '0'
-		&& (tab->combin[0] == '-' || tab->nbr_is_neg == 1))
-		tab->len += tab->width;
-	else if (tab->width_is_neg == 1 && (tab->combin[0] == '-' ||
-		tab->prec_is_neg == 0 || tab->nbr_is_neg == 1)
-		&& (tab->nbr_is_neg == 1 || tab->combin[1] == '0'))
-		tab->len += blank;
-	else if (blank <= tab->width || tab->width_is_neg == 1)
-		tab->len += tab->width;
-	else
-		tab->len += blank;
-	display_x(tab, nbr, blank, upper);
-	return (tab);
 }
 
 /*
@@ -101,8 +69,8 @@ static t_tab	*calc_len(t_tab *tab, long int nbr, int upper)
 t_tab		*print_x(t_tab *tab, int upper)
 {
 	long int	nbr;
-	int			indent;
-	int			len;
+	int			width;
+	int			blank;
 
 	nbr = (unsigned)(va_arg(tab->args, unsigned int));
 	if ((int)nbr < 0)
@@ -110,8 +78,8 @@ t_tab		*print_x(t_tab *tab, int upper)
 	if (tab->width == 0 && tab->combin[3] == '.' && tab->precisions == 0
 		&& nbr == 0)
 		return (tab);
-	indent = (tab->combin[0] == '-') ? 1 : 0;
-	len = ft_putlnbr_base(nbr, BASE, upper, FALSE);
-	calc_len(tab, nbr, upper);
+	width = ft_putlnbr_base(nbr, BASE, upper, FALSE);
+	blank = (width <= tab->precisions && tab->precisions > 0 && tab->width >= 0) ? tab->precisions : width;
+	display_x(tab, nbr, blank, upper);
 	return (tab);
 }

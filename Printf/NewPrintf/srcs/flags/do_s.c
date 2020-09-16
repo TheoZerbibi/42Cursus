@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 02:34:15 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/16 11:32:20 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/17 00:18:03 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,25 +26,20 @@ static t_tab	*display_s(t_tab *tab, char *str)
 	int len;
 
 	len = 0;
-	if (tab->width == -1 && tab->combin[3] == '.')
-		return (tab);
 	if (str)
 		len = ft_strlen(str);
-	if (tab->precisions == -1)
-		tab->len += tab->width;
-	else
-		tab->len += len;
+	tab->len += len;
 	if (tab->combin[1] == '0' && tab->combin[0] != '-')
-		display(tab, '0', tab->width - len, 1);
+		display(tab, '0', tab->width - len, TRUE);
 	else if (tab->width_is_neg == 0 && tab->precisions != -1
 		&& tab->combin[0] != '-')
-		display(tab, ' ', tab->width - len, 1);
+		display(tab, ' ', tab->width - len, TRUE);
 	if (tab->precisions == -1)
-		display(tab, ' ', tab->width, 0);
+		display(tab, ' ', tab->width, TRUE);
 	else
 		ft_putstr(str);
 	if (tab->width_is_neg == 1 || tab->combin[0] == '-')
-		display(tab, ' ', tab->width - len, 1);
+		display(tab, ' ', tab->width - len, TRUE);
 	free(str);
 	return (tab);
 }
@@ -66,6 +61,8 @@ t_tab			*print_s(t_tab *tab)
 
 	len = 0;
 	str = va_arg(tab->args, char *);
+	if (tab->width == -1 && tab->combin[3] == '.')
+		return (tab);
 	if (tab->precisions && str)
 		str = ft_strndup(str, tab->precisions);
 	else if (!tab->precisions && str)
