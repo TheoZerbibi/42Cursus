@@ -2,15 +2,15 @@ ifndef VERBOSE
 MAKEFLAGS += --no-print-directory
 endif
 
-NAME = printf
-PROJECT_NAME = ft_printf test
+NAME = ft_printf
+PROJECT_NAME = ft_printf
 
 SOURCES_FOLDER = ./
 INCLUDES_FOLDER = ./
 OBJECTS_FOLDER = ./objects/
 
-LIBS = master
-PRINTF = master/libftprintf.a
+LIBS = NewPrintf
+PRINTF = NewPrintf/libftprintf.a
 
 SOURCES = \
 	main.c \
@@ -32,7 +32,7 @@ WARN_COLOR =	\033[38;5;3m
 SILENT_COLOR =	\033[38;5;245m
 INFO_COLOR =	\033[38;5;140m
 
-.PHONY: all re clean fclean master force doclean
+.PHONY: all re clean fclean NewPrintf force doclean
 
 all: $(NAME)
 
