@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:18:16 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/16 04:07:27 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/16 06:35:21 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,18 +47,18 @@ static t_tab	*select_flag(t_tab *tab)
 	char *flag;
 
 	flag = &tab->flag;
-	/*if (*flag == 'c' || *flag == '%')
+	if (*flag == 'c' || *flag == '%')
 		print_c(tab);
-	else */if (*flag == 's')
+	else if (*flag == 's')
 		print_s(tab);
-	/*else if (*flag == 'd' || *flag == 'i')
-		print_d(tab);
+	else if (*flag == 'p')
+		print_p(tab);
 	else if (*flag == 'x')
 		print_x(tab, 0);
 	else if (*flag == 'X')
 		print_x(tab, 1);
-	else if (*flag == 'p')
-		print_p(tab);
+	/*else if (*flag == 'd' || *flag == 'i')
+		print_d(tab);
 	else if (*flag == 'u')
 		print_u(tab);*/
 	return (tab);
@@ -89,6 +89,7 @@ static int	get_elems(t_tab *tab)
 **				Call by ft_printf(), this function read copy
 **				of original string (s_copy) write by default
 **				@param t_tab tab
+**				@throws 0 if string just contain `%`
 **				@return tab.len
 */
 

@@ -6,7 +6,7 @@
 #    By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/04 13:36:23 by thzeribi          #+#    #+#              #
-#    Updated: 2020/09/16 03:44:37 by thzeribi         ###   ########.fr        #
+#    Updated: 2020/09/16 06:35:49 by thzeribi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,9 @@ SRCS	:=	ft_printf.c	\
 				ft_parsing.c	\
 				\
 				flags/do_s.c	\
+				flags/do_p.c	\
+				flags/do_c.c	\
+				flags/do_x.c	\
 				\
 				utils/display.c
 
