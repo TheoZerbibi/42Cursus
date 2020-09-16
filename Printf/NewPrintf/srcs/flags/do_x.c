@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 06:33:00 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/16 11:15:48 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/16 11:35:55 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 **				int upper :
 **					[FALSE](0)	the result will be lowercase [x]
 **					[TRUE](1)		the result will be uppercase [X]
+**			@return void function, no values ​​return
 */
 
 static void	display_x(t_tab *tab, long int nbr, int blank, int upper)
@@ -55,6 +56,7 @@ static void	display_x(t_tab *tab, long int nbr, int blank, int upper)
 **	calc_len() [Static Function] :
 **				Call by print_x().
 **				This function will calculate the final return len of printf
+**				It will call the display_x() for general display
 **
 **			@param t_tab *tab, int blank
 **			@return tab
@@ -85,9 +87,9 @@ static t_tab	*calc_len(t_tab *tab, long int nbr, int upper)
 /*
 **	print_x() :
 **				Call by select_flag() when current flag is `x` or `X`.
-**				This fnction threat `x` or `X` flag, mainly used
-**				to prepare display and calculated tab->len.
-**				It will call the display_x() for general display
+**				This function threat `x` or `X` flag, mainly used
+**				to prepare the display.
+**				It will call calc_len() for calculated the final len.
 **
 **			@param t_tab *tab & int upper [BOOLEAN]
 **				int upper :

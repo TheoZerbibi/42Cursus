@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 05:50:20 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/16 11:16:31 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/16 11:32:57 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static t_tab	*display_p(t_tab *tab, char *str, int indent)
 /*
 **	print_p() :
 **				Call by select_flag() when current flag is `p`.
-**				This threat `p` flag, mainly used to prepare display
+**				This function threat `p` flag, mainly used to prepare the display
 **				It will call the display_p() for general display
 **
 **			@param t_tab *tab

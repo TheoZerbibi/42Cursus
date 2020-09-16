@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 03:43:10 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/16 11:14:50 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/16 11:36:25 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /*
 **	display() :
-**				General function for display
+**				General function for display.
 **
 **			@param t_tab *tab & int c & int len, int update_len [BOOLEAN]
 **				int update_len :

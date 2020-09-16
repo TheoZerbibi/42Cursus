@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:18:16 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/16 10:30:06 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/16 11:27:39 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@
 **	init_printf() [Static Function] :
 **				Call by get_elems(), this function init structure
 **				for the proper functioning of printf
-**				@param t_tab tab
-**				@return tab.len
+**
+**			@param t_tab tab
+**			@return tab.len
 */
 
 static t_tab	*init_printf(t_tab *tab)
@@ -36,7 +37,7 @@ static t_tab	*init_printf(t_tab *tab)
 
 /*
 **	select_flag() [Static Function] :
-**				Call by get_elems(), this function find the current flags
+**				Call fifth by get_elems(), this function find the current flags
 **				and call and calls the appropriate function.
 **				@param t_tab tab
 **				@return tab.len
@@ -70,8 +71,9 @@ static t_tab	*select_flag(t_tab *tab)
 **	get_elems() [Static Function] :
 **				Call when ft_parser find a '%'.
 **				This function will call all parsing function
-**				@param t_tab tab
-**				@return tab.len
+**
+**			@param t_tab tab
+**			@return tab.len
 */
 
 static int		get_elems(t_tab *tab)
@@ -89,10 +91,11 @@ static int		get_elems(t_tab *tab)
 /*
 **	ft_parser() :
 **				Call by ft_printf(), this function read copy
-**				of original string (s_copy) write by default
-**				@param t_tab tab
-**				@throws 0 if string just contain `%`
-**				@return tab.len
+**				of original string (s_copy) and write by default (no '%')
+**
+**			@param t_tab tab
+**			@throws 0 if string just contain `%`
+**			@return tab.len
 */
 
 int				ft_parser(t_tab *tab)

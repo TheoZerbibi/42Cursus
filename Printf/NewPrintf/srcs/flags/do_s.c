@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 02:34:15 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/16 11:16:50 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/16 11:32:20 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static t_tab	*display_s(t_tab *tab, char *str)
 /*
 **	print_s() :
 **				Call by select_flag() when current flag is `s`.
-**				This threat `s` flag, mainly used to prepare display
+**				This function threat `s` flag, mainly used to prepare the display
 **				It will call the display_s() for general display
 **
 **			@param t_tab *tab
