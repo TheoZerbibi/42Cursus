@@ -6,16 +6,16 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 01:02:09 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/17 05:54:49 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/17 08:08:38 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-
-static void	print_positive(t_tab *tab, long int nbr, int width)
+static void		print_positive(t_tab *tab, long int nbr, int width)
 {
 	int		blank;
+
 	nbr *= (nbr != (-9223372036854775807 - 1)) ? 1 : -1;
 	if ((blank = width) && width <= tab->precisions
 		&& tab->precisions >= 0 && tab->prec_is_neg == 0)
@@ -32,7 +32,7 @@ static void	print_positive(t_tab *tab, long int nbr, int width)
 	d_utils_positive_print(tab, nbr, width, blank);
 }
 
-static void	print_minus(t_tab *tab, long int nbr, int width, int is_neg)
+static void		print_minus(t_tab *tab, long int nbr, int width, int is_neg)
 {
 	int			blank;
 	char		neg_char;
@@ -50,7 +50,7 @@ static void	print_minus(t_tab *tab, long int nbr, int width, int is_neg)
 	d_utils_minus_print(tab, nbr, width, blank);
 }
 
-static t_tab		*display_d(t_tab *tab, long int nbr, int width, int is_neg)
+static t_tab	*display_d(t_tab *tab, long int nbr, int width, int is_neg)
 {
 	if (is_neg)
 		print_minus(tab, nbr, width, is_neg);
@@ -59,7 +59,7 @@ static t_tab		*display_d(t_tab *tab, long int nbr, int width, int is_neg)
 	return (tab);
 }
 
-t_tab	*print_d(t_tab *tab)
+t_tab			*print_d(t_tab *tab)
 {
 	long int	nbr;
 	int			indent;
