@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:18:16 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/17 06:25:20 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/17 08:55:06 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 **				Call by get_elems(), this function init structure
 **				for the proper functioning of printf
 **
-**			@param t_tab tab
+**			@param t_tab *tab
 **			@return tab.len
 */
 
@@ -38,10 +38,11 @@ static t_tab	*init_printf(t_tab *tab)
 
 /*
 **	select_flag() [Static Function] :
-**				Call fifth by get_elems(), this function find the current flags
+**				Call fifth by get_elems(), this function find the current flag
 **				and call and calls the appropriate function.
-**				@param t_tab tab
-**				@return tab.len
+**
+**			@param t_tab tab
+**			@return tab.len
 */
 
 static t_tab	*select_flag(t_tab *tab)
@@ -56,9 +57,9 @@ static t_tab	*select_flag(t_tab *tab)
 	else if (*flag == 'p')
 		print_p(tab);
 	else if (*flag == 'x')
-		print_x(tab, 0);
+		print_x(tab, FALSE);
 	else if (*flag == 'X')
-		print_x(tab, 1);
+		print_x(tab, TRUE);
 	else if (*flag == 'd' || *flag == 'i')
 		print_d(tab);
 /* 	else if (*flag == 'u')
@@ -90,8 +91,9 @@ static int		get_elems(t_tab *tab)
 
 /*
 **	ft_parser() :
-**				Call by ft_printf(), this function read copy
-**				of original string (s_copy) and write by default (no '%')
+**				Call by ft_printf(), this function read a copy
+**				of original string (s_copy) and write by
+**				default (default = no '%').
 **
 **			@param t_tab tab
 **			@throws 0 if string just contain `%`

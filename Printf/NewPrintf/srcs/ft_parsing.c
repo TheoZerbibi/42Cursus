@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:35:34 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/17 06:42:40 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/17 08:54:33 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 **				Call first by get_elems(), this function parse the different
 **				combination and stock him in tab->combin[x].
 **				COMBIN[4] :
-**						combin[0] = '-'
-**						combin[1] = '0'
-**						combin[2] = '*'
-**				combin[3] ('.') is parse in parse_precisions()
+**						combin[0] = `-`
+**						combin[1] = `0`
+**						combin[2] = `*`
+**				combin[3] (`.`) is parse in parse_precisions()
 **
 **			@param t_tab *tab
 **			@return tab
@@ -88,7 +88,7 @@ t_tab	*parse_width(t_tab *tab)
 **				Call thirdly by get_elems(), this function parse the precisions
 **				and stock him in tab->precisions.
 **				This is where tab->combin[3] is parse.
-**					combin[3] = '.'
+**					combin[3] = `.`
 **
 **			@param t_tab *tab
 **			@return tab

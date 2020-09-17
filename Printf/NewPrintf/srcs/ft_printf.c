@@ -6,14 +6,14 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:16:52 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/16 11:11:42 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/17 08:48:15 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
 /*
-**	ft_init() :
+**	ft_init() [Static Function ]:
 **			Call by ft_printf(), this function is for init structure for parsing
 **
 **		@param t_tab *tab & const char *str

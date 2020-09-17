@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 06:33:00 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/17 08:06:15 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/17 08:55:18 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ static void	display_x(t_tab *tab, long int nbr, int blank, int upper)
 **
 **			@param t_tab *tab & int upper [BOOLEAN]
 **				int upper :
-**					[FALSE](0)	the result will be lowercase [x]
-**					[TRUE](1)		the result will be uppercase [X]
+**					[FALSE](0)	- the result will be lowercase [x]
+**					[TRUE](1)		- the result will be uppercase [X]
 **			@return tab
 */
 

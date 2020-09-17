@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 00:32:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/17 08:41:03 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/17 08:51:14 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@
 **		.- combin[1] = '0'
 **		.- combin[2] = '*'
 **		.- combin[3] = '.'
+** -------------------------------------------------------------------
+**								GLOBAL_NOTE - Check MACRO COMBINE
 ** -------------------------------------------------------------------
 */
 
@@ -106,8 +108,8 @@ int				ft_parser(t_tab *tab);
 **			@param t_tab *tab
 **			@return tab
 **
-** -------------------------------------------------------------------
-**									NOTE - Check MACRO FLAGS
+**	NOTE - Check MACRO FLAGS
+**
 ** -------------------------------------------------------------------
 */
 
@@ -144,7 +146,7 @@ t_tab			*parse_flags(t_tab *tab);
 **	print_x() :
 **				This threat `x` and `X` flag
 **
-**			@param t_tab *tab & int upper [BOOLEAN]
+**			@param t_tab *tab, int upper [BOOLEAN]
 **				int upper :
 **					[FALSE](0)	- the result will be lowercase [x]
 **					[TRUE](1)		- the result will be uppercase [X]

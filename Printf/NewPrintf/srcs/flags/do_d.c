@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 01:02:09 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/17 08:34:20 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/17 08:57:18 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ t_tab			*print_d(t_tab *tab)
 	int			indent;
 
 	nbr = (int)(va_arg(tab->args, int));
-	if (nbr == 0 && tab->precisions == 1 && tab->prec_null == 1)
+	if (nbr == 0 && (tab->precisions == 1 && tab->prec_null == 1))
 	{
 		display(tab, ' ', tab->width, TRUE);
 		return (tab);
