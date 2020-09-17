@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 06:33:00 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/17 00:13:22 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/17 08:06:15 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ static void	display_x(t_tab *tab, long int nbr, int blank, int upper)
 	int len;
 
 	len = ft_putlnbr_base(nbr, BASE, upper, FALSE);
-	if (tab->width_is_neg == 0 && tab->combin[1] != '0' && tab->combin[0] != '-')
+	if (tab->width_is_neg == 0 && tab->combin[1] != '0'
+		&& tab->combin[0] != '-')
 		display(tab, ' ', tab->width - blank, TRUE);
 	if (tab->prec_is_neg == 0 && tab->precisions >= 0)
 	{
@@ -45,10 +46,11 @@ static void	display_x(t_tab *tab, long int nbr, int blank, int upper)
 		display(tab, ' ', tab->width - blank, TRUE);
 	else if (tab->combin[0] == '-')
 	{
-		if (tab->prec_is_neg == 0 && tab->precisions >= 0 && tab->combin[3] == '.')
+		if (tab->prec_is_neg == 0 && tab->precisions >= 0
+			&& tab->combin[3] == '.')
 			display(tab, ' ', tab->width - (len + 2), TRUE);
 		else
-			display(tab, ' ', tab->width - len , TRUE);
+			display(tab, ' ', tab->width - len, TRUE);
 	}
 }
 
@@ -79,7 +81,8 @@ t_tab		*print_x(t_tab *tab, int upper)
 		&& nbr == 0)
 		return (tab);
 	width = ft_putlnbr_base(nbr, BASE, upper, FALSE);
-	blank = (width <= tab->precisions && tab->precisions > 0 && tab->width >= 0) ? tab->precisions : width;
+	blank = (width <= tab->precisions && tab->precisions > 0 && tab->width >= 0)
+		? tab->precisions : width;
 	display_x(tab, nbr, blank, upper);
 	return (tab);
 }
