@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 01:04:20 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/17 01:42:38 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/17 06:12:58 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,9 @@
 t_tab	*d_utils_minus(t_tab *tab, int blank,
 	char neg_char, int already_neg)
 {
-	if ((tab->prec_is_neg == 0 || tab->nbr_is_neg == 1) && tab->precisions != 0)
-	{
+	if (tab->prec_is_neg == 0 && tab->precisions != 0 && tab->combin[0] != '-')
 		display(tab, ' ', tab->width - blank, TRUE);
-	}
-	else if (tab->nbr_is_neg == 1 && tab->combin[1] != '0' && tab->width_is_neg != 1)
+	else if (tab->prec_is_neg == 0 && tab->combin[1] != '0' && tab->width_is_neg != 1 && tab->combin[0] != '-')
 		display(tab, ' ', tab->width - blank, TRUE);
 	else if (tab->precisions == 0 && tab->width_is_neg == 0
 		&& tab->combin[1] == '0' && tab->combin[0] != '-')
@@ -41,8 +39,6 @@ t_tab	*d_utils_minus(t_tab *tab, int blank,
 		tab->len += 1;
 		write(1, &neg_char, 1);
 	}
-	else if (already_neg == 0)
-		tab->len -= 1;
 	return (tab);
 }
 
@@ -57,19 +53,24 @@ void	d_utils_minus_print(t_tab *tab, long int nbr, int width, int blank)
 	if (tab->width > 0 && tab->precisions == 0 && (tab->combin[0] == '-' || tab->nbr_is_neg == 1) &&
 		tab->width_is_neg == 1)
 		display(tab, ' ', tab->width - blank, TRUE);
+	else if (tab->combin[0] == '-' && tab->nbr_is_neg == 0)
+		display(tab, ' ', tab->width - (blank - 1), TRUE);
 }
 
 void	d_utils_positive_print(t_tab *tab, long int nbr,
 int width, int blank)
 {
-	if (tab->prec_is_neg == 0 && tab->combin[1] == '0')
-			display(tab, '0', tab->precisions - width, 0);
+	if (tab->width_is_neg == 0 && tab->prec_is_neg == 0 && tab->combin[0] != '-' && tab->precisions != 0)
+		display(tab, ' ', tab->width - blank, TRUE);
+	if (tab->prec_is_neg == 0 && (tab->combin[1] == '0' || tab->width == 0) && tab->combin[0] != '-' && tab->precisions > 0)
+		display(tab, '0', tab->precisions - width, TRUE);
+	else if (tab->precisions == 0 && tab->combin[1] == '0' && tab->combin[0] != '-' && tab->width_is_neg == 0)
+		display(tab, '0', tab->width - width, TRUE);
 	if (nbr != (-2147483647 - 1))
 		ft_putnbrmax_fd(nbr, 1);
 	else if ((tab->len += 9) > 0)
 		write(1, "2147483647", 10);
+	tab->len += ft_nbrlen(nbr);
 	if (tab->width_is_neg == 1)
-		display(tab, ' ', tab->width - blank, 0);
-	if (tab->width_is_neg == 0)
-		display(tab, ' ', tab->width - blank, 0);
+		display(tab, ' ', tab->width - blank, TRUE);
 }

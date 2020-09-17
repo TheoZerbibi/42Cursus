@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 01:02:09 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/17 01:40:20 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/17 05:54:49 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,15 @@
 static void	print_positive(t_tab *tab, long int nbr, int width)
 {
 	int		blank;
-
 	nbr *= (nbr != (-9223372036854775807 - 1)) ? 1 : -1;
 	if ((blank = width) && width <= tab->precisions
 		&& tab->precisions >= 0 && tab->prec_is_neg == 0)
 		blank = tab->precisions;
-	tab->len += (blank <= tab->width) ? tab->width : blank;
 	if (nbr == 0 && tab->precisions == 0 && tab->combin[3] == '.'
-		&& tab->combin[1] != '0')
+		&& tab->combin[1] != '0' && tab->combin[0] != '-')
 	{
 		if (tab->width > 0)
-			display(tab, ' ', tab->width, FALSE);
+			display(tab, ' ', tab->width, TRUE);
 		else
 			tab->len -= 1;
 		return ;
@@ -50,18 +48,6 @@ static void	print_minus(t_tab *tab, long int nbr, int width, int is_neg)
 		blank++;
 	d_utils_minus(tab, blank, neg_char, already_neg);
 	d_utils_minus_print(tab, nbr, width, blank);
-	// if (nbr == 0 && tab->precisions == 0 && tab->combin[3] == '.')
-	// {
-	// 	tab->len -= 1;
-	// 	if (tab->width > 0)
-	// 		display(tab, ' ', tab->width, TRUE);
-	// 	else
-	// 		tab->len -= 1;
-	// 	return ;
-	// }
-	/*
-	tab->len += (blank <= tab->width) ? tab->width : blank;
-	d_utils_minus_print(tab, nbr, width, blank);*/
 }
 
 static t_tab		*display_d(t_tab *tab, long int nbr, int width, int is_neg)
@@ -79,9 +65,9 @@ t_tab	*print_d(t_tab *tab)
 	int			indent;
 
 	nbr = (int)(va_arg(tab->args, int));
-	if (nbr == 0 && tab->precisions < 0)
+	if (nbr == 0 && tab->precisions == 1 && tab->prec_null == 1)
 	{
-		display(tab, ' ', tab->width, 1);
+		display(tab, ' ', tab->width, TRUE);
 		return (tab);
 	}
 	if (nbr == 0 && tab->width <= 0 && tab->precisions <= 0
