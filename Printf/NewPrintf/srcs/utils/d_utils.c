@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 01:04:20 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/17 06:12:58 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/17 06:18:19 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,23 @@ void	d_utils_minus_print(t_tab *tab, long int nbr, int width, int blank)
 void	d_utils_positive_print(t_tab *tab, long int nbr,
 int width, int blank)
 {
+	int already_print;
+
+	already_print = 0;
 	if (tab->width_is_neg == 0 && tab->prec_is_neg == 0 && tab->combin[0] != '-' && tab->precisions != 0)
 		display(tab, ' ', tab->width - blank, TRUE);
 	if (tab->prec_is_neg == 0 && (tab->combin[1] == '0' || tab->width == 0) && tab->combin[0] != '-' && tab->precisions > 0)
+	{
+		already_print = 1;
 		display(tab, '0', tab->precisions - width, TRUE);
+	}
 	else if (tab->precisions == 0 && tab->combin[1] == '0' && tab->combin[0] != '-' && tab->width_is_neg == 0)
+	{
+		already_print = 1;
 		display(tab, '0', tab->width - width, TRUE);
+	}
+	if (already_print == 0)
+		display(tab, '0', tab->precisions - width, TRUE);
 	if (nbr != (-2147483647 - 1))
 		ft_putnbrmax_fd(nbr, 1);
 	else if ((tab->len += 9) > 0)

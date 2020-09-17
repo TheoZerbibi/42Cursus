@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:35:34 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/17 06:03:46 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/17 06:32:14 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 /*
 **	parse_combin() :
-**				Call first by get_elems(), this function parse the different combination
-**				and stock him in tab->combin[x].
+**				Call first by get_elems(), this function parse the different
+**				combination and stock him in tab->combin[x].
 **				COMBIN[4] :
 **						combin[0] = '-'
 **						combin[1] = '0'
@@ -96,11 +96,9 @@ t_tab	*parse_width(t_tab *tab)
 
 t_tab	*parse_precisions(t_tab *tab)
 {
-	while (tab->s_parse[tab->i] == '.')
+	while (tab->s_parse[tab->i] == '.' && tab->i++)
 	{
-		tab->prec_null = 1;
 		tab->precisions = 1;
-		tab->i++;
 		tab->combin[3] = '.';
 	}
 	if (ft_isdigit(tab->s_parse[tab->i]) == 1 && tab->combin[3] == '.')
