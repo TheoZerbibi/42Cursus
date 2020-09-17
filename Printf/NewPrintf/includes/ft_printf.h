@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 00:32:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/17 04:55:23 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/17 08:41:03 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,14 @@
 # define BASE "0123456789abcdef"
 
 /*
-** COMBIN[4] :
-**			combin[0] = '-'
-**			combin[1] = '0'
-**			combin[2] = '*'
-**			combin[3] = '.'
+** -------------------------------------------------------------------
+** 													COMBIN[4] :
+** -------------------------------------------------------------------
+**		.- combin[0] = '-'
+**		.- combin[1] = '0'
+**		.- combin[2] = '*'
+**		.- combin[3] = '.'
+** -------------------------------------------------------------------
 */
 
 typedef struct	s_tab
@@ -55,20 +58,25 @@ typedef struct	s_tab
 }				t_tab;
 
 /*
-**	MAIN
+** -------------------------------------------------------------------
+**													MAIN FUNCTION
+** -------------------------------------------------------------------
 **	ft_printf() :
 **			Main function for PrintF
 **
 **		@param char *str & va_arg
 **		@return tab.len
 **
+** -------------------------------------------------------------------
 */
 
 int				ft_printf(const char *str, ...);
 int				ft_parser(t_tab *tab);
 
 /*
-**	PARSING
+** -------------------------------------------------------------------
+**												PARSING FUNCTION
+** -------------------------------------------------------------------
 **	parse_combin() :
 **				Parse combination function.
 **
@@ -98,7 +106,9 @@ int				ft_parser(t_tab *tab);
 **			@param t_tab *tab
 **			@return tab
 **
-**	NOTE - Check MACRO FLAGS
+** -------------------------------------------------------------------
+**									NOTE - Check MACRO FLAGS
+** -------------------------------------------------------------------
 */
 
 t_tab			*parse_combin(t_tab *tab);
@@ -107,7 +117,9 @@ t_tab			*parse_precisions(t_tab *tab);
 t_tab			*parse_flags(t_tab *tab);
 
 /*
-**	PRINT
+** -------------------------------------------------------------------
+**													PRINT FUNCTION
+** -------------------------------------------------------------------
 **	print_c() :
 **				This threat `c` and `%` flag
 **
@@ -134,8 +146,8 @@ t_tab			*parse_flags(t_tab *tab);
 **
 **			@param t_tab *tab & int upper [BOOLEAN]
 **				int upper :
-**					[FALSE](0)	the result will be lowercase [x]
-**					[TRUE](1)		the result will be uppercase [X]
+**					[FALSE](0)	- the result will be lowercase [x]
+**					[TRUE](1)		- the result will be uppercase [X]
 **			@return tab
 **
 ** -------------------------------------------------------------------
@@ -152,7 +164,9 @@ t_tab			*parse_flags(t_tab *tab);
 **			@param t_tab *tab
 **			@return tab
 **
-**	GLOBAL_NOTE - Check MACRO FLAGS
+** -------------------------------------------------------------------
+**									GLOBAL_NOTE - Check MACRO FLAGS
+** -------------------------------------------------------------------
 */
 
 t_tab			*print_c(t_tab *tab);
@@ -163,7 +177,9 @@ t_tab			*print_p(t_tab *tab);
 t_tab			*print_u(t_tab *tab);
 
 /*
-**	UTILS
+** -------------------------------------------------------------------
+**												UTILS FUNCTION
+** -------------------------------------------------------------------
 **	display() :
 **				General function for display.
 **
@@ -177,6 +193,11 @@ t_tab			*print_u(t_tab *tab);
 
 void			display(t_tab *tab, int c, int len, int update_len);
 
+/*
+** -------------------------------------------------------------------
+**													OTHER FUNCTION
+** -------------------------------------------------------------------
+*/
 
 t_tab			*d_utils_minus(t_tab *tab, int blank,
 				char neg_char, int already_neg);

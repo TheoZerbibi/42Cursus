@@ -6,11 +6,21 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 01:02:09 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/17 08:08:38 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/17 08:34:20 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
+
+/*
+**	print_positive() [Static Function] :
+**				Call by display_d() when nbr is positive.
+**				This function will calculate and start to display
+**				and call d_utils_positive_print() for the rest of the display
+**
+**			@param t_tab *tab, long int nbr, int width
+**			@return void function, no values ​​return
+*/
 
 static void		print_positive(t_tab *tab, long int nbr, int width)
 {
@@ -32,6 +42,18 @@ static void		print_positive(t_tab *tab, long int nbr, int width)
 	d_utils_positive_print(tab, nbr, width, blank);
 }
 
+/*
+**	print_minus() [Static Function] :
+**				Call by display_d() when nbr is negative
+**				or if there is the flag `-`
+**				This function will calculate and call 
+**				d_utils_negative() and d_utils_minus_print
+**				for the rest of the display
+**
+**			@param t_tab *tab, long int nbr, int width
+**			@return void function, no values ​​return
+*/
+
 static void		print_minus(t_tab *tab, long int nbr, int width, int is_neg)
 {
 	int			blank;
@@ -50,6 +72,22 @@ static void		print_minus(t_tab *tab, long int nbr, int width, int is_neg)
 	d_utils_minus_print(tab, nbr, width, blank);
 }
 
+/*
+**	display_d() [Static Function] :
+**				Call by print_d(), this function
+**				will will separate the rest of
+**				the operations into two parts.
+**				- printf_minus() for all minus number.
+**					or if there is the flag `-`
+**				- print_positive() for all positive number.
+**
+**			@param t_tab *tab & long int nbr, int width, int is_neg [BOOLEAN]
+**				int is_neg :
+**					[FALSE](0)	- the nbr is positive or flag `-` is not present.
+**					[TRUE](1)		- the nbr is negative or flag `-` is present.
+**			@return tab
+*/
+
 static t_tab	*display_d(t_tab *tab, long int nbr, int width, int is_neg)
 {
 	if (is_neg)
@@ -58,6 +96,17 @@ static t_tab	*display_d(t_tab *tab, long int nbr, int width, int is_neg)
 		print_positive(tab, nbr, width);
 	return (tab);
 }
+
+/*
+**	print_d() :
+**				Call by select_flag() when current flag is `d` or `i`.
+**				This function threat `d` or `i` flag, mainly used to prepare
+**				the display. It will call the display_d()
+**				for general display.
+**
+**			@param t_tab *tab
+**			@return tab
+*/
 
 t_tab			*print_d(t_tab *tab)
 {

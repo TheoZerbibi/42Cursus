@@ -6,14 +6,26 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 01:04:20 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/17 08:10:21 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/17 08:36:25 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-t_tab	*d_utils_minus(t_tab *tab, int blank,
-	char neg_char, int already_neg)
+/*
+**	d_utils_minus() :
+**				Call first by print_minus() when nbr is negative
+**				or if there is the flag `-`.
+**				This function will start display the calculated elements
+**				done before.
+**
+**			@param t_tab *tab, int blank, char neg_char, int already_neg
+**			@return tab
+*/
+
+
+t_tab	*d_utils_minus(t_tab *tab, int blank, char neg_char,
+int already_neg)
 {
 	if (tab->prec_is_neg == 0 && tab->precisions != 0 && tab->combin[0] != '-')
 		display(tab, ' ', tab->width - blank, TRUE);
@@ -44,6 +56,16 @@ t_tab	*d_utils_minus(t_tab *tab, int blank,
 	return (tab);
 }
 
+/*
+**	d_utils_minus_print() :
+**				Call secondly by print_minus() when nbr is negative
+**				or if there is the flag `-`.
+**				This function will continue and finish display.
+**
+**			@param t_tab *tab, long int nbr, int width, int blank
+**			@return void function, no values ​​return
+*/
+
 void	d_utils_minus_print(t_tab *tab, long int nbr, int width, int blank)
 {
 	display(tab, '0', tab->precisions - width, TRUE);
@@ -58,6 +80,16 @@ void	d_utils_minus_print(t_tab *tab, long int nbr, int width, int blank)
 	else if (tab->combin[0] == '-' && tab->nbr_is_neg == 0)
 		display(tab, ' ', tab->width - (blank - 1), TRUE);
 }
+
+/*
+**	d_utils_positive_print() :
+**				Call by print_positive() when nbr is positive.
+**				This function will display the calculated elements
+**				done before.
+**
+**			@param t_tab *tab, long int nbr, int width, int blank
+**			@return void function, no values ​​return
+*/
 
 void	d_utils_positive_print(t_tab *tab, long int nbr,
 int width, int blank)
