@@ -6,7 +6,7 @@
 #    By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/04 13:36:23 by thzeribi          #+#    #+#              #
-#    Updated: 2020/09/17 01:07:29 by thzeribi         ###   ########.fr        #
+#    Updated: 2020/09/18 03:28:55 by thzeribi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,9 +31,11 @@ SRCS	:=	ft_printf.c	\
 				flags/do_c.c	\
 				flags/do_x.c	\
 				flags/do_d.c	\
+				flags/do_u.c	\
 				\
 				utils/display.c	\
 				utils/d_utils.c	\
+				utils/u_utils.c
 
 OBJS = $(SRCS:.c=.o)
 OBJS := $(addprefix $(OBJECTS_FOLDER),$(OBJS))

@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:34:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/17 07:00:29 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/18 03:31:50 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -377,7 +377,7 @@ int	main(void)
 	printf(" = vrai = [%d]\n", printf("(|test%---10.6x et %01X et %0x !!\\n|)", 0xaabb, (unsigned int)0, 0));
 	success();
 
-	/*printf("\n-------%s UNSIGNED POSITIFS %s-------\n\n", SUCCESS, SUCCESS);
+	printf("\n-------%s UNSIGNED POSITIFS %s-------\n\n", SUCCESS, SUCCESS);
 	calc_test(11);
 	printf("-------TEST 1-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%010.u|)", 10));
@@ -508,7 +508,7 @@ int	main(void)
 	printf("-------TEST 9-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%u|)", 0));
 	printf(" = vrai = [%d]\n", printf("(|%u|)", 0));
-	success();*/
+	success();
 
 	printf("\n-------%s CAS SPECIFIC %s-------\n\n", SUCCESS, SUCCESS);
 	calc_test(5);
@@ -554,6 +554,135 @@ int	main(void)
 	printf(" = mien = [%d]\n", ft_printf("(|%2d|)", 0));
 	printf(" = vrai = [%d]\n", printf("(|%2d|)", 0));
 	ft_putstr("\n============================================= DEBUGGER =============================================\n");
+	printf("\n-------%s UNSIGNED POSITIFS %s-------\n\n", SUCCESS, SUCCESS);
+	printf("-------TEST 1-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%010.u|)", 10));
+	printf(" = vrai = [%d]\n", printf("(|%010.u|)", 10));
+	success();
+	printf("-------TEST 2-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%00.u|)", 10));
+	printf(" = vrai = [%d]\n", printf("(|%00.u|)", 10));
+	success();
+	printf("-------TEST 3-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%010.2u|)", 10));
+	printf(" = vrai = [%d]\n", printf("(|%010.2u|)", 10));
+	success();
+	printf("-------TEST 4-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%00u|)", 10));
+	printf(" = vrai = [%d]\n", printf("(|%00u|)", 10));
+	success();
+	printf("-------TEST 5-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%0*.*u|)",-10, -5, 10));
+	printf(" = vrai = [%d]\n", printf("(|%0*.*u|)", -10, -5, 10));
+	success();
+	printf("-------TEST 6-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%0*.*u|)",-5, 8, 10));
+	printf(" = vrai = [%d]\n", printf("(|%0*.*u|)", -5, 8, 10));
+	success();
+	printf("-------TEST 7-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%u|)", 10));
+	printf(" = vrai = [%d]\n", printf("(|%u|)", 10));
+	success();
+	printf("-------TEST 8-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%0*u|)", -10, 10));
+	printf(" = vrai = [%d]\n", printf("(|%0*u|)", -10, 10));
+	success();
+	printf("-------TEST 9-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%0*.*u|)",5, 8, 10));
+	printf(" = vrai = [%d]\n", printf("(|%0*.*u|)", 5, 8, 10));
+	success();
+	printf("-------TEST 10-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%0*.*u|)",5, -8, 10));
+	printf(" = vrai = [%d]\n", printf("(|%0*.*u|)", 5, -8, 10));
+	success();
+	printf("-------TEST 11-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%0*.*u|)",6, -8, 10));
+	printf(" = vrai = [%d]\n", printf("(|%0*.*u|)", 6, -8, 10));
+	success();
+
+	printf("\n-------%s UNSIGNED NEGATIFS %s-------\n\n", SUCCESS, SUCCESS);
+	printf("-------TEST 1-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%010.u|)", -10));
+	printf(" = vrai = [%d]\n", printf("(|%010.u|)", -10));
+	success();
+	printf("-------TEST 2-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%00.u|)", -10));
+	printf(" = vrai = [%d]\n", printf("(|%00.u|)", -10));
+	success();
+	printf("-------TEST 3-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%010.2u|)", -10));
+	printf(" = vrai = [%d]\n", printf("(|%010.2u|)", -10));
+	success();
+	printf("-------TEST 4-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%00u|)", -10));
+	printf(" = vrai = [%d]\n", printf("(|%00u|)", -10));
+	success();
+	printf("-------TEST 5-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%0*.*u|)",20, -14, -10));
+	printf(" = vrai = [%d]\n", printf("(|%0*.*u|)", 20, -14, -10));
+	success();
+	printf("-------TEST 6-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%0*.*u|)",-18, 8, -10));
+	printf(" = vrai = [%d]\n", printf("(|%0*.*u|)", -18, 8, -10));
+	success();
+	printf("-------TEST 7-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%u|)", -10));
+	printf(" = vrai = [%d]\n", printf("(|%u|)", -10));
+	success();
+	printf("-------TEST 8-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%0*u|)", -4, -12));
+	printf(" = vrai = [%d]\n", printf("(|%0*u|)", -4, -12));
+	success();
+	printf("-------TEST 9-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%0*u|)", 7, -12));
+	printf(" = vrai = [%d]\n", printf("(|%0*u|)", 7, -12));
+	success();
+	printf("-------TEST 10-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%.*u|)", 7, -12));
+	printf(" = vrai = [%d]\n", printf("(|%.*u|)", 7, -12));
+	success();
+	printf("-------TEST 11-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%04u|)", -10));
+	printf(" = vrai = [%d]\n", printf("(|%04u|)", -10));
+	success();
+
+	printf("\n-------%s UNSIGNED ZERO %s-------\n\n", SUCCESS, SUCCESS);
+	printf("-------TEST 1-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%010.u|)", 0));
+	printf(" = vrai = [%d]\n", printf("(|%010.u|)", 0));
+	success();
+	printf("-------TEST 2-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%00.u|)", 0));
+	printf(" = vrai = [%d]\n", printf("(|%00.u|)", 0));
+	success();
+	printf("-------TEST 3-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%010.2u|)", 0));
+	printf(" = vrai = [%d]\n", printf("(|%010.2u|)", 0));
+	success();
+	printf("-------TEST 4-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%00u|)", 0));
+	printf(" = vrai = [%d]\n", printf("(|%00u|)", 0));
+	success();
+	printf("-------TEST 5-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%0*.*u|)",-10, 3, 0));
+	printf(" = vrai = [%d]\n", printf("(|%0*.*u|)", -10, 3, 0));
+	success();
+	printf("-------TEST 6-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%0*.*u|)",-5, 8, 0));
+	printf(" = vrai = [%d]\n", printf("(|%0*.*u|)", -5, 8, 0));
+	success();
+	printf("-------TEST 7-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%u|)", 0));
+	printf(" = vrai = [%d]\n", printf("(|%u|)", 0));
+	success();
+	printf("-------TEST 8-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%0*u|)", -10, 0));
+	printf(" = vrai = [%d]\n", printf("(|%0*u|)", -10, 0));
+	success();
+	printf("-------TEST 9-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%u|)", 0));
+	printf(" = vrai = [%d]\n", printf("(|%u|)", 0));
+	success();
 	ft_putstr("====================================================================================================\n");
 	printf("\n\n\033[1;32mScore : %d/%d\033[0m\n\033[1;33mBugs  : %d\033[0m\n", (GLOBAL_TEST - GLOBAL_ERR), GLOBAL_TEST, GLOBAL_ERR);
 	return (0);
