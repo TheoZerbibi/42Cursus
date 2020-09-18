@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:34:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/18 03:31:50 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/18 03:55:58 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -684,6 +684,7 @@ int	main(void)
 	printf(" = vrai = [%d]\n", printf("(|%u|)", 0));
 	success();
 	ft_putstr("====================================================================================================\n");
+
 	printf("\n\n\033[1;32mScore : %d/%d\033[0m\n\033[1;33mBugs  : %d\033[0m\n", (GLOBAL_TEST - GLOBAL_ERR), GLOBAL_TEST, GLOBAL_ERR);
 	return (0);
 }
