@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:34:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/18 04:32:04 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/18 04:53:02 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,7 +168,7 @@ int	main(void)
 	printf("-------TEST 12-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%2d|)", 0));
 	printf(" = vrai = [%d]\n", printf("(|%2d|)", 0));
-	fail("Bad indentation");
+	success();
 
 	printf("\n-------%s INT ZERO %s-------\n\n", SUCCESS, SUCCESS);
 	calc_test(10);
@@ -556,11 +556,6 @@ int	main(void)
 	//%2d
 
 	ft_putstr("\n============================================= DEBUGGER =============================================\n");
-	printf(" = mien = [%d]\n", ft_printf("(|%2d|)", 0));
-	printf(" = vrai = [%d]\n", printf("(|%2d|)", 0));
-	printf(" = mien = [%d]\n", ft_printf("(|%4u|)", 1));
-	printf(" = vrai = [%d]\n", printf("(|%4u|)", 1));
-	//%4u, 1
 	ft_putstr("====================================================================================================\n");
 
 	printf("\n\n\033[1;32mScore : %d/%d\033[0m\n\033[1;33mBugs  : %d\033[0m\n", (GLOBAL_TEST - GLOBAL_ERR), GLOBAL_TEST, GLOBAL_ERR);

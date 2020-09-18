@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 01:02:09 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/18 03:20:06 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/18 04:51:51 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,12 @@ static void		print_positive(t_tab *tab, long int nbr, int width)
 			tab->len -= 1;
 		return ;
 	}
+	if (tab->width_is_neg == 0 && tab->prec_is_neg == 0
+		&& tab->combin[0] != '-' && tab->precisions != 0)
+		display(tab, ' ', tab->width - blank, TRUE);
+	else if (tab->combin[0] != '-' && tab->width > 0 && tab->combin[3] != '.'
+		&& tab->combin[2] != '*' && tab->combin[1] != '0')
+		display(tab, ' ', tab->width - blank, TRUE);
 	d_utils_positive_print(tab, nbr, width, blank);
 }
 
