@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:34:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/19 06:49:46 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/19 07:14:33 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void fail(char *reason)
 		indent -= 14;
 	else
 		indent -= size -1;
-	printf("\033[1;31mFail : %5.14s %*s\033[0m\n", reason, indent, "x");
+	ft_printf("\033[1;31mFail : %5.14s %*s\033[0m\n", reason, indent, "x");
 }
 
 int	main(void)
@@ -559,11 +559,6 @@ int	main(void)
 	success();*/
 
 	ft_putstr("\n============================================= DEBUGGER =============================================\n");
-	printf(" = mien = [%d]\n", ft_printf("(|%.1s|)", "Test"));
-	printf(" = vrai = [%d]\n", printf("(|%.1s|)", "Test"));
-	printf(" = mien = [%d]\n", ft_printf("(|st10 %10.0s|)", "dsa"));
-	printf(" = vrai = [%d]\n", printf("(|st10 %10.0s|)", "dsa"));
-	ft_putchar('\n');
 	printf(" = mien = [%d]\n", ft_printf("(|t3 %50.0d|)", 10));
 	printf(" = vrai = [%d]\n", printf("(|t3 %50.0d|)", 10));
 	printf(" = mien = [%d]\n", ft_printf("(|8chiffre 1 %*d chiffre 2 %*d|)", 42, 6, 6, 6));
@@ -580,7 +575,18 @@ int	main(void)
 	printf(" = mien = [%d]\n", ft_printf("(|%-.12u|)", -20000000));
 	printf(" = vrai = [%d]\n", printf("(|%-.12u|)", -20000000));
 
-	//st15 %*d\n", 50, 5
+	printf(" = mien = [%d]\n", ft_printf("(|%-3.s|)", "Test"));
+	printf(" = vrai = [%d]\n", printf("(|%-3.s|)", "Test"));
+	printf(" = mien = [%d]\n", ft_printf("(|%-3.s|)", NULL));
+	printf(" = vrai = [%d]\n", printf("(|%-3.s|)", NULL));
+	printf(" = mien = [%d]\n", ft_printf("(|%-8s|)", "coco"));
+	printf(" = vrai = [%d]\n", printf("(|%-8s|)", "coco"));
+	//%-8s, "coco"
+
+// - [OUTPUT] ft_printf("%3.1s", s_hidden)
+// - [OUTPUT] ft_printf("%10.1s", s_hidden)
+// - [OUTPUT] ft_printf("%3.1s", NULL)
+// - [OUTPUT] ft_printf("%9.1s", NULL)
 	ft_putstr("====================================================================================================\n");
 
 	printf("\n\n\033[1;32mScore : %d/%d\033[0m\n\033[1;33mBugs  : %d\033[0m\n", (GLOBAL_TEST - GLOBAL_ERR), GLOBAL_TEST, GLOBAL_ERR);
