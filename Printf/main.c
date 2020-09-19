@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:34:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/19 07:49:21 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/19 07:58:51 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -588,8 +588,11 @@ int	main(void)
 	printf(" = mien = [%d]\n", ft_printf("(|%-16.*s|)", 0, "abc"));
 	printf(" = vrai = [%d]\n", printf("(|%-16.*s|)", 0, "abc"));
 	ft_putchar('\n');
-	printf(" = mien = [%d]\n", ft_printf("(|%-16.0s|)", NULL));
-	printf(" = vrai = [%d]\n", printf("(|%-16.0s|)", NULL));
+	printf(" = mien = [%d]\n", ft_printf("|%.*s|", -3, NULL));
+	printf(" = vrai = [%d]\n", printf("|%.*s|", -3, NULL));
+	ft_putchar('\n');
+	printf(" = mien = [%d]\n", ft_printf("|%.*s|", -1, NULL));
+	printf(" = vrai = [%d]\n", printf("|%.*s|", -1, NULL));
 // - [OUTPUT] ft_printf("%3.1s", s_hidden)
 // - [OUTPUT] ft_printf("%10.1s", s_hidden)
 // - [OUTPUT] ft_printf("%3.1s", NULL)
