@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:34:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/18 05:58:24 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/19 06:49:46 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -559,13 +559,10 @@ int	main(void)
 	success();*/
 
 	ft_putstr("\n============================================= DEBUGGER =============================================\n");
-	//char	c = 'a';
-	//int		t = 60;
-
 	printf(" = mien = [%d]\n", ft_printf("(|%.1s|)", "Test"));
 	printf(" = vrai = [%d]\n", printf("(|%.1s|)", "Test"));
-	printf(" = mien = [%d]\n", ft_printf("(|st10 %*.*s|)", 10, 0, "dsa"));
-	printf(" = vrai = [%d]\n", printf("(|st10 %*.*s|)", 10, 0, "dsa"));
+	printf(" = mien = [%d]\n", ft_printf("(|st10 %10.0s|)", "dsa"));
+	printf(" = vrai = [%d]\n", printf("(|st10 %10.0s|)", "dsa"));
 	ft_putchar('\n');
 	printf(" = mien = [%d]\n", ft_printf("(|t3 %50.0d|)", 10));
 	printf(" = vrai = [%d]\n", printf("(|t3 %50.0d|)", 10));

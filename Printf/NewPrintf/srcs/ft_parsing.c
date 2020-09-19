@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:35:34 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/17 08:54:33 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/19 06:48:15 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,7 @@ t_tab	*parse_precisions(t_tab *tab)
 		tab->precisions = tab->precisions * 10 + (tab->s_parse[tab->i++] - 48);
 	if (tab->s_parse[tab->i] == '*')
 	{
+		tab->prec_null = 0;
 		tab->precisions = va_arg(tab->args, int);
 		if (tab->precisions < 0)
 		{
