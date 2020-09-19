@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:34:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/19 07:14:33 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/19 07:49:21 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -519,7 +519,7 @@ int	main(void)
 	success();
 
 	printf("\n-------%s CAS SPECIFIC %s-------\n\n", SUCCESS, SUCCESS);
-	calc_test(8);
+	calc_test(9);
 	printf("-------TEST 1-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%%|)"));
 	printf(" = vrai = [%d]\n", printf("(|%%|)"));
@@ -552,6 +552,10 @@ int	main(void)
 	printf(" = mien = [%d]\n", ft_printf("(|bonjour %Xxd|)", 42));
 	printf(" = vrai = [%d]\n", printf("(|bonjour %Xxd|)", 42));
 	success();
+	printf("-------TEST 9-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%0*%|)", -4, NULL));
+	printf(" = vrai = [%d]\n", printf("(|%0*%|)", -4, NULL));
+	success();
 
 	/*printf("\n-------%s LEAKS %s-------\n\n", SUCCESS, SUCCESS);
 	calc_test(1);
@@ -574,15 +578,18 @@ int	main(void)
 	printf(" = vrai = [%d]\n", printf("(|8unsigned 1 %*u unsigned 2 %*u|)", 42, 6, 6, 6));
 	printf(" = mien = [%d]\n", ft_printf("(|%-.12u|)", -20000000));
 	printf(" = vrai = [%d]\n", printf("(|%-.12u|)", -20000000));
-
-	printf(" = mien = [%d]\n", ft_printf("(|%-3.s|)", "Test"));
-	printf(" = vrai = [%d]\n", printf("(|%-3.s|)", "Test"));
-	printf(" = mien = [%d]\n", ft_printf("(|%-3.s|)", NULL));
-	printf(" = vrai = [%d]\n", printf("(|%-3.s|)", NULL));
-	printf(" = mien = [%d]\n", ft_printf("(|%-8s|)", "coco"));
-	printf(" = vrai = [%d]\n", printf("(|%-8s|)", "coco"));
-	//%-8s, "coco"
-
+	ft_putchar('\n');
+	printf(" = mien = [%d]\n", ft_printf("(|%-16.*s|)", -2, "abc"));
+	printf(" = vrai = [%d]\n", printf("(|%-16.*s|)",-2, "abc"));
+	ft_putchar('\n');
+	printf(" = mien = [%d]\n", ft_printf("(|%-16.*s|)", -1, "abc"));
+	printf(" = vrai = [%d]\n", printf("(|%-16.*s|)", -1, "abc"));
+	ft_putchar('\n');
+	printf(" = mien = [%d]\n", ft_printf("(|%-16.*s|)", 0, "abc"));
+	printf(" = vrai = [%d]\n", printf("(|%-16.*s|)", 0, "abc"));
+	ft_putchar('\n');
+	printf(" = mien = [%d]\n", ft_printf("(|%-16.0s|)", NULL));
+	printf(" = vrai = [%d]\n", printf("(|%-16.0s|)", NULL));
 // - [OUTPUT] ft_printf("%3.1s", s_hidden)
 // - [OUTPUT] ft_printf("%10.1s", s_hidden)
 // - [OUTPUT] ft_printf("%3.1s", NULL)

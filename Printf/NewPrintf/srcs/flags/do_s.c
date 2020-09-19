@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 02:34:15 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/19 07:13:29 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/19 07:46:29 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static t_tab	*display_s(t_tab *tab, char *str)
 		tab->len -= len;
 		display(tab, ' ', tab->width, TRUE);
 	}
-	else if (tab->width_is_neg == 0 && tab->precisions != 1
+	else if (tab->width_is_neg == 0
 		&& tab->combin[0] != '-')
 			display(tab, ' ', tab->width - len, TRUE);
 	if (tab->precisions > 0 && tab->prec_null != 1)
