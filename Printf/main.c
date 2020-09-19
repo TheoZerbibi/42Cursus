@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:34:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/19 07:58:51 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/19 08:01:31 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -593,10 +593,6 @@ int	main(void)
 	ft_putchar('\n');
 	printf(" = mien = [%d]\n", ft_printf("|%.*s|", -1, NULL));
 	printf(" = vrai = [%d]\n", printf("|%.*s|", -1, NULL));
-// - [OUTPUT] ft_printf("%3.1s", s_hidden)
-// - [OUTPUT] ft_printf("%10.1s", s_hidden)
-// - [OUTPUT] ft_printf("%3.1s", NULL)
-// - [OUTPUT] ft_printf("%9.1s", NULL)
 	ft_putstr("====================================================================================================\n");
 
 	printf("\n\n\033[1;32mScore : %d/%d\033[0m\n\033[1;33mBugs  : %d\033[0m\n", (GLOBAL_TEST - GLOBAL_ERR), GLOBAL_TEST, GLOBAL_ERR);
