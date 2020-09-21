@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 02:34:15 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/19 07:46:29 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/21 08:18:20 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,18 @@ static t_tab	*display_s(t_tab *tab, char *str)
 	tab->len += len;
 	if (tab->combin[1] == '0' && tab->combin[0] != '-')
 		display(tab, '0', tab->width - len, TRUE);
-	if (((tab->precisions == 1 && tab->prec_null == 1) || (tab->precisions == 0 && tab->combin[3] == '.')))
+	if (((tab->precisions && tab->prec_null) || (!tab->precisions && tab->combin[3] == '.')))
 	{
 		tab->len -= len;
 		display(tab, ' ', tab->width, TRUE);
 	}
-	else if (tab->width_is_neg == 0
-		&& tab->combin[0] != '-')
+	else if (!tab->width_is_neg && tab->combin[0] != '-')
 			display(tab, ' ', tab->width - len, TRUE);
 	if (tab->precisions > 0 && tab->prec_null != 1)
 		ft_putstr(str);
-	else if (tab->precisions == 0 && tab->prec_null == 1 && tab->combin[0] != '.')
+	else if (!tab->precisions && tab->prec_null && tab->combin[0] != '.')
 			ft_putstr(str);
-	if ((tab->width_is_neg == 1 || tab->combin[0] == '-') && (tab->prec_null != 1 || tab->combin[3] != '.'))
+	if ((tab->width_is_neg || tab->combin[0] == '-') && (!tab->prec_null || tab->combin[3] != '.') && (tab->precisions || (tab->precisions == 0 && tab->prec_null)))
 		display(tab, ' ', tab->width - len, TRUE);
 	free(str);
 	return (tab);
@@ -67,21 +66,18 @@ t_tab			*print_s(t_tab *tab)
 
 	len = 0;
 	str = va_arg(tab->args, char *);
+	if (!tab->width && tab->precisions == 0 && tab->combin[3] == '.')
+		return (tab);
 	if (tab->width == -1 && tab->combin[3] == '.')
 		return (tab);
-	if (tab->precisions && str)
+	if (tab->precisions && str && !tab->prec_is_neg)
 		str = ft_strndup(str, tab->precisions);
-	else if (!tab->precisions && str)
+	else if ((!tab->precisions || tab->prec_is_neg) && str)
 		str = ft_strdup(str);
-	else if (tab->precisions && !str)
+	else if (tab->precisions && !str && !tab->prec_is_neg)
 		str = ft_strndup("(null)", tab->precisions);
-	else if (!tab->precisions && !str)
+	else if ((!tab->precisions || tab->prec_is_neg) && !str)
 		str = ft_strdup("(null)");
-	if (tab->width == 0 && tab->precisions == 0 && tab->combin[3] == '.')
-	{
-		free(str);
-		return (tab);
-	}
 	display_s(tab, str);
 	return (tab);
 }
