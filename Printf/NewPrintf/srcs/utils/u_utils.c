@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/18 03:23:48 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/18 04:38:22 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/22 02:15:25 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,13 @@
 
 void	u_utils_positive(t_tab *tab, int width, int blank)
 {
-	if (tab->width_is_neg == 0 && tab->combin[0] != '-')
+	if (!tab->width_is_neg && tab->combin[0] != '-')
 	{
 		if (tab->combin[1] == '0' && tab->combin[3] != '.')
 			return ;
-		if (tab->combin[2] != '*' &&
-			tab->prec_is_neg == 0)
+		if (tab->combin[2] != '*' && !tab->prec_is_neg)
 		{
-			if (tab->prec_is_neg == 1)
+			if (tab->prec_is_neg)
 				display(tab, ' ', tab->width - width, TRUE);
 			else
 				display(tab, ' ', tab->width - blank, TRUE);
@@ -37,28 +36,28 @@ int width, int blank)
 	already_print = 0;
 	if (tab->combin[1] == '0' && tab->combin[0] != '-')
 	{
-		if (tab->combin[3] == '.' && tab->prec_is_neg == 0 && (int)nbr >= 0)
+		if (tab->combin[3] == '.' && !tab->prec_is_neg && (int)nbr >= 0)
 		{
 			already_print = 1;
 			display(tab, '0', tab->precisions - width, TRUE);
 		}
 		else if (tab->combin[3] == '.' && tab->combin[2] == '*'
-			&& tab->prec_is_neg == 1 && tab->width_is_neg == 0)
+			&& tab->prec_is_neg && !tab->width_is_neg)
 			{
 				already_print = 1;
 				display(tab, '0', tab->width - width, TRUE);
 			}
 	}
-	if (already_print == 0 && tab->combin[3] != '.' && tab->combin[0] != '-' && tab->width_is_neg == 0)
+	if (!already_print && tab->combin[3] != '.' && tab->combin[0] != '-' && !tab->width_is_neg)
 	{
-		if (tab->prec_null == 1 && tab->combin[1] != '0')
+		if (tab->prec_null&& tab->combin[1] != '0')
 			;
 		else
 			display(tab, '0', tab->width - width, TRUE);
 	}
-	else if (already_print == 0 && tab->combin[0] != '-' && tab->width_is_neg == 0)
+	else if (!already_print && !tab->width_is_neg)
 		display(tab, '0', tab->precisions - width, TRUE);
-	if ((tab->precisions == 1 && tab->prec_null == 1) && tab->combin[3] == '.' && nbr == 0)
+	if ((tab->precisions == 1 && tab->prec_null) && tab->combin[3] == '.' && nbr == 0)
 	{
 		if (tab->width > 0)
 			display(tab, ' ', 1, TRUE);
