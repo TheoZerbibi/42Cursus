@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/18 03:23:48 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/22 02:15:25 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/22 02:19:04 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	u_utils_positive(t_tab *tab, int width, int blank)
 	{
 		if (tab->combin[1] == '0' && tab->combin[3] != '.')
 			return ;
-		if (tab->combin[2] != '*' && !tab->prec_is_neg)
+		if (!tab->prec_is_neg)
 		{
 			if (tab->prec_is_neg)
 				display(tab, ' ', tab->width - width, TRUE);
