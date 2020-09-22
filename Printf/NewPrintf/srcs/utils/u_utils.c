@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/18 03:23:48 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/22 02:19:04 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/22 05:59:53 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,12 @@ void	u_utils_positive(t_tab *tab, int width, int blank)
 {
 	if (!tab->width_is_neg && tab->combin[0] != '-')
 	{
-		if (tab->combin[1] == '0' && tab->combin[3] != '.')
+		if (tab->combin[1] == '0' && (tab->combin[3] != '.' || tab->prec_is_neg))
 			return ;
-		if (!tab->prec_is_neg)
-		{
 			if (tab->prec_is_neg)
 				display(tab, ' ', tab->width - width, TRUE);
 			else
 				display(tab, ' ', tab->width - blank, TRUE);
-		}
 	}
 }
 
@@ -50,14 +47,16 @@ int width, int blank)
 	}
 	if (!already_print && tab->combin[3] != '.' && tab->combin[0] != '-' && !tab->width_is_neg)
 	{
-		if (tab->prec_null&& tab->combin[1] != '0')
+		if (tab->prec_null && tab->combin[1] != '0')
 			;
 		else
 			display(tab, '0', tab->width - width, TRUE);
 	}
-	else if (!already_print && !tab->width_is_neg)
+	else if (!already_print && !tab->prec_is_neg)
 		display(tab, '0', tab->precisions - width, TRUE);
-	if ((tab->precisions == 1 && tab->prec_null) && tab->combin[3] == '.' && nbr == 0)
+	else if (!already_print && tab->prec_is_neg && tab->combin[1] == '0' && !tab->width_is_neg)
+		display(tab, '0', tab->width - width, TRUE);
+	if (((tab->precisions == 1 && tab->prec_null) && tab->combin[3] == '.' && nbr == 0) || (!tab->precisions && nbr == 0 && tab->combin[3] == '.'))
 	{
 		if (tab->width > 0)
 			display(tab, ' ', 1, TRUE);

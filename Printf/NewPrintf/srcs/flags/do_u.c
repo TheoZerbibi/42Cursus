@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/18 03:11:13 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/18 03:28:05 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/22 06:01:20 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ static void		display_u(t_tab *tab, long int nbr, int width)
 	{
 		if (tab->width > 0)
 			display(tab, ' ', tab->width, TRUE);
-		else
-			tab->len -= 1;
 		return ;
 	}
 	u_utils_positive(tab, width, blank);
