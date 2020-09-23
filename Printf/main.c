@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:34:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/23 14:57:23 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/23 15:06:10 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -620,13 +620,12 @@ int	main(void)
 	printf(" = mien = [%d]\n", ft_printf("(|%-3.7d|)", 3267));
 	printf(" = vrai = [%d]\n", printf("(|%-3.7d|)", 3267));
 	ft_putchar('\n');
+	printf(" = mien = [%d]\n", ft_printf("(|%*.d|)", -4, -135));
+	printf(" = vrai = [%d]\n", printf("(|%*.d|)", -4, -135));
 	printf(" = mien = [%d]\n", ft_printf("(|%4.*d|)", -4, 135));
 	printf(" = vrai = [%d]\n", printf("(|%4.*d|)", -4, 135));
 
-	//ft_printf("%-8.5d", 0)
-	//- [OUTPUT] ft_printf("%-3.7d", 3267)
-
-	//%--12.7dt%04i %04.2% et %c titi, 125, 124, 256
+	//%*.d
 	ft_putstr("====================================================================================================\n");
 
 	printf("\n\n\033[1;32mScore : %d/%d\033[0m\n\033[1;33mBugs  : %d\033[0m\n", (GLOBAL_TEST - GLOBAL_ERR), GLOBAL_TEST, GLOBAL_ERR);
