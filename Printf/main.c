@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:34:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/23 15:06:10 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/23 16:17:56 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	main(void)
 	printf("\n\n\n|-------PRINTF-MAIN-BREAKER-------|\n\n");
 
 	printf("\n-------%s POINTER %s-------\n\n", SUCCESS, SUCCESS);
-	calc_test(2);
+	calc_test(5);
 	printf("-------TEST 1-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%*p|)", -20, &p));
 	printf(" = vrai = [%d]\n", printf("(|%*p|)", -20, &p));
@@ -59,6 +59,19 @@ int	main(void)
 	printf(" = mien = [%d]\n", ft_printf("(|%p|)", NULL));
 	printf(" = vrai = [%d]\n", printf("(|%p|)", NULL));
 	success();
+	printf("-------TEST 3-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%.p|)", NULL));
+	printf(" = vrai = [%d]\n", printf("(|%.p|)", NULL));
+	success();
+	printf("-------TEST 4-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%.p|)", &p));
+	printf(" = vrai = [%d]\n", printf("(|%.p|)", &p));
+	success();
+	printf("-------TEST 5-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%0.*p|)", -3, NULL));
+	printf(" = vrai = [%d]\n", printf("(|%0.*p|)", -3, NULL));
+	success();
+	//%.*p", -3, 0
 
 	printf("\n-------%s INT NEGATIF %s-------\n\n", SUCCESS, SUCCESS);
 	calc_test(14);
@@ -625,7 +638,6 @@ int	main(void)
 	printf(" = mien = [%d]\n", ft_printf("(|%4.*d|)", -4, 135));
 	printf(" = vrai = [%d]\n", printf("(|%4.*d|)", -4, 135));
 
-	//%*.d
 	ft_putstr("====================================================================================================\n");
 
 	printf("\n\n\033[1;32mScore : %d/%d\033[0m\n\033[1;33mBugs  : %d\033[0m\n", (GLOBAL_TEST - GLOBAL_ERR), GLOBAL_TEST, GLOBAL_ERR);

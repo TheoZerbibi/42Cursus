@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 05:50:20 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/17 08:00:12 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/23 16:18:18 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ static t_tab	*display_p(t_tab *tab, char *str, int indent)
 	if (!indent)
 		display(tab, ' ', tab->width - blank, TRUE);
 	write(1, "0x", 2);
-	display(tab, '0', (tab->precisions - width) + 2, TRUE);
 	ft_putstr(str);
 	if (indent)
 		display(tab, ' ', tab->width - blank, TRUE);
@@ -59,6 +58,12 @@ t_tab			*print_p(t_tab *tab)
 
 	indent = 0;
 	nbr = (unsigned long)(va_arg(tab->args, unsigned long int));
+	if (!tab->width && tab->combin[3] == '.' && nbr == 0 && (tab->prec_null || !tab->precisions))
+	{
+		tab->len += 2;
+		write(1, "0x", 2);
+		return (tab);
+	}
 	indent = (tab->combin[0] == '-') ? 1 : 0;
 	if (tab->combin[0] == '-' || tab->width_is_neg == 1)
 		indent = 1;
