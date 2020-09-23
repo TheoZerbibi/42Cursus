@@ -21,7 +21,8 @@ OBJECTS := $(addprefix $(OBJECTS_FOLDER),$(OBJECTS))
 SOURCES := $(addprefix $(SOURCES_FOLDER),$(SOURCES))
 
 FSANITIZE = -g3 -fsanitize=address
-FLAGS = -Wall -Wextra -Werror $(FSANITIZE)
+FLAGS = $(FSANITIZE)
+#FLAGS = -Wall -Wextra -Werror $(FSANITIZE)
 #FLAGS = -Wall -Wextra -Werror
 CC = clang
 
