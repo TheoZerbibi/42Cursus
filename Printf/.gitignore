@@ -13,3 +13,4 @@ Test-42/
 printf-tester/
 ft_printf_test/
 Tests/
+ftprintfdestructor/

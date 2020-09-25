@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:35:34 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/22 05:22:05 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/25 06:49:30 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ t_tab	*parse_combin(t_tab *tab)
 	int i;
 
 	i = 0;
+	while (tab->s_parse[tab->i] == ' ' && tab->i++)
+		tab->space_after = 1;
 	while (COMBINE[i] != '\0')
 	{
 		while (COMBINE[i] == tab->s_parse[tab->i])
