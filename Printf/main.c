@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:34:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/25 08:07:50 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/26 19:30:04 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -583,41 +583,10 @@ int	main(void)
 	success();*/
 
 	ft_putstr("\n============================================= DEBUGGER =============================================\n");
-	printf(" = mien = [%d]\n", ft_printf("(|%-8.5x|)", 34));
-	printf(" = vrai = [%d]\n", printf("(|%-8.5x|)", 34));
-	ft_putchar('\n');
-	printf(" = mien = [%d]\n", ft_printf("(|%-8.3x|)", 8375));
-	printf(" = vrai = [%d]\n", printf("(|%-8.3x|)", 8375));
-	ft_putchar('\n');
-	printf(" = mien = [%d]\n", ft_printf("(|%08.5x|)", 34));
-	printf(" = vrai = [%d]\n", printf("(|%08.5x|)", 34));
-	printf(" = mien = [%d]\n", ft_printf("(|%05x|)", HEXA));
-	printf(" = vrai = [%d]\n", printf("(|%05x|)", HEXA));
-	ft_putchar('\n');
-	printf(" = mien = [%d]\n", ft_printf("(|%10.x|)", 0));
-	printf(" = vrai = [%d]\n", printf("(|%10.x|)", 0));
-	ft_putchar('\n');
-	printf(" = mien = [%d]\n", ft_printf("(|%3x|)", 0));
-	printf(" = vrai = [%d]\n", printf("(|%3x|)", 0));
-	printf(" = mien = [%d]\n", ft_printf("(|%5.0x|)", 0));
-	printf(" = vrai = [%d]\n", printf("(|%5.0x|)", 0));
-	printf(" = mien = [%d]\n", ft_printf("(|%-5.0x|)", 0));
-	printf(" = vrai = [%d]\n", printf("(|%-5.0x|)", 0));
-	printf(" = mien = [%d]\n", ft_printf("(|%-5.x|)", 0));
-	printf(" = vrai = [%d]\n", printf("(|%-5.x|)", 0));
-	// - [OUTPUT] ft_printf("%3x", 0)
-	// - [OUTPUT] ft_printf("%5.0x", 0)
-	// - [OUTPUT] ft_printf("%-5.0x", 0)
-	// - [OUTPUT] ft_printf("%-5.x", 0)
-	// - [OUTPUT] ft_printf("%3x", 0)
-	// - [OUTPUT] ft_printf("%5.0x", 0)
-	// - [OUTPUT] ft_printf("%-5.0x", 0)
-	// - [OUTPUT] ft_printf("%-5.x", 0)
-	// - [OUTPUT] ft_printf("%3X", 0)
-	// - [OUTPUT] ft_printf("%3X", 0)
-	// - [OUTPUT] ft_printf("%5.0X", 0)
-	// - [OUTPUT] ft_printf("%-5.0X", 0)
-	// - [OUTPUT] ft_printf("%-5.X", 0)
+	printf(" = mien = [%d]\n", ft_printf("(|%05.*d|)", -15, 42));
+	printf(" = vrai = [%d]\n", printf("(|%05.*d|)", -15, 42));
+	printf(" = mien = [%d]\n", ft_printf("(|%*p|)", -94, (void*)17541392615378030860lu));
+	printf(" = vrai = [%d]\n", printf("(|%*p|)", -94, (void*)17541392615378030860lu));
 	ft_putstr("====================================================================================================\n");
 
 	printf("\n\n\033[1;32mScore : %d/%d\033[0m\n\033[1;33mBugs  : %d\033[0m\n", (GLOBAL_TEST - GLOBAL_ERR), GLOBAL_TEST, GLOBAL_ERR);
