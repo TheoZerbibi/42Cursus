@@ -38,11 +38,8 @@ RUN mkdir /var/mkcert \
 #PHPMYADMIN SETUP
 
 #START ALL SERVICE
-
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
 RUN echo "START SERVICES"
 RUN service mysql start
 RUN /etc/init.d/php7.3-fpm start
 RUN service nginx restart
-# RUN service mysql restart
-# RUN /etc/init.d/php7.3-fpm start
