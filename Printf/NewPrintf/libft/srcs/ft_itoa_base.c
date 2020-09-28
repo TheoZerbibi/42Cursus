@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/14 02:26:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/26 19:38:47 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/28 22:23:32 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,6 @@ char		*ft_itoa_base(long int num, long int base, char c)
 
 	tmp = ft_itohexa(num, "0123456789abcdef");
 	str = tmp;
-	free(tmp);
+	//free(tmp);
 	return (str);
 }

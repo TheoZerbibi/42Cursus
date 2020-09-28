@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:34:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/27 19:57:16 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/28 22:23:39 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ void fail(char *reason)
 
 int	main(void)
 {
-	//char p = 10;
+	char p = 10;
 
 	printf("\n\n\n|-------PRINTF-MAIN-BREAKER-------|\n\n");
 
-	/*printf("\n-------%s POINTER %s-------\n\n", SUCCESS, SUCCESS);
+	printf("\n-------%s POINTER %s-------\n\n", SUCCESS, SUCCESS);
 	calc_test(6);
 	printf("-------TEST 1-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%p|)", NULL));
@@ -74,7 +74,7 @@ int	main(void)
 	printf("-------TEST 6-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%-16.p|)", &p));
 	printf(" = vrai = [%d]\n", printf("(|%-16.p|)", &p));
-	success();*/
+	success();
 
 	printf("\n-------%s INT NEGATIF %s-------\n\n", SUCCESS, SUCCESS);
 	calc_test(14);
@@ -585,8 +585,8 @@ int	main(void)
 	ft_putstr("\n============================================= DEBUGGER =============================================\n");
 	//printf(" = mien = [%d]\n", ft_printf("(|%05.*d|)", -15, 42));
 	//printf(" = vrai = [%d]\n", printf("(|%05.*d|)", -15, 42));
-	//printf(" = mien = [%d]\n", ft_printf("(|%*p|)", -94, (void*)17541392615378030860lu));
-	//printf(" = vrai = [%d]\n", printf("(|%*p|)", -94, (void*)17541392615378030860lu));
+	printf(" = mien = [%d]\n", ft_printf("(|%*p|)", -94, (void*)17541392615378030860lu));
+	printf(" = vrai = [%d]\n", printf("(|%*p|)", -94, (void*)17541392615378030860lu));
 	printf(" = mien = [%d]\n", ft_printf("(|% .5d|)", 42));
 	printf(" = vrai = [%d]\n", printf("(|% .5d|)", 42));
 	ft_putstr("====================================================================================================\n");
