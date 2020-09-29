@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 05:50:20 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/25 07:27:20 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/29 20:57:31 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ t_tab			*print_p(t_tab *tab)
 		indent = 1;
 	else
 		indent = 0;
-	if (!(str = ft_itoa_base(nbr, 16, 'a')))
+	if (!(str = ft_itoa_base(nbr, BASE)))
 		exit(ERROR);
 	if (tab->combin[1] == '0' && tab->precisions == -1 && !tab->combin[0])
 	{
