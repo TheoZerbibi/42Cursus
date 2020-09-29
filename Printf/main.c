@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:34:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/29 22:33:42 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/29 23:28:16 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -583,22 +583,47 @@ int	main(void)
 	success();*/
 
 	ft_putstr("\n============================================= DEBUGGER =============================================\n");
-	printf(" = mien = [%d]\n", ft_printf("(|%05.*d|)", -15, 42));
-	printf(" = vrai = [%d]\n", printf("(|%05.*d|)", -15, 42));
-	printf(" = mien = [%d]\n", ft_printf("(|%-49.30d|)", 111));
-	printf(" = vrai = [%d]\n", printf("(|%-49.30d|)", 111));
-	printf(" = mien = [%d]\n", ft_printf("(|%--159.17i|)", 230232062));
-	printf(" = vrai = [%d]\n", printf("(|%--159.17i|)", 230232062));
-	printf(" = mien = [%d]\n", ft_printf("(|%-5.0d|)", 0));
-	printf(" = vrai = [%d]\n", printf("(|%-5.0d|)", 0));
+	int		a = -4;
+	int		b = 0;
+	char	c = 'a';
+	int		d = 2147483647;
+	int		e = -2147483648;
+	int		i = 8;
+	int		j = -12;
+	int		k = 123456789;
+	int		l = 0;
+	int		m = -12345678;
+
+	a = -2;
+	b = -2;
+
+	printf("[a : %d, b : %d]\n", a, b);
+	printf(" = mien = [%d]\n", ft_printf("(|%0*.*i, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d|)", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
+	printf(" = vrai = [%d]\n", printf("(|%0*.*i, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d|)", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
 	ft_putchar('\n');
-	printf(" = mien = [%d]\n", ft_printf("(|%--34.*d|)", -184, 466497980));
-	printf(" = mien = [%d]\n", printf("(|%--34.*d|)", -184, 466497980));
-	//printf(" = mien = [%d]\n", ft_printf("(|%00129.*X%00*.32i%-121c%-167.53%|)", 113,3120340762u,-88,-387655089,-12));
-	//printf(" = mien = [%d]\n", printf("(|%00129.*X%00*.32i%-121c%-167.53%|)", 113,3120340762u,-88,-387655089,-12));
-	printf(" = mien = [%d]\n", ft_printf("(|%00*.32i|)", -88, -387655089));
-	printf(" = mien = [%d]\n", printf("(|%00*.32i|)", -88, -387655089));
-	//%00129.*X%00*.32i%-121c%-167.53%" ,113,3120340762u,-88,-387655089,-12
+	// while(a < 5) //T70-177
+	// {
+	// 	b = -2;
+	// 	while (b < 5)
+	// 	{
+			// printf("Test 1 [a : %d, b : %d]\n", a, b);
+			// printf(" = mien = [%d]\n", ft_printf("(|%*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d|)", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
+			// printf(" = vrai = [%d]\n", printf("(|%*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d|)", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
+			// ft_putchar('\n');
+
+			// printf("Test 2 [a : %d, b : %d]\n", a, b);
+			// printf(" = mien = [%d]\n", ft_printf("(|%-*.*i, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d|)", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
+			// printf(" = vrai = [%d]\n", printf("(|%-*.*i, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d|)", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
+			// ft_putchar('\n');
+
+		// 	printf("Test 3 [a : %d, b : %d]\n", a, b);
+		// 	printf(" = mien = [%d]\n", ft_printf("(|%0*.*i, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d|)", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
+		// 	printf(" = vrai = [%d]\n", printf("(|%0*.*i, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d|)", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
+		// 	ft_putchar('\n');
+		// 	b++;
+		// }
+		// a++;
+	//}
 	ft_putstr("====================================================================================================\n");
 
 	printf("\n\n\033[1;32mScore : %d/%d\033[0m\n\033[1;33mBugs  : %d\033[0m\n", (GLOBAL_TEST - GLOBAL_ERR), GLOBAL_TEST, GLOBAL_ERR);

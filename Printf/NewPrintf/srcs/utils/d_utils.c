@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 01:04:20 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/29 22:35:25 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/29 23:16:39 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int already_neg)
 	else if (!tab->precisions && !tab->width_is_neg && tab->combin[1] == '0' && tab->combin[0] != '-')
 	{
 		tab->len += 1;
+		tab->char_display += 1;
 		write(1, &neg_char, 1);
 		display(tab, '0', tab->width - blank, TRUE);
 		already_neg = 1;
@@ -43,6 +44,7 @@ int already_neg)
 	else if (tab->prec_is_neg && tab->combin[0] != '-' && !tab->width_is_neg)
 	{
 		tab->len += 1;
+		tab->char_display += 1;
 		write(1, &neg_char, 1);
 		display(tab, '0', tab->width - blank, TRUE);
 		already_neg = 1;
@@ -50,6 +52,7 @@ int already_neg)
 	if ((!tab->prec_is_neg || tab->nbr_is_neg) && !already_neg && tab->nbr_is_neg)
 	{
 		tab->len += 1;
+		tab->char_display += 1;
 		write(1, &neg_char, 1);
 	}
 	return (tab);
@@ -95,7 +98,7 @@ void	d_utils_minus_print(t_tab *tab, long int nbr, int width, int blank)
 		return ;
 	if (tab->width > 0 && tab->precisions == 0 && (tab->combin[0] == '-' || tab->nbr_is_neg)
 		&& tab->width_is_neg)
-		display(tab, ' ', tab->width - blank, TRUE);
+		display(tab, ' ', tab->width - tab->char_display, TRUE);
 	else if (tab->combin[0] == '-' && !tab->nbr_is_neg)
 	{
 		if (!tab->width && ((tab->precisions - width) + ft_nbrlen(nbr)) == tab->precisions)
