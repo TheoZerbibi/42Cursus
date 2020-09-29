@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 03:43:10 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/16 11:36:25 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/29 22:08:48 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	display(t_tab *tab, int c, int len, int update_len)
 			exit(ERROR);
 		ft_memset(str, c, len);
 		write(1, str, len);
+		tab->char_display += len;
 		free(str);
 	}
 }

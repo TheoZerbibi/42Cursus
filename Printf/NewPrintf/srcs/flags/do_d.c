@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 01:02:09 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/25 06:51:07 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/09/29 21:23:04 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void		print_positive(t_tab *tab, long int nbr, int width)
 		&& tab->precisions >= 0 && !tab->prec_is_neg)
 		blank = tab->precisions;
 	if (nbr == 0 && !tab->precisions && tab->combin[3] == '.'
-		&& tab->combin[1] != '0' && tab->combin[0] != '-')
+		&& tab->combin[1] != '0')
 	{
 		if (tab->width > 0)
 			display(tab, ' ', tab->width, TRUE);
@@ -39,12 +39,12 @@ static void		print_positive(t_tab *tab, long int nbr, int width)
 			tab->len -= 1;
 		return ;
 	}
-	if (!tab->width_is_neg && tab->combin[0] != '-' && tab->precisions)
+	if (!tab->width_is_neg && tab->precisions && !tab->prec_is_neg)
 		display(tab, ' ', tab->width - blank, TRUE);
-	else if (tab->combin[0] != '-' && tab->width > 0 && tab->combin[3] != '.'
+	else if (tab->width && tab->combin[3] != '.'
 		&& tab->combin[2] != '*' && tab->combin[1] != '0')
 		display(tab, ' ', tab->width - blank, TRUE);
-	else if (!tab->width_is_neg && !tab->prec_is_neg && tab->combin[0] != '-' && tab->combin[1] != '0')
+	else if (!tab->width_is_neg && !tab->prec_is_neg && tab->combin[1] != '0')
 		display(tab, ' ', tab->width - blank, TRUE);
 	d_utils_positive_print(tab, nbr, width, blank);
 }
