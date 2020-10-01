@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 01:04:20 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/29 23:16:39 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/10/01 17:23:40 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,11 +143,11 @@ int width, int blank)
 	else if (!tab->precisions && tab->combin[1] == '0' && !tab->width_is_neg)
 	{
 		already_print = 1;
-		display(tab, '0', tab->width - width, TRUE);
+		display(tab, '0', tab->width - (tab->char_display + ft_nbrlen(nbr)), TRUE);
 	}
 	if (!already_print && !tab->prec_is_neg)
 		display(tab, '0', tab->precisions - width, TRUE);
-	else if (!already_print && tab->prec_is_neg && tab->combin[1] == '0')
+	else if (!already_print && tab->prec_is_neg && tab->combin[1] == '0' && !tab->width_is_neg)
 		display(tab, '0', tab->width - width, TRUE);
 	if (nbr != (-2147483647 - 1))
 		ft_putnbrmax_fd(nbr, 1);

@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 01:02:09 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/29 21:23:04 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/10/01 17:26:08 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,9 @@ static void		print_positive(t_tab *tab, long int nbr, int width)
 	else if (tab->width && tab->combin[3] != '.'
 		&& tab->combin[2] != '*' && tab->combin[1] != '0')
 		display(tab, ' ', tab->width - blank, TRUE);
-	else if (!tab->width_is_neg && !tab->prec_is_neg && tab->combin[1] != '0')
+	else if (!tab->width_is_neg && tab->combin[1] != '0')
+		display(tab, ' ', tab->width - blank, TRUE);
+	else if ((!tab->precisions && !tab->prec_null) && tab->combin[1] == '0' && tab->width && !tab->width_is_neg)
 		display(tab, ' ', tab->width - blank, TRUE);
 	d_utils_positive_print(tab, nbr, width, blank);
 }
@@ -123,7 +125,7 @@ t_tab			*print_d(t_tab *tab)
 	nbr = (int)(va_arg(tab->args, int));
 	if (tab->space_after)
 		display(tab, ' ', 1, TRUE);
-	if (nbr == 0 && (tab->precisions == 1 && tab->prec_null == 1))
+	if (nbr == 0 && ((tab->precisions == 1 && tab->prec_null) || (!tab->precisions && tab->combin[3] == '.')))
 	{
 		display(tab, ' ', tab->width, TRUE);
 		return (tab);

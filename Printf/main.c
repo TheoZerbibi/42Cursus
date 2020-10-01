@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:34:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/29 23:28:16 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/10/01 17:29:52 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -583,47 +583,20 @@ int	main(void)
 	success();*/
 
 	ft_putstr("\n============================================= DEBUGGER =============================================\n");
-	int		a = -4;
-	int		b = 0;
-	char	c = 'a';
-	int		d = 2147483647;
-	int		e = -2147483648;
-	int		i = 8;
-	int		j = -12;
-	int		k = 123456789;
-	int		l = 0;
-	int		m = -12345678;
+	// int		a = -4;
+	// int		b = 0;
+	// char	c = 'a';
+	// int		d = 2147483647;
+	// int		e = -2147483648;
+	// int		i = 8;
+	// int		j = -12;
+	// int		k = 123456789;
+	// int		l = 0;
+	// int		m = -12345678;
 
-	a = -2;
-	b = -2;
-
-	printf("[a : %d, b : %d]\n", a, b);
-	printf(" = mien = [%d]\n", ft_printf("(|%0*.*i, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d|)", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
-	printf(" = vrai = [%d]\n", printf("(|%0*.*i, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d|)", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
-	ft_putchar('\n');
-	// while(a < 5) //T70-177
-	// {
-	// 	b = -2;
-	// 	while (b < 5)
-	// 	{
-			// printf("Test 1 [a : %d, b : %d]\n", a, b);
-			// printf(" = mien = [%d]\n", ft_printf("(|%*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d|)", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
-			// printf(" = vrai = [%d]\n", printf("(|%*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d|)", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
-			// ft_putchar('\n');
-
-			// printf("Test 2 [a : %d, b : %d]\n", a, b);
-			// printf(" = mien = [%d]\n", ft_printf("(|%-*.*i, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d|)", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
-			// printf(" = vrai = [%d]\n", printf("(|%-*.*i, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d|)", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
-			// ft_putchar('\n');
-
-		// 	printf("Test 3 [a : %d, b : %d]\n", a, b);
-		// 	printf(" = mien = [%d]\n", ft_printf("(|%0*.*i, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d|)", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
-		// 	printf(" = vrai = [%d]\n", printf("(|%0*.*i, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d|)", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
-		// 	ft_putchar('\n');
-		// 	b++;
-		// }
-		// a++;
-	//}
+	printf(" = mien = [%d]\n", ft_printf("(|%06.0d|)", 42));
+	printf(" = vrai = [%d]\n", printf("(|%06.0d|)", 42));
+	//%06.0d
 	ft_putstr("====================================================================================================\n");
 
 	printf("\n\n\033[1;32mScore : %d/%d\033[0m\n\033[1;33mBugs  : %d\033[0m\n", (GLOBAL_TEST - GLOBAL_ERR), GLOBAL_TEST, GLOBAL_ERR);
