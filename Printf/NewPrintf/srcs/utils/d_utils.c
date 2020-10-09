@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 01:04:20 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/10/04 04:08:27 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/10/09 20:31:21 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int already_neg)
 {
 	if (!tab->prec_is_neg && (tab->precisions || (!tab->precisions && tab->combin[3] == '.')) && tab->combin[0] != '-' && !tab->width_is_neg)
 		display(tab, ' ', tab->width - blank, TRUE);
-	else if (!tab->prec_is_neg && tab->combin[1] != '0' && !tab->width_is_neg && tab->combin[0] != '-')
+	else if (tab->combin[1] != '0' && !tab->width_is_neg && tab->combin[0] != '-')
 		display(tab, ' ', tab->width - blank, TRUE);
 	else if (!tab->precisions && !tab->width_is_neg && tab->combin[1] == '0' && tab->combin[0] != '-')
 	{
