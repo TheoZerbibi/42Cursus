@@ -1,7 +1,6 @@
 *.o
 *.a
 *.out
-*.txt
 *.log
 ft_printf
 ft_printf_test/
