@@ -2,7 +2,7 @@
 2 - pandacoustic : 111/111 							|	√
 3 - pft : 691/691												|	√
 4 - ft_printf_test : OK: 1002  KO: 1		|	√
-5 - mazoise : 507 / 514									|	X
+5 - mazoise : 508 / 514									|	X
 6 - hbaudet : 6 errors									|	X
 7 - printf_lover : [%s,%c,%%,%u,%p]			|	X
 8 - ftprintfdestructor									|	X

@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 00:32:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/29 22:08:06 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/10/09 20:51:10 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ typedef struct	s_tab
 	int			nbr_is_neg;
 	int			space_after;
 	long	int	char_display;
+	int			nbr_len;
 
 }				t_tab;
 

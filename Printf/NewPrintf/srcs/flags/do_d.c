@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 01:02:09 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/10/01 17:26:08 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/10/09 20:48:10 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void		print_positive(t_tab *tab, long int nbr, int width)
 **	print_minus() [Static Function] :
 **				Call by display_d() when nbr is negative
 **				or if there is the flag `-`
-**				This function will calculate and call 
+**				This function will calculate and call
 **				d_utils_negative() and d_utils_minus_print
 **				for the rest of the display
 **
@@ -70,6 +70,8 @@ static void		print_minus(t_tab *tab, long int nbr, int width, int is_neg)
 	int			already_neg;
 
 	nbr *= (nbr != (-9223372036854775807 - 1)) ? 1 : -1;
+	tab->nbr_len = ft_nbrlen(nbr);
+	tab->nbr_len += (tab->nbr_is_neg) ? 1 : 0;
 	neg_char = (is_neg) ? '-' : '\0';
 	blank = width;
 	already_neg = 0;
