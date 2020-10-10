@@ -22,8 +22,8 @@ SOURCES := $(addprefix $(SOURCES_FOLDER),$(SOURCES))
 
 FSANITIZE = -g3 -fsanitize=address
 #FLAGS = $(FSANITIZE)
-FLAGS = -Wall -Wextra -Werror $(FSANITIZE)
-#FLAGS = -Wall -Wextra -Werror
+#FLAGS = -Wall -Wextra -Werror $(FSANITIZE)
+FLAGS = -Wall -Wextra -Werror
 CC = clang
 
 NO_COLOR =		\033[38;5;15m

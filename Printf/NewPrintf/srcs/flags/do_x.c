@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 06:33:00 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/10/11 01:02:50 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/10/11 01:17:41 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,9 @@ static void	display_x(t_tab *tab, long int nbr, int blank, int upper)
 		{
 			if (tab->combin[1] == '0' && len < tab->width && tab->prec_is_neg)
 				blank += 1;
-			if ((tab->prec_null || !tab->precisions) && nbr == 0 && tab->combin[3] == '.')
+			if (tab->prec_is_neg && tab->combin[1] == '0')
+				;
+			else if ((tab->prec_null || !tab->precisions) && nbr == 0 && tab->combin[3] == '.')
 				;
 			else
 				display(tab, ' ', tab->width - blank, TRUE);

@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:34:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/10/11 01:02:05 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/10/11 01:19:17 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -577,79 +577,12 @@ int	main(void)
 	printf(" = vrai = [%d]\n", printf("(|%0*%|)", -4, NULL));
 	success();
 
-	/*printf("\n-------%s LEAKS %s-------\n\n", SUCCESS, SUCCESS);
+	printf("\n-------%s LEAKS %s-------\n\n", SUCCESS, SUCCESS);
 	calc_test(1);
 	system("leaks printf");
-	success();*/
+	success();
 
 	ft_putstr("\n============================================= DEBUGGER =============================================\n");
-	int		a = -4;
-	int		b = 0;
-	char	c = 'a';
-	int		d = 2147483647;
-	int		e = -2147483648;
-	// int		f = 42;
-	// int		g = 25;
-	// int		h = 4200;
-	int		i = 8;
-	int		j = -12;
-	int		k = 123456789;
-	int		l = 0;
-	int		m = -12345678;
-
-	a = 2;
-	int count = 367;
-	while (a < 5)
-	{
-		printf("\n\n\nTest %d [a: %d, b: %d]\n", count, a, b);
-		printf(" = mien = [%d]\n", ft_printf("(|%0*u, %0*x, %0*X, %0*u, %0*x, %0*X, %0*u, %0*x, %0*X, %0*u, %0*x, %0*X, %0*u, %0*x, %0*X, %0*u, %0*x, %0*X, %0*u, %0*x, %0*X, %0*u, %0*x, %0*X|)", a, i, a, i, a, i, a, j, a, j, a, j, a, k, a, k, a, k, a, l, a, l, a, l, a, m, a, m, a, m, a, c, a, c, a, c, a, d, a, d, a, d, a, e, a, e, a, e));
-		printf(" = vrai = [%d]\n", printf("(|%0*u, %0*x, %0*X, %0*u, %0*x, %0*X, %0*u, %0*x, %0*X, %0*u, %0*x, %0*X, %0*u, %0*x, %0*X, %0*u, %0*x, %0*X, %0*u, %0*x, %0*X, %0*u, %0*x, %0*X|)", a, i, a, i, a, i, a, j, a, j, a, j, a, k, a, k, a, k, a, l, a, l, a, l, a, m, a, m, a, m, a, c, a, c, a, c, a, d, a, d, a, d, a, e, a, e, a, e));
-		count += 4;
-		a++;
-	}
-	count = 378;
-	a = -1;
-	while(a < 5)
-	{
-		b = -1;
-		while (b < 5)
-		{
-			printf("\n\n\nTest %d [a: %d, b: %d]\n", count, a, b);
-			printf(" = mien = [%d]\n", ft_printf("(|%*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X|)", a, b, i, a, b, i, a, b, i, a, b, j, a, b, j, a, b, j, a, b, k, a, b, k, a, b, k, a, b, l, a, b, l, a, b, l, a, b, m, a, b, m, a, b, m, a, b, c, a, b, c, a, b, c, a, b, d, a, b, d, a, b, d, a, b, e, a, b, e, a, b, e));
-			printf(" = vrai = [%d]\n", printf("(|%*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X|)", a, b, i, a, b, i, a, b, i, a, b, j, a, b, j, a, b, j, a, b, k, a, b, k, a, b, k, a, b, l, a, b, l, a, b, l, a, b, m, a, b, m, a, b, m, a, b, c, a, b, c, a, b, c, a, b, d, a, b, d, a, b, d, a, b, e, a, b, e, a, b, e));
-			count++;
-
-			printf("\nTest %d [a: %d, b: %d]\n", count, a, b);
-			printf(" = mien = [%d]\n", ft_printf("(|%0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X|)", a, b, i, a, b, i, a, b, i, a, b, j, a, b, j, a, b, j, a, b, k, a, b, k, a, b, k, a, b, l, a, b, l, a, b, l, a, b, m, a, b, m, a, b, m, a, b, c, a, b, c, a, b, c, a, b, d, a, b, d, a, b, d, a, b, e, a, b, e, a, b, e));
-			printf(" = vrai = [%d]\n", printf("(|%0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X|)", a, b, i, a, b, i, a, b, i, a, b, j, a, b, j, a, b, j, a, b, k, a, b, k, a, b, k, a, b, l, a, b, l, a, b, l, a, b, m, a, b, m, a, b, m, a, b, c, a, b, c, a, b, c, a, b, d, a, b, d, a, b, d, a, b, e, a, b, e, a, b, e));
-			count++;
-
-			printf("\nTest %d [a: %d, b: %d]\n", count, a, b);
-			printf(" = mien = [%d]\n", ft_printf("(|%-*.*u, %-*.*x, %-*.*X, %-*.*u, %-*.*x, %-*.*X, %-*.*u, %-*.*x, %-*.*X, %-*.*u, %-*.*x, %-*.*X, %-*.*u, %-*.*x, %-*.*X, %-*.*u, %-*.*x, %-*.*X, %-*.*u, %-*.*x, %-*.*X, %-*.*u, %-*.*x, %-*.*X|)", a, b, i, a, b, i, a, b, i, a, b, j, a, b, j, a, b, j, a, b, k, a, b, k, a, b, k, a, b, l, a, b, l, a, b, l, a, b, m, a, b, m, a, b, m, a, b, c, a, b, c, a, b, c, a, b, d, a, b, d, a, b, d, a, b, e, a, b, e, a, b, e));
-			printf(" = vrai = [%d]\n", printf("(|%-*.*u, %-*.*x, %-*.*X, %-*.*u, %-*.*x, %-*.*X, %-*.*u, %-*.*x, %-*.*X, %-*.*u, %-*.*x, %-*.*X, %-*.*u, %-*.*x, %-*.*X, %-*.*u, %-*.*x, %-*.*X, %-*.*u, %-*.*x, %-*.*X, %-*.*u, %-*.*x, %-*.*X|)", a, b, i, a, b, i, a, b, i, a, b, j, a, b, j, a, b, j, a, b, k, a, b, k, a, b, k, a, b, l, a, b, l, a, b, l, a, b, m, a, b, m, a, b, m, a, b, c, a, b, c, a, b, c, a, b, d, a, b, d, a, b, d, a, b, e, a, b, e, a, b, e));
-			count++;
-
-			b++;
-		}
-		a++;
-	}
-
-	a = 2;
-	b = 0;
-
-	printf("\n\n\n\n");
-	printf(" = mien = [%d]\n", ft_printf("(|%0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X|)", a, b, i, a, b, i, a, b, i, a, b, j, a, b, j, a, b, j, a, b, k, a, b, k, a, b, k, a, b, l, a, b, l, a, b, l, a, b, m, a, b, m, a, b, m, a, b, c, a, b, c, a, b, c, a, b, d, a, b, d, a, b, d, a, b, e, a, b, e, a, b, e));
-	printf(" = vrai = [%d]\n", printf("(|%0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X|)", a, b, i, a, b, i, a, b, i, a, b, j, a, b, j, a, b, j, a, b, k, a, b, k, a, b, k, a, b, l, a, b, l, a, b, l, a, b, m, a, b, m, a, b, m, a, b, c, a, b, c, a, b, c, a, b, d, a, b, d, a, b, d, a, b, e, a, b, e, a, b, e));
-	printf("\n\n");
-	printf(" = mien = [%d]\n", ft_printf("(|%0*.*x|)", 2, 0, 8));
-	printf(" = vrai = [%d]\n", printf("(|%0*.*x|)",  2, 0, 8));
-	printf(" = mien = [%d]\n", ft_printf("(|%0*.x|)", 2, 0));
-	printf(" = vrai = [%d]\n", printf("(|%0*.x|)", 2, 0));
-	printf("\n\n");
-	printf(" = mien = [%d]\n", ft_printf("(|%0*x|)", 2, 0));
-	printf(" = vrai = [%d]\n", printf("(|%0*x|)", 2, 0));
-
-
 	ft_putstr("====================================================================================================\n");
 
 
