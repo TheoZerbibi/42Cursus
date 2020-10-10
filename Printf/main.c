@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:34:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/10/10 03:52:58 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/10/10 04:09:21 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -597,7 +597,7 @@ int	main(void)
 	int		l = 0;
 	int		m = -12345678;
 
-	/*a = -1;
+	a = -1;
 	int count = 378;
 	while(a < 5)
 	{
@@ -622,16 +622,12 @@ int	main(void)
 			b++;
 		}
 		a++;
-	}*/
+	}
 
 	a = 2;
 	b = -1;
-	printf(" = mien = [%d]\n", ft_printf("(|%*.*x|)", 2, -1, 8));
-	printf(" = vrai = [%d]\n", printf("(|%*.*x|)", 2, -1, 8));
 
-	printf(" = mien = [%d]\n", ft_printf("(|%*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X|)", a, b, i, a, b, i, a, b, i, a, b, j, a, b, j, a, b, j, a, b, k, a, b, k, a, b, k, a, b, l, a, b, l, a, b, l, a, b, m, a, b, m, a, b, m, a, b, c, a, b, c, a, b, c, a, b, d, a, b, d, a, b, d, a, b, e, a, b, e, a, b, e));
-	printf(" = vrai = [%d]\n", printf("(|%*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X|)", a, b, i, a, b, i, a, b, i, a, b, j, a, b, j, a, b, j, a, b, k, a, b, k, a, b, k, a, b, l, a, b, l, a, b, l, a, b, m, a, b, m, a, b, m, a, b, c, a, b, c, a, b, c, a, b, d, a, b, d, a, b, d, a, b, e, a, b, e, a, b, e));
-
+	printf("\n\n\n\n");
 	ft_putstr("====================================================================================================\n");
 
 

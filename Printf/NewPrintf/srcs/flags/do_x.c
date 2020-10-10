@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 06:33:00 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/10/10 03:45:02 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/10/10 04:08:38 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,14 @@ static void	display_x(t_tab *tab, long int nbr, int blank, int upper)
 	int len;
 
 	len = ft_putlnbr_base(nbr, BASE, upper, FALSE);
-	if (!tab->width_is_neg && tab->combin[0] != '-' && !tab->prec_is_neg)
+	if (!tab->width_is_neg && tab->combin[0] != '-')
 	{
 		if (tab->combin[1] == '0' && tab->prec_null)
 			;
 		else
 		{
+			if (tab->combin[1] == '0' && len < tab->width && tab->prec_is_neg)
+				blank += 1;
 			if ((tab->prec_null || !tab->precisions) && nbr == 0 && tab->combin[3] == '.')
 				;
 			else
@@ -54,8 +56,8 @@ static void	display_x(t_tab *tab, long int nbr, int blank, int upper)
 		blank = len;
 	if ((tab->prec_null || !tab->precisions) && nbr == 0 && tab->combin[3] == '.')
 	{
-			display(tab, ' ', tab->width, TRUE);
-			return ;
+		display(tab, ' ', tab->width, TRUE);
+		return ;
 	}
 	else
 		tab->len += ft_putlnbr_base(nbr, BASE, upper, TRUE);
