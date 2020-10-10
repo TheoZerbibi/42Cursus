@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:34:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/10/11 00:33:39 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/10/11 01:02:05 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -597,8 +597,18 @@ int	main(void)
 	int		l = 0;
 	int		m = -12345678;
 
+	a = 2;
+	int count = 367;
+	while (a < 5)
+	{
+		printf("\n\n\nTest %d [a: %d, b: %d]\n", count, a, b);
+		printf(" = mien = [%d]\n", ft_printf("(|%0*u, %0*x, %0*X, %0*u, %0*x, %0*X, %0*u, %0*x, %0*X, %0*u, %0*x, %0*X, %0*u, %0*x, %0*X, %0*u, %0*x, %0*X, %0*u, %0*x, %0*X, %0*u, %0*x, %0*X|)", a, i, a, i, a, i, a, j, a, j, a, j, a, k, a, k, a, k, a, l, a, l, a, l, a, m, a, m, a, m, a, c, a, c, a, c, a, d, a, d, a, d, a, e, a, e, a, e));
+		printf(" = vrai = [%d]\n", printf("(|%0*u, %0*x, %0*X, %0*u, %0*x, %0*X, %0*u, %0*x, %0*X, %0*u, %0*x, %0*X, %0*u, %0*x, %0*X, %0*u, %0*x, %0*X, %0*u, %0*x, %0*X, %0*u, %0*x, %0*X|)", a, i, a, i, a, i, a, j, a, j, a, j, a, k, a, k, a, k, a, l, a, l, a, l, a, m, a, m, a, m, a, c, a, c, a, c, a, d, a, d, a, d, a, e, a, e, a, e));
+		count += 4;
+		a++;
+	}
+	count = 378;
 	a = -1;
-	int count = 378;
 	while(a < 5)
 	{
 		b = -1;
@@ -633,6 +643,12 @@ int	main(void)
 	printf("\n\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%0*.*x|)", 2, 0, 8));
 	printf(" = vrai = [%d]\n", printf("(|%0*.*x|)",  2, 0, 8));
+	printf(" = mien = [%d]\n", ft_printf("(|%0*.x|)", 2, 0));
+	printf(" = vrai = [%d]\n", printf("(|%0*.x|)", 2, 0));
+	printf("\n\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%0*x|)", 2, 0));
+	printf(" = vrai = [%d]\n", printf("(|%0*x|)", 2, 0));
+
 
 	ft_putstr("====================================================================================================\n");
 
