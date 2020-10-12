@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:34:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/10/11 01:19:17 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/10/12 14:02:57 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -577,14 +577,17 @@ int	main(void)
 	printf(" = vrai = [%d]\n", printf("(|%0*%|)", -4, NULL));
 	success();
 
-	printf("\n-------%s LEAKS %s-------\n\n", SUCCESS, SUCCESS);
-	calc_test(1);
-	system("leaks printf");
-	success();
+	// printf("\n-------%s LEAKS %s-------\n\n", SUCCESS, SUCCESS);
+	// calc_test(1);
+	// system("leaks printf");
+	// success();
 
 	ft_putstr("\n============================================= DEBUGGER =============================================\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%0*.*d|)", 1, -4, -135));
+	printf(" = vrai = [%d]\n", printf("(|%0*.*d|)", 1, -4, -135));
+	printf(" = mien = [%d]\n", ft_printf("(|%-4.*d|)", -4, -12));
+	printf(" = vrai = [%d]\n", printf("(|%-4.*d|)", -4, -12));
 	ft_putstr("====================================================================================================\n");
-
 
 	printf("\n\n\033[1;32mScore : %d/%d\033[0m\n\033[1;33mBugs  : %d\033[0m\n", (GLOBAL_TEST - GLOBAL_ERR), GLOBAL_TEST, GLOBAL_ERR);
 	return (0);
