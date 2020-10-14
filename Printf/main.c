@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:34:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/10/15 00:45:58 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/10/15 00:48:14 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -323,7 +323,7 @@ int	main(void)
 	success();
 
 	printf("\n-------%s HEXA %s-------\n\n", SUCCESS, SUCCESS);
-	calc_test(19);
+	calc_test(23);
 	printf("-------TEST 1-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|%x|)", HEXA));
 	printf(" = vrai = [%d]\n", printf("(|%x|)", HEXA));
@@ -397,6 +397,22 @@ int	main(void)
 	printf(" = vrai = [%d]\n", printf("(|%-6x|)", 0xdd66));
 	success();
 	printf("-------TEST 19-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%0*X|)", -5, 0));
+	printf(" = vrai = [%d]\n", printf("(|%0*X|)", -5, 0));
+	fail("bad indentation");
+	printf("-------TEST 20-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%0*X|)", -10, -2147483647));
+	printf(" = vrai = [%d]\n", printf("(|%0*X|)", -10, -2147483647));
+	fail("bad indentation");
+	printf("-------TEST 21-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%3.*x|)", -3, 0));
+	printf(" = vrai = [%d]\n", printf("(|%3.*x|)", -3, 0));
+	fail("bad indentation");
+	printf("-------TEST 22-------\n");
+	printf(" = mien = [%d]\n", ft_printf("(|%*.*X|)", 4, -5, 0));
+	printf(" = vrai = [%d]\n", printf("(|%*.*X|)", 4, -5, 0));
+	fail("bad indentation");
+	printf("-------TEST 23-------\n");
 	printf(" = mien = [%d]\n", ft_printf("(|test%---10.6x et %01X et %0x !!\\n|)", 0xaabb, (unsigned int)0, 0));
 	printf(" = vrai = [%d]\n", printf("(|test%---10.6x et %01X et %0x !!\\n|)", 0xaabb, (unsigned int)0, 0));
 	success();
