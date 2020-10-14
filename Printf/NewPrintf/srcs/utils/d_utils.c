@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 01:04:20 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/10/12 16:02:20 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/10/14 18:17:13 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int already_neg)
 
 void	d_utils_minus_print(t_tab *tab, long int nbr, int width, int blank)
 {
+	(void)blank;
 	if ((!tab->prec_is_neg || tab->combin[1] == '0') && (!tab->width_is_neg || !tab->prec_is_neg))
 	{
 		if (!tab->prec_is_neg || tab->width > tab->nbr_len)
@@ -88,7 +89,6 @@ void	d_utils_minus_print(t_tab *tab, long int nbr, int width, int blank)
 	}
 	tab->len += tab->nbr_len;
 	tab->nbr_len += (tab->nbr_is_neg) ? 1 : 0;
-	//printf("%d, %ld, %ld, %d, %ld", tab->nbr_len, tab->width, (tab->width - tab->nbr_len), blank, (tab->width - tab->nbr_len));
 	if (((tab->precisions - width) + tab->nbr_len) <= tab->precisions && tab->precisions > tab->width)
 	{
 		display(tab, ' ', tab->width - tab->char_display, TRUE);
@@ -110,7 +110,10 @@ void	d_utils_minus_print(t_tab *tab, long int nbr, int width, int blank)
 	}
 	else if (tab->combin[0] == '-' && tab->nbr_is_neg)
 	{
-		display(tab, ' ', tab->width - blank, TRUE);
+		if (tab->prec_is_neg)
+			display(tab, ' ', tab->width - tab->nbr_len, TRUE);
+		else
+			display(tab, ' ', tab->width - blank, TRUE);
 	}
 	else if (tab->nbr_is_neg && tab->width_is_neg && tab->prec_is_neg)
 		display(tab, ' ', tab->width - (ft_nbrlen(nbr) + 1), TRUE);
