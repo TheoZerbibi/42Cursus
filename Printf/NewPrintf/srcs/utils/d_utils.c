@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 01:04:20 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/10/14 18:17:13 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/10/14 23:19:55 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,15 @@ int already_neg)
 void	d_utils_minus_print(t_tab *tab, long int nbr, int width, int blank)
 {
 	(void)blank;
+	tab->nbr_len -= (tab->nbr_is_neg) ? 1 : 0;
 	if ((!tab->prec_is_neg || tab->combin[1] == '0') && (!tab->width_is_neg || !tab->prec_is_neg))
 	{
+		if (tab->prec_is_neg && tab->precisions >= tab->width)
+			width = tab->width + tab->nbr_len;
+		printf("%d, %ld", width, (tab->precisions - width));
 		if (!tab->prec_is_neg || tab->width > tab->nbr_len)
 			display(tab, '0', tab->precisions - width, TRUE);
 	}
-	tab->nbr_len -= (tab->nbr_is_neg) ? 1 : 0;
 	if (!tab->precisions && nbr == 0 && tab->combin[3] == '.')
 		display(tab, ' ', 1, FALSE);
 	else if (nbr != (-9223372036854775807 - 1))
