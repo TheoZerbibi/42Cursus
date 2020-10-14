@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/18 03:11:13 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/10/14 22:51:10 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/10/14 23:30:35 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ t_tab		*print_u(t_tab *tab)
 	int				width;
 
 	nbr = (unsigned long)(va_arg(tab->args, unsigned int));
-	printf("%ld", nbr);
 	if (nbr == 0 && tab->precisions < 0)
 	{
 		display(tab, ' ', tab->width, 1);

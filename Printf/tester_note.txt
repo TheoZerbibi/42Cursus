@@ -4,5 +4,5 @@
 4 - ft_printf_test : OK: 1002  KO: 1		|	√
 5 - mazoise : 514 / 514						|	√
 6 - hbaudet : 0 errors						|	√
-7 - printf_lover : [%c,%s,%p,%u,%%]			|	X
+7 - printf_lover : [%c,%s,%p,%d,%i,%u,%%]	|	X
 8 - ftprintfdestructor						|	X

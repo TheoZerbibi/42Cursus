@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:34:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/10/14 22:54:26 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/10/14 23:36:48 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -583,28 +583,9 @@ int	main(void)
 	// success();
 
 	ft_putstr("\n============================================= DEBUGGER =============================================\n");
-	printf(" = mien = [%d]\n", ft_printf("(|%0*.*d|)", 1, -4, -135));
-	printf(" = vrai = [%d]\n", printf("(|%0*.*d|)", 1, -4, -135));
-	printf(" = mien = [%d]\n", ft_printf("(|%-4.*d|)", 3, -12));
-	printf(" = vrai = [%d]\n", printf("(|%-4.*d|)", 3, -12));
-	printf(" = mien = [%d]\n", ft_printf("(|%-4.2d|)", -4));
-	printf(" = vrai = [%d]\n", printf("(|%-4.2d|)", -4));
-	printf(" = mien = [%d]\n", ft_printf("(|%-4.*d|)", -3, -12));
-	printf(" = vrai = [%d]\n", printf("(|%-4.*d|)", -3, -12));
-	printf("\n");
-	printf(" = mien = [%d]\n", ft_printf("(|%0*.*d|)", 5, -4, -10));
-	printf(" = vrai = [%d]\n", printf("(|%0*.*d|)", 5, -4, -10));
-	printf("\n");
-	printf(" = mien = [%d]\n", ft_printf("(|%0.*d|)", 4, -135));
-	printf(" = vrai = [%d]\n", printf("(|%0.*d|)", 4, -135));
-	printf(" = mien = [%d]\n", ft_printf("(|%0*.*d|)", -4, 4, -135));
-	printf(" = vrai = [%d]\n", printf("(|%0*.*d|)", -4, 4, -135));
-	printf(" = mien = [%d]\n", ft_printf("(|%0*.*d|)", -5, 5, -10));
-	printf(" = vrai = [%d]\n", printf("(|%0*.*d|)", -5, 5, -10));
-	printf(" = mien = [%d]\n", ft_printf("(|%0*.*d|)", 3, -4, -10));
-	printf(" = vrai = [%d]\n", printf("(|%0*.*d|)", 3, -4, -10));
-	printf(" = mien = [%d]\n", ft_printf("(|%0*.*d|)", 4, -4, -10));
-	printf(" = vrai = [%d]\n", printf("(|%0*.*d|)", 4, -4, -10));
+	printf(" = mien = [%d]\n", ft_printf("(|%0*X|)", -5, 0));
+	printf(" = vrai = [%d]\n", printf("(|%0*X|)", -5, 0));
+	//%0*X
 	ft_putstr("====================================================================================================\n");
 
 	printf("\n\n\033[1;32mScore : %d/%d\033[0m\n\033[1;33mBugs  : %d\033[0m\n", (GLOBAL_TEST - GLOBAL_ERR), GLOBAL_TEST, GLOBAL_ERR);
