@@ -6,12 +6,11 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/14 02:26:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/29 20:56:57 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/10/15 00:53:27 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 int		ft_sizemalloc(long long unsigned int i)
 {
@@ -55,7 +54,7 @@ char	*ft_itohexa(long long unsigned int i, char *base)
 	return (str);
 }
 
-char		*ft_itoa_base(long int num, char *base)
+char	*ft_itoa_base(long int num, char *base)
 {
 	return (ft_itohexa(num, base));
 }

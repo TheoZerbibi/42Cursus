@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 01:04:20 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/10/14 23:32:42 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/10/15 22:20:18 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 **			@param t_tab *tab, int blank, char neg_char, int already_neg
 **			@return tab
 */
-
 
 t_tab	*d_utils_minus(t_tab *tab, int blank, char neg_char,
 int already_neg)

@@ -6,7 +6,7 @@
 #    By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/04 13:36:23 by thzeribi          #+#    #+#              #
-#    Updated: 2020/09/18 03:28:55 by thzeribi         ###   ########.fr        #
+#    Updated: 2020/10/15 00:57:13 by thzeribi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,11 +73,9 @@ $(OBJECTS_FOLDER)%.o: $(SOURCES_FOLDER)%.c
 	@printf "$(NO_COLOR)Creating $(INFO_COLOR)%-30s $(OK_COLOR)✓$(NO_COLOR)\r" "$@"
 
 norm:
-	norminette ./libft/*.c ; norminette ./libft/**/*.c
+	norminette ./libft/{**/*.c,*.h}
 	@echo
-	norminette ./$(INCLUDES_FOLDER)
-	@echo
-	norminette ./$(SOURCES_FOLDER)
+	norminette ./{$(INCLUDES_FOLDER),$(SOURCES_FOLDER)}
 
 clean:
 	@make -C libft clean
