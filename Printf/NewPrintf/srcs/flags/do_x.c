@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 06:33:00 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/10/16 14:40:24 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/10/16 15:00:32 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	display_x(t_tab *tab, long int nbr, int blank, int upper)
 	len = ft_putlnbr_base(nbr, BASE, upper, FALSE);
 	if (!tab->width_is_neg && tab->combin[0] != '-' && len < tab->width)
 	{
-		if (tab->combin[1] == '0' && tab->prec_null)
+		if (tab->combin[1] == '0' && tab->combin[3] != '.')
 			;
 		else
 		{
@@ -52,7 +52,7 @@ static void	display_x(t_tab *tab, long int nbr, int blank, int upper)
 	{
 		if ((!tab->precisions && nbr == 0 && !tab->prec_null) || (tab->width_is_neg && tab->prec_null))
 			;
-		else if (tab->combin[1] == '0' && tab->precisions == 0)
+		else if (tab->combin[1] == '0' && tab->combin[3] != '.')
 			display(tab, '0', tab->width - (len + tab->char_display), TRUE);
 		else
 			display(tab, '0', tab->precisions - len, TRUE);
