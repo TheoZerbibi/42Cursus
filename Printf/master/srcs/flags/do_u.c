@@ -6,13 +6,13 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/18 03:11:13 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/10/14 23:30:35 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/10/16 16:02:20 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-static void		display_u(t_tab *tab, long int nbr, int width)
+static void	display_u(t_tab *tab, long int nbr, int width)
 {
 	int		blank;
 
