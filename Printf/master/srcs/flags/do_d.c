@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 01:02:09 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/10/16 16:14:44 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/10/16 16:23:49 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,9 @@ static void		print_minus(t_tab *tab, long int nbr, int width, int is_neg)
 **
 **			@param t_tab *tab & long int nbr, int width, int is_neg [BOOLEAN]
 **				int is_neg :
-**					[FALSE](0)	- the nbr is positive or flag `-` is not present.
-**					[TRUE](1)		- the nbr is negative or flag `-` is present.
+**					[FALSE](0)	- the nbr is positive or flag `-`
+**						is not present.
+**					[TRUE](1)	- the nbr is negative or flag `-` is present.
 **			@return tab
 */
 
@@ -127,7 +128,8 @@ t_tab			*print_d(t_tab *tab)
 	nbr = (int)(va_arg(tab->args, int));
 	if (tab->space_after)
 		display(tab, ' ', 1, TRUE);
-	if (nbr == 0 && ((tab->precisions == 1 && tab->prec_null) || (!tab->precisions && tab->combin[3] == '.')))
+	if (nbr == 0 && ((tab->precisions == 1 && tab->prec_null)
+	|| (!tab->precisions && tab->combin[3] == '.')))
 	{
 		display(tab, ' ', tab->width, TRUE);
 		return (tab);
