@@ -6,7 +6,7 @@
 #    By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/04 13:36:23 by thzeribi          #+#    #+#              #
-#    Updated: 2020/09/14 22:49:29 by thzeribi         ###   ########.fr        #
+#    Updated: 2020/10/15 00:57:13 by thzeribi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,20 +22,25 @@ SOURCES_FOLDER = ./srcs/
 INCLUDES_FOLDER =	./includes/
 OBJECTS_FOLDER = ./objs/
 
-SRCS	=					\
-				ft_printf.c		\
-				parsing.c		\
-				elems.c			\
-				elems_parser.c	\
-				print.c			\
-				display.c		\
-				d_utils.c		\
-				do_d.c		\
+SRCS	:=	ft_printf.c	\
+				elems.c				\
+				ft_parsing.c	\
+				\
+				flags/do_s.c	\
+				flags/do_p.c	\
+				flags/do_c.c	\
+				flags/do_x.c	\
+				flags/do_d.c	\
+				flags/do_u.c	\
+				\
+				utils/display.c	\
+				utils/d_utils.c	\
+				utils/u_utils.c
 
 OBJS = $(SRCS:.c=.o)
-OBJS := $(subst /,__,$(OBJS))
 OBJS := $(addprefix $(OBJECTS_FOLDER),$(OBJS))
 SOURCES := $(addprefix $(SOURCES_FOLDER),$(SRCS))
+
 
 FSANITIZE = -fsanitize=address
 #FLAGS = -Wall -Wextra -Werror $(FSANITIZE)
@@ -62,15 +67,15 @@ $(NAME): $(OBJS)
 
 $(OBJECTS_FOLDER)%.o: $(SOURCES_FOLDER)%.c
 	@mkdir -p $(OBJECTS_FOLDER)
+	@mkdir -p $(OBJECTS_FOLDER)/flags
+	@mkdir -p $(OBJECTS_FOLDER)/utils
 	@$(CC) $(FLAGS) -I$(INCLUDES_FOLDER) -c $< -o $@
 	@printf "$(NO_COLOR)Creating $(INFO_COLOR)%-30s $(OK_COLOR)✓$(NO_COLOR)\r" "$@"
 
 norm:
-	norminette ./libft/*.c ; norminette ./libft/**/*.c
+	norminette ./libft/{**/*.c,*.h}
 	@echo
-	norminette ./$(INCLUDES_FOLDER)
-	@echo
-	norminette ./$(SOURCES_FOLDER)
+	norminette ./{$(INCLUDES_FOLDER),$(SOURCES_FOLDER)}
 
 clean:
 	@make -C libft clean

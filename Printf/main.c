@@ -6,11 +6,11 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:34:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/10/16 15:24:11 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/10/16 15:49:10 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./NewPrintf/includes/ft_printf.h"
+#include "./master/includes/ft_printf.h"
 
 #define SUCCESS "\033[1;32m✓\033[0m"
 #define FAIL "\033[1;31mx\033[0m"

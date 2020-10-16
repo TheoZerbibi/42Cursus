@@ -5,25 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/13 00:32:19 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/15 20:16:45 by thzeribi         ###   ########.fr       */
+/*   Created: 2020/09/16 00:16:52 by thzeribi          #+#    #+#             */
+/*   Updated: 2020/09/17 08:48:15 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 /*
-** TODO:		conversion : /
-** FIXME:		conversion :Xx (all good until Test 11 +
-**						Test 9,12,14,15,16 bad size) - u 5eme Negative Test +
-**						d Test Positive 1
-** WIP:		conversion : xX, u
-** FINISH:	conversion : i ,c, s, p + parsing (conversion + flags)
-*/
-
-/*
-**	functions : ft_init
-**	description : TODO:
+**	ft_init() [Static Function ]:
+**			Call by ft_printf(), this function is for init structure for parsing
+**
+**		@param t_tab *tab & const char *str
+**		@return *tab
 */
 
 static t_tab	ft_init(t_tab *tab, const char *str)
@@ -37,8 +31,13 @@ static t_tab	ft_init(t_tab *tab, const char *str)
 }
 
 /*
-**	functions : ft_printf
-**	description : TODO:
+**	ft_printf() :
+**			This function is the main function for PrintF
+**
+**		@param char *str & va_arg
+**		@return tab.len
+**
+**	NOTE : check man printf
 */
 
 int				ft_printf(const char *str, ...)

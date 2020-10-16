@@ -5,45 +5,104 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/27 09:36:42 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/09 20:47:05 by thzeribi         ###   ########.fr       */
+/*   Created: 2020/09/16 00:18:16 by thzeribi          #+#    #+#             */
+/*   Updated: 2020/10/09 20:47:27 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
-t_tab	*init_printf(t_tab *tab)
+/*
+**	init_printf() [Static Function] :
+**				Call by get_elems(), this function init structure
+**				for the proper functioning of printf
+**
+**			@param t_tab *tab
+**			@return tab.len
+*/
+
+static t_tab	*init_printf(t_tab *tab)
 {
-	tab->flags = '\0';
 	tab->combin[0] = '\0';
 	tab->combin[1] = '\0';
 	tab->combin[2] = '\0';
 	tab->combin[3] = '\0';
-	tab->arg_flag = '\0';
 	tab->width = 0;
-	tab->param = 0;
 	tab->precisions = 0;
 	tab->width_is_neg = 0;
-	tab->prec_neg = 0;
+	tab->prec_is_neg = 0;
+	tab->prec_null = 1;
 	tab->nbr_is_neg = 0;
+	tab->space_after = 0;
+	tab->char_display = 0;
+	tab->nbr_len = 0;
 	return (tab);
 }
 
-int		get_elems(t_tab *tab)
+/*
+**	select_flag() [Static Function] :
+**				Call fifth by get_elems(), this function find the current flag
+**				and call and calls the appropriate function.
+**
+**			@param t_tab tab
+**			@return tab.len
+*/
+
+static t_tab	*select_flag(t_tab *tab)
+{
+	char *flag;
+
+	flag = &tab->flag;
+	if (*flag == 'c' || *flag == '%')
+		print_c(tab);
+	else if (*flag == 's')
+		print_s(tab);
+	else if (*flag == 'p')
+		print_p(tab);
+	else if (*flag == 'x')
+		print_x(tab, FALSE);
+	else if (*flag == 'X')
+		print_x(tab, TRUE);
+	else if (*flag == 'd' || *flag == 'i')
+		print_d(tab);
+	else if (*flag == 'u')
+		print_u(tab);
+	return (tab);
+}
+
+/*
+**	get_elems() [Static Function] :
+**				Call when ft_parser find a '%'.
+**				This function will call all parsing function
+**
+**			@param t_tab tab
+**			@return tab.len
+*/
+
+static int		get_elems(t_tab *tab)
 {
 	tab->i++;
 	init_printf(tab);
 	parse_combin(tab);
 	parse_width(tab);
 	parse_precisions(tab);
-	parse_convert(tab);
-	if (tab->arg_flag == '\0')
-		return (tab->len);
-	parse_elems(tab);
+	parse_flags(tab);
+	select_flag(tab);
 	return (tab->len);
 }
 
-int		ft_parser(t_tab *tab)
+/*
+**	ft_parser() :
+**				Call by ft_printf(), this function read a copy
+**				of original string (s_copy) and write by
+**				default (default = no '%').
+**
+**			@param t_tab tab
+**			@throws 0 if string just contain `%`
+**			@return tab.len
+*/
+
+int				ft_parser(t_tab *tab)
 {
 	if (ft_strcmp(tab->s_copy, "%") == 0)
 		return (0);

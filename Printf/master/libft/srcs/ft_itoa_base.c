@@ -6,74 +6,55 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/14 02:26:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/14 22:00:41 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/10/15 00:53:27 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	ft_calculate_char(int mod, char c)
+int		ft_sizemalloc(long long unsigned int i)
 {
-	char	return_char;
+	long unsigned int	j;
+	int					size;
 
-	if (mod > 36)
-		return (0);
-	return_char = '0';
-	while (mod--)
+	j = i;
+	size = 0;
+	while (j > 0)
 	{
-		return_char++;
-		if (return_char == ':')
-			return_char = c;
+		size++;
+		j = j / 16;
 	}
-	return (return_char);
+	return (size);
 }
 
-static int	ft_get_len(long int num, long int base)
-{
-	int		len;
-
-	len = 0;
-	while (num)
-	{
-		num /= base;
-		len++;
-	}
-	return (len);
-}
-
-static char	*ft_generate_string(long int num, long int base, char c)
-{
-	long int	sum;
-	int			mod;
-	int			len;
-	int			i;
-	char		*str;
-
-	if (num == 0)
-	{
-		if (!(str = ft_strnew(1)))
-			return (NULL);
-		*str = '0';
-		return (str);
-	}
-	sum = num;
-	i = 0;
-	len = ft_get_len(num, base);
-	if (!(str = ft_strnew(len)))
-		return (NULL);
-	while (sum)
-	{
-		mod = sum % base;
-		sum /= base;
-		str[(len--) - 1] = ft_calculate_char(mod, c);
-	}
-	return (str);
-}
-
-char		*ft_itoa_base(long int num, long int base, char c)
+char	*ft_itohexa(long long unsigned int i, char *base)
 {
 	char	*str;
+	int		size;
 
-	str = ft_generate_string(num, base, c);
+	if (i == 0)
+	{
+		if (!(str = malloc(sizeof(char) * 2)))
+			return (NULL);
+		str[0] = base[0];
+		str[1] = '\0';
+		return (str);
+	}
+	size = ft_sizemalloc(i);
+	if (!(str = malloc(sizeof(char) * (size + 1))))
+		return (NULL);
+	str[size] = '\0';
+	size--;
+	while (i > 0)
+	{
+		str[size] = base[i % 16];
+		i = i / 16;
+		size--;
+	}
 	return (str);
+}
+
+char	*ft_itoa_base(long int num, char *base)
+{
+	return (ft_itohexa(num, base));
 }

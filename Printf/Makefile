@@ -9,8 +9,8 @@ SOURCES_FOLDER = ./
 INCLUDES_FOLDER = ./
 OBJECTS_FOLDER = ./objects/
 
-LIBS = NewPrintf
-PRINTF = NewPrintf/libftprintf.a
+LIBS = master
+PRINTF = master/libftprintf.a
 
 SOURCES = \
 	main.c \
@@ -72,4 +72,4 @@ doclean: all clean
 
 re: fclean all
 
-.PHONY: all re clean fclean NewPrintf force doclean
+.PHONY: all re clean fclean master force doclean
