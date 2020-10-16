@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 01:02:09 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/10/09 20:55:12 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/10/16 16:14:44 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ static void		print_positive(t_tab *tab, long int nbr, int width)
 	int		blank;
 
 	nbr *= (nbr != (-9223372036854775807 - 1)) ? 1 : -1;
-	if ((blank = width) && width <= tab->precisions
-		&& tab->precisions >= 0 && !tab->prec_is_neg)
+	if ((blank = width) && width <= tab->precisions && !tab->prec_is_neg)
 		blank = tab->precisions;
 	if (nbr == 0 && !tab->precisions && tab->combin[3] == '.'
 		&& tab->combin[1] != '0')
@@ -46,7 +45,8 @@ static void		print_positive(t_tab *tab, long int nbr, int width)
 		display(tab, ' ', tab->width - blank, TRUE);
 	else if (!tab->width_is_neg && tab->combin[1] != '0')
 		display(tab, ' ', tab->width - blank, TRUE);
-	else if ((!tab->precisions && !tab->prec_null) && tab->combin[1] == '0' && tab->width && !tab->width_is_neg)
+	else if ((!tab->precisions && !tab->prec_null) && tab->combin[1] == '0'
+	&& tab->width && !tab->width_is_neg)
 		display(tab, ' ', tab->width - blank, TRUE);
 	d_utils_positive_print(tab, nbr, width, blank);
 }
