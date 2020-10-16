@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 00:32:47 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/10/09 20:51:10 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/10/16 15:59:52 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -214,6 +214,5 @@ void			d_utils_positive_print(t_tab *tab, long int nbr,
 void			u_utils_positive(t_tab *tab, int width, int blank);
 void			u_utils_positive_print(t_tab *tab, long int nbr,
 					int width, int blank);
-
 
 #endif
