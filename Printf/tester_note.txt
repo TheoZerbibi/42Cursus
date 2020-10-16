@@ -1,7 +1,7 @@
 1 - printf-tester : 0 errors					|	√
 2 - pandacoustic : 111/111 						|	√
 3 - pft : 691/691								|	√
-4 - ft_printf_test : OK: 1002  KO: 1			|	√
+4 - ft_printf_test : OK: 1003  KO: 0			|	√
 5 - mazoise : 514 / 514							|	√
 6 - hbaudet : 0 errors							|	√
 7 - printf_lover : [%c,%s,%p,%d,%i,%u,%%,%X,%x]	|	√
