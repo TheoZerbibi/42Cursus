@@ -6,29 +6,35 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/18 03:23:48 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/10/16 17:15:52 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/10/16 17:30:20 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
+static int	u_utils_positive_condition_zero(t_tab *tab, int width, long int nbr,
+int already_print)
+{
+	if (tab->combin[3] == '.' && !tab->prec_is_neg && (int)nbr >= 0)
+	{
+		already_print = 1;
+		display(tab, '0', tab->precisions - width, TRUE);
+	}
+	else if (tab->combin[3] == '.' && tab->combin[2] == '*'
+	&& tab->prec_is_neg && !tab->width_is_neg)
+	{
+		already_print = 1;
+		display(tab, '0', tab->width - width, TRUE);
+	}
+	return (already_print);
+}
+
 static void	u_utils_positive_print_before(t_tab *tab, int width, long int nbr,
 int already_print)
 {
 	if (tab->combin[1] == '0' && tab->combin[0] != '-')
-	{
-		if (tab->combin[3] == '.' && !tab->prec_is_neg && (int)nbr >= 0)
-		{
-			already_print = 1;
-			display(tab, '0', tab->precisions - width, TRUE);
-		}
-		else if (tab->combin[3] == '.' && tab->combin[2] == '*'
-		&& tab->prec_is_neg && !tab->width_is_neg)
-		{
-			already_print = 1;
-			display(tab, '0', tab->width - width, TRUE);
-		}
-	}
+		already_print = u_utils_positive_condition_zero(tab, width, nbr,
+		already_print);
 	if (!already_print && tab->combin[3] != '.' && tab->combin[0] != '-'
 	&& !tab->width_is_neg)
 	{
