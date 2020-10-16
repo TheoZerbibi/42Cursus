@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 06:33:00 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/10/11 01:17:41 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/10/16 14:40:24 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,25 +29,28 @@ static void	display_x(t_tab *tab, long int nbr, int blank, int upper)
 	int len;
 
 	len = ft_putlnbr_base(nbr, BASE, upper, FALSE);
-	if (!tab->width_is_neg && tab->combin[0] != '-')
+	if (!tab->width_is_neg && tab->combin[0] != '-' && len < tab->width)
 	{
 		if (tab->combin[1] == '0' && tab->prec_null)
 			;
 		else
 		{
-			if (tab->combin[1] == '0' && len < tab->width && tab->prec_is_neg)
-				blank += 1;
 			if (tab->prec_is_neg && tab->combin[1] == '0')
 				;
 			else if ((tab->prec_null || !tab->precisions) && nbr == 0 && tab->combin[3] == '.')
 				;
 			else
+			{
+				blank = len;
+				if (len < tab->precisions && !tab->prec_is_neg)
+					blank = tab->precisions;
 				display(tab, ' ', tab->width - blank, TRUE);
+			}
 		}
 	}
-	if (!tab->prec_is_neg && tab->precisions >= 0)
+	if (!tab->prec_is_neg)
 	{
-		if (tab->precisions == 0 && nbr == 0 && !tab->prec_null)
+		if ((!tab->precisions && nbr == 0 && !tab->prec_null) || (tab->width_is_neg && tab->prec_null))
 			;
 		else if (tab->combin[1] == '0' && tab->precisions == 0)
 			display(tab, '0', tab->width - (len + tab->char_display), TRUE);
@@ -63,8 +66,7 @@ static void	display_x(t_tab *tab, long int nbr, int blank, int upper)
 		display(tab, ' ', tab->width, TRUE);
 		return ;
 	}
-	else
-		tab->len += ft_putlnbr_base(nbr, BASE, upper, TRUE);
+	tab->len += ft_putlnbr_base(nbr, BASE, upper, TRUE);
 	if (tab->width_is_neg == 1 && tab->combin[0] != '-')
 		display(tab, ' ', tab->width - blank, TRUE);
 	else if (tab->combin[0] == '-')
