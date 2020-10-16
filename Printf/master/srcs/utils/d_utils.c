@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 01:04:20 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/10/16 17:44:53 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/10/16 17:56:25 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,35 @@ char neg_char)
 		write(1, &neg_char, 1);
 	}
 	return (tab);
+}
+
+static void		d_utils_minus_print_space(t_tab *tab, long int nbr, int width,
+int blank)
+{
+	if (tab->char_display >= tab->width || tab->nbr_len >= tab->width)
+		return ;
+	if (tab->width > 0 && tab->precisions == 0 && (tab->combin[0] == '-'
+	|| tab->nbr_is_neg)
+		&& tab->width_is_neg)
+		display(tab, ' ', tab->width - tab->char_display, TRUE);
+	else if (tab->combin[0] == '-' && !tab->nbr_is_neg)
+	{
+		if (((tab->precisions - width) + ft_nbrlen(nbr)) == tab->precisions
+		&& !tab->width)
+			;
+		else if (tab->width < tab->precisions)
+			display(tab, ' ', tab->precisions - tab->char_display, TRUE);
+		else
+			display(tab, ' ', tab->width - tab->char_display, TRUE);
+	}
+	else if (tab->combin[0] == '-' && tab->nbr_is_neg)
+		(tab->prec_is_neg) ? display(tab, ' ', tab->width - tab->nbr_len, TRUE)
+		: display(tab, ' ', tab->width - blank, TRUE);
+	else if (tab->nbr_is_neg && tab->width_is_neg && tab->prec_is_neg)
+		display(tab, ' ', tab->width - (ft_nbrlen(nbr) + 1), TRUE);
+	else if (tab->nbr_is_neg && tab->width && tab->width_is_neg
+	&& (tab->nbr_len + (tab->precisions - width) < tab->width))
+		display(tab, ' ', tab->width - tab->char_display, TRUE);
 }
 
 /*
@@ -114,32 +143,7 @@ int blank)
 		display(tab, ' ', tab->width - tab->char_display, TRUE);
 		return ;
 	}
-	if (tab->char_display >= tab->width || tab->nbr_len >= tab->width)
-		return ;
-	if (tab->width > 0 && tab->precisions == 0 && (tab->combin[0] == '-'
-	|| tab->nbr_is_neg)
-		&& tab->width_is_neg)
-		display(tab, ' ', tab->width - tab->char_display, TRUE);
-	else if (tab->combin[0] == '-' && !tab->nbr_is_neg)
-	{
-		if (((tab->precisions - width) + ft_nbrlen(nbr)) == tab->precisions
-		&& !tab->width)
-			;
-		else if (tab->width < tab->precisions)
-			display(tab, ' ', tab->precisions - tab->char_display, TRUE);
-		else
-			display(tab, ' ', tab->width - tab->char_display, TRUE);
-	}
-	else if (tab->combin[0] == '-' && tab->nbr_is_neg)
-		(tab->prec_is_neg) ? display(tab, ' ', tab->width - tab->nbr_len, TRUE)
-		: display(tab, ' ', tab->width - blank, TRUE);
-	else if (tab->nbr_is_neg && tab->width_is_neg && tab->prec_is_neg)
-		display(tab, ' ', tab->width - (ft_nbrlen(nbr) + 1), TRUE);
-	else if (tab->nbr_is_neg && tab->width && tab->width_is_neg)
-	{
-		if (tab->nbr_len + (tab->precisions - width) < tab->width)
-			display(tab, ' ', tab->width - tab->char_display, TRUE);
-	}
+	d_utils_minus_print_space(tab, nbr, width, blank);
 }
 
 /*
