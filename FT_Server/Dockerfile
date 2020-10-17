@@ -32,14 +32,20 @@ RUN mkdir /var/mkcert \
 	&& ./mkcert localhost
 
 #WORDPRESS SETUP
+RUN echo "SETUP WORDPRESS"
+RUN mkdir -p /var/www/ft_server/html/wordpress
+COPY srcs/wordpress-5.5.1-fr_FR.tar.gz /var/www/ft_server/html/wordpress/
+RUN cd /var/www/ft_server/html/wordpress \
+	&& tar -xf wordpress-5.5.1-fr_FR.tar.gz \
+	&& rm wordpress-5.5.1-fr_FR.tar.gz
 
 #SQL SETUP
 
 #PHPMYADMIN SETUP
 
 #START ALL SERVICE
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
 RUN echo "START SERVICES"
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
 RUN service mysql start
 RUN /etc/init.d/php7.3-fpm start
 RUN service nginx restart
