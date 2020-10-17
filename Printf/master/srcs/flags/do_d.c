@@ -6,11 +6,47 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 01:02:09 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/10/16 16:23:49 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/10/17 13:20:26 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
+
+/*
+**	d_utils_positive_print() :
+**				Call by print_positive() when nbr is positive.
+**				This function will display the calculated elements
+**				done before.
+**
+**			@param t_tab *tab, long int nbr, int width, int blank
+**			@return void function, no values ​​return
+*/
+
+void			d_utils_positive_print(t_tab *tab, long int nbr,
+int width, int blank)
+{
+	int tmp;
+
+	tmp = tab->char_display;
+	if (!tab->prec_is_neg && (tab->combin[1] == '0'
+	|| !tab->width) && tab->precisions)
+		display(tab, '0', tab->precisions - width, TRUE);
+	else if (!tab->precisions && tab->combin[1] == '0' && !tab->width_is_neg)
+		display(tab, '0', tab->width - (tab->char_display + ft_nbrlen(nbr)),
+		TRUE);
+	if (tab->char_display == tmp && !tab->prec_is_neg)
+		display(tab, '0', tab->precisions - width, TRUE);
+	else if (tab->char_display == tmp && tab->prec_is_neg
+	&& tab->combin[1] == '0' && !tab->width_is_neg)
+		display(tab, '0', tab->width - width, TRUE);
+	if (nbr != (-2147483647 - 1))
+		ft_putnbrmax_fd(nbr, 1);
+	else if ((tab->len += 9) > 0)
+		write(1, "2147483647", 10);
+	tab->len += ft_nbrlen(nbr);
+	if (tab->width_is_neg == 1)
+		display(tab, ' ', tab->width - blank, TRUE);
+}
 
 /*
 **	print_positive() [Static Function] :

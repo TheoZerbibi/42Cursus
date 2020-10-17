@@ -6,11 +6,29 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 01:04:20 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/10/16 17:56:25 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/10/17 13:19:29 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
+
+static int		d_utils_minus_print_before(t_tab *tab, int width)
+{
+	if ((!tab->prec_is_neg || tab->combin[1] == '0') && (!tab->width_is_neg
+	|| !tab->prec_is_neg))
+	{
+		if (tab->prec_is_neg && tab->precisions >= tab->width)
+			width = tab->width + tab->nbr_len;
+		if (tab->nbr_len <= 2 && tab->prec_is_neg
+		&& tab->precisions > tab->width)
+			width -= 2;
+		if (tab->nbr_len + tab->precisions - width == 0)
+			display(tab, '0', tab->precisions - tab->nbr_len, TRUE);
+		else if (!tab->prec_is_neg || tab->width > tab->nbr_len)
+			display(tab, '0', tab->precisions - width, TRUE);
+	}
+	return (width);
+}
 
 static t_tab	*d_utils_minus_print_after(t_tab *tab, int already_neg,
 char neg_char)
@@ -108,20 +126,7 @@ int already_neg)
 void			d_utils_minus_print(t_tab *tab, long int nbr, int width,
 int blank)
 {
-	(void)blank;
-	if ((!tab->prec_is_neg || tab->combin[1] == '0') && (!tab->width_is_neg
-	|| !tab->prec_is_neg))
-	{
-		if (tab->prec_is_neg && tab->precisions >= tab->width)
-			width = tab->width + tab->nbr_len;
-		if (tab->nbr_len <= 2 && tab->prec_is_neg
-		&& tab->precisions > tab->width)
-			width -= 2;
-		if (tab->nbr_len + tab->precisions - width == 0)
-			display(tab, '0', tab->precisions - tab->nbr_len, TRUE);
-		else if (!tab->prec_is_neg || tab->width > tab->nbr_len)
-			display(tab, '0', tab->precisions - width, TRUE);
-	}
+	width = d_utils_minus_print_before(tab, width);
 	tab->nbr_len -= (tab->nbr_is_neg) ? 1 : 0;
 	if (!tab->precisions && nbr == 0 && tab->combin[3] == '.')
 		display(tab, ' ', 1, FALSE);
@@ -144,46 +149,4 @@ int blank)
 		return ;
 	}
 	d_utils_minus_print_space(tab, nbr, width, blank);
-}
-
-/*
-**	d_utils_positive_print() :
-**				Call by print_positive() when nbr is positive.
-**				This function will display the calculated elements
-**				done before.
-**
-**			@param t_tab *tab, long int nbr, int width, int blank
-**			@return void function, no values ​​return
-*/
-
-void			d_utils_positive_print(t_tab *tab, long int nbr,
-int width, int blank)
-{
-	int already_print;
-
-	already_print = 0;
-	if (!tab->prec_is_neg && (tab->combin[1] == '0'
-	|| !tab->width) && tab->precisions)
-	{
-		already_print = 1;
-		display(tab, '0', tab->precisions - width, TRUE);
-	}
-	else if (!tab->precisions && tab->combin[1] == '0' && !tab->width_is_neg)
-	{
-		already_print = 1;
-		display(tab, '0', tab->width - (tab->char_display + ft_nbrlen(nbr)),
-		TRUE);
-	}
-	if (!already_print && !tab->prec_is_neg)
-		display(tab, '0', tab->precisions - width, TRUE);
-	else if (!already_print && tab->prec_is_neg && tab->combin[1] == '0'
-	&& !tab->width_is_neg)
-		display(tab, '0', tab->width - width, TRUE);
-	if (nbr != (-2147483647 - 1))
-		ft_putnbrmax_fd(nbr, 1);
-	else if ((tab->len += 9) > 0)
-		write(1, "2147483647", 10);
-	tab->len += ft_nbrlen(nbr);
-	if (tab->width_is_neg == 1)
-		display(tab, ' ', tab->width - blank, TRUE);
 }
