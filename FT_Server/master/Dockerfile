@@ -15,7 +15,7 @@ EXPOSE 80
 
 #SETUP NGINX
 RUN echo "SETUP NGINX"
-COPY srcs/nginx.conf /etc/nginx/sites-available/
+COPY srcs/config/nginx.conf /etc/nginx/sites-available/
 RUN rm /etc/nginx/sites-enabled/default
 RUN mkdir -p /var/www/ft_server/html /var/www/ft_server/logs \
 	&& touch /var/www/ft_server/logs/{error.log,access.log}
@@ -31,21 +31,38 @@ RUN mkdir /var/mkcert \
 	&& ./mkcert -install \
 	&& ./mkcert localhost
 
-#WORDPRESS SETUP
-RUN echo "SETUP WORDPRESS"
-RUN mkdir -p /var/www/ft_server/html/wordpress
-COPY srcs/wordpress-5.5.1-fr_FR.tar.gz /var/www/ft_server/html/wordpress/
-RUN cd /var/www/ft_server/html/wordpress \
-	&& tar -xf wordpress-5.5.1-fr_FR.tar.gz \
-	&& rm wordpress-5.5.1-fr_FR.tar.gz
-
 #SQL SETUP
+COPY srcs/sql/create_db .
+COPY srcs/sql/wordpress.sql .
+RUN service mysql start \
+	&& mysql -u root < create_db \
+	&& mysql wordpress -u root --password= < wordpress.sql
 
 #PHPMYADMIN SETUP
+RUN echo "SETUP PHPMYADMIN"
+RUN wget https://files.phpmyadmin.net/phpMyAdmin/5.0.4/phpMyAdmin-5.0.4-all-languages.tar.gz -P /var/www/ft_server/html/
+RUN cd /var/www/ft_server/html \
+	&& tar -xf phpMyAdmin-5.0.4-all-languages.tar.gz \
+	&& mv phpMyAdmin-5.0.4-all-languages phpMyAdmin \
+	&& rm phpMyAdmin-5.0.4-all-languages.tar.gz
+COPY srcs/config/config.inc.php /var/www/ft_server/html/phpMyAdmin/
+
+#WORDPRESS SETUP
+RUN echo "SETUP WORDPRESS"
+COPY srcs/wordpress-5.5.1-fr_FR.tar.gz /var/www/ft_server/html/
+RUN cd /var/www/ft_server/html \
+	&& tar -xf wordpress-5.5.1-fr_FR.tar.gz \
+	&& rm wordpress-5.5.1-fr_FR.tar.gz
+#COPY srcs/config/wp-config.php /var/www/ft_server/html/wordpress/
+
+#FIX NGINX PERMISSIONS
+RUN echo "NGINX PERMISSIONS"
+RUN chown -R www-data:www-data /var/www/* \
+	&& chmod -R 755 /var/www/*
 
 #START ALL SERVICE
 RUN echo "START SERVICES"
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
 RUN service mysql start
-RUN /etc/init.d/php7.3-fpm start
 RUN service nginx restart
+RUN /etc/init.d/php7.3-fpm start
