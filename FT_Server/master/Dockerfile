@@ -35,8 +35,7 @@ RUN mkdir /var/mkcert \
 COPY srcs/sql/create_db .
 COPY srcs/sql/wordpress.sql .
 RUN service mysql start \
-	&& mysql -u root < create_db \
-	&& mysql wordpress -u root --password= < wordpress.sql
+	&& mysql -u root < create_db
 
 #PHPMYADMIN SETUP
 RUN echo "SETUP PHPMYADMIN"
@@ -53,6 +52,7 @@ COPY srcs/wordpress-5.5.1-fr_FR.tar.gz /var/www/ft_server/html/
 RUN cd /var/www/ft_server/html \
 	&& tar -xf wordpress-5.5.1-fr_FR.tar.gz \
 	&& rm wordpress-5.5.1-fr_FR.tar.gz
+COPY srcs/config/wp-config.php /var/www/ft_server/html/wordpress/
 
 #FIX NGINX PERMISSIONS
 RUN echo "NGINX PERMISSIONS"
