@@ -4,7 +4,7 @@ LABEL maintainer="thzeribi@student.42.fr"
 # INSTALL PACKAGE
 RUN echo "INSTALL PACKAGE"
 RUN apt-get update -yq && apt-get upgrade -yq \
-	&& apt-get install curl wget nginx certbot libnss3-tools mariadb-server -yq \
+	&& apt-get install curl wget nginx certbot libnss3-tools mariadb-server supervisor -yq \
 	&& apt-get install php-fpm php-mysql -y \
 	&& apt-get clean -yd
 
@@ -53,16 +53,18 @@ COPY srcs/wordpress-5.5.1-fr_FR.tar.gz /var/www/ft_server/html/
 RUN cd /var/www/ft_server/html \
 	&& tar -xf wordpress-5.5.1-fr_FR.tar.gz \
 	&& rm wordpress-5.5.1-fr_FR.tar.gz
-#COPY srcs/config/wp-config.php /var/www/ft_server/html/wordpress/
 
 #FIX NGINX PERMISSIONS
 RUN echo "NGINX PERMISSIONS"
 RUN chown -R www-data:www-data /var/www/* \
 	&& chmod -R 755 /var/www/*
 
+#SUPERVISORSETUP
+RUN mkdir -p /var/log/supervisor \
+	&& mkdir -p /etc/supervisor/conf.d
+ADD srcs/config/supervisor.conf /etc/supervisor.conf
+
 #START ALL SERVICE
+WORKDIR /var/www/ft_server/
 RUN echo "START SERVICES"
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
-RUN service mysql start
-RUN service nginx restart
-RUN /etc/init.d/php7.3-fpm start
+CMD ["supervisord", "-c", "/etc/supervisor.conf"]
