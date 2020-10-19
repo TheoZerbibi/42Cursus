@@ -21,6 +21,7 @@ RUN mkdir -p /var/www/ft_server/html /var/www/ft_server/logs \
 	&& touch /var/www/ft_server/logs/{error.log,access.log}
 RUN mv /etc/nginx/sites-available/nginx.conf /etc/nginx/sites-available/localhost \
 	&& ln -s /etc/nginx/sites-available/localhost /etc/nginx/sites-enabled/localhost
+COPY srcs/index.html /var/www/ft_server/html/
 
 #SSL SETUP
 RUN mkdir /var/mkcert \
