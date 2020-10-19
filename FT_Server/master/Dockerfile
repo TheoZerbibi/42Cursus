@@ -34,7 +34,6 @@ RUN mkdir /var/mkcert \
 
 #SQL SETUP
 COPY srcs/sql/create_db .
-COPY srcs/sql/wordpress.sql .
 RUN service mysql start \
 	&& mysql -u root < create_db
 
