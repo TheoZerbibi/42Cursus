@@ -7,5 +7,5 @@
 - ![#0fde00](https://via.placeholder.com/15/0fde00/000000?text=+) `Netwhat - 100/100`
 - ![#0fde00](https://via.placeholder.com/15/0fde00/000000?text=+) `Get_Next_Line - 107/100`
 - ![#0fde00](https://via.placeholder.com/15/0fde00/000000?text=+) `FT_printf - 100/100`
-- ![#0fde00](https://via.placeholder.com/15/FFD700/000000?text=+) `FT_server - 100/100`
+- ![#0fde00](https://via.placeholder.com/15/0fde00/000000?text=+) `FT_server - 100/100`
 - ![#FFD700](https://via.placeholder.com/15/FFD700/000000?text=+) `Cub3D - In_Progress`
