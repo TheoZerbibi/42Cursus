@@ -1,4 +1,4 @@
-*/.vscode
-*/test
-*/*.dSYM
-*/*.o
+.gitignore
+*.a
+Cub3D
+*.o
