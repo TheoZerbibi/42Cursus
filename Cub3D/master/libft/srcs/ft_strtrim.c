@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 16:48:03 by thzeribi          #+#    #+#             */
-/*   Updated: 2019/11/15 05:36:33 by thzeribi         ###   ########.fr       */
+/*   Updated: 2021/01/01 13:19:32 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (s1 == NULL)
 		return (0);
 	if (set == NULL)
-		return ((char*)s1);
+		return ((char *)s1);
 	while (s1[i] && ft_strchr(set, s1[i]) != NULL)
 		i++;
 	size = ft_strlen(&s1[i]);
@@ -31,7 +31,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 		while (s1[i + size - 1] && ft_strchr(set, s1[i + size - 1]) != NULL)
 			size--;
 	}
-	if ((res = (char*)malloc(sizeof(char) * (size + 1))) == NULL)
+	res = (char*)malloc(sizeof(char) * (size + 1));
+	if (res == NULL)
 		return (0);
 	ft_strlcpy(res, &s1[i], size + 1);
 	res[size] = '\0';

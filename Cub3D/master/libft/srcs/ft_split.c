@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 20:12:48 by thzeribi          #+#    #+#             */
-/*   Updated: 2019/11/15 05:42:40 by thzeribi         ###   ########.fr       */
+/*   Updated: 2021/01/01 13:16:01 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	countstr(char const *s1, char const c)
 
 static int	freeall(char **strs, int len)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	while (count <= len)
@@ -53,9 +53,9 @@ static int	freeall(char **strs, int len)
 
 static int	allocstrs(char const *s1, char const c, int nb, char **strs)
 {
-	int count;
-	int cursor;
-	int len;
+	int	count;
+	int	cursor;
+	int	len;
 
 	cursor = 0;
 	count = 0;
@@ -66,7 +66,8 @@ static int	allocstrs(char const *s1, char const c, int nb, char **strs)
 			cursor++;
 		while (s1[len + cursor] && s1[len + cursor] != c)
 			len++;
-		if (!(strs[count] = (char*)malloc(sizeof(char) * (len + 1))))
+		strs[count] = (char*)malloc(sizeof(char) * (len + 1));
+		if (!strs[count])
 			return (freeall(strs, count));
 		count++;
 		cursor = cursor + len;
@@ -101,7 +102,7 @@ static char	**fillstrs(char const *s1, char const c, char **strs, int nb)
 	return (strs);
 }
 
-char		**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	int		nb;
 	char	**strs;
@@ -113,7 +114,8 @@ char		**ft_split(char const *s, char c)
 	if (s == 0)
 		return (0);
 	nb = countstr(s, c);
-	if (!(strs = (char**)malloc(sizeof(char*) * (nb + 1))))
+	strs = (char**)malloc(sizeof(char*) * (nb + 1));
+	if (!strs)
 		return (0);
 	if (!(allocstrs(s, c, nb, strs)))
 		return (0);

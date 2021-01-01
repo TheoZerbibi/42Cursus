@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/10 14:49:04 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/01 20:44:40 by thzeribi         ###   ########.fr       */
+/*   Updated: 2021/01/01 13:11:20 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@
 ** print = 0 (False), function only return size
 */
 
-int	ft_putlnbr_base(unsigned long int nbr, const char *base, int upper,
-	int print)
+int	ft_putlnbr_base(unsigned long int nbr, char *base, int upper, int print)
 {
 	int				i;
 	unsigned int	base_len;

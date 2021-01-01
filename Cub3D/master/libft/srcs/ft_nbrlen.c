@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 20:10:40 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/09/08 00:44:53 by thzeribi         ###   ########.fr       */
+/*   Updated: 2021/01/01 13:10:02 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ int	ft_nbrlen(long int nbr)
 {
 	size_t	size;
 
-	size = (nbr <= 0 ? 1 : 0);
+	size = 0;
+	if (nbr <= 0)
+		size = 1;
 	while (nbr != 0)
 	{
 		nbr /= 10;

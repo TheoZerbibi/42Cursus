@@ -6,13 +6,13 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/02 11:45:56 by thzeribi          #+#    #+#             */
-/*   Updated: 2019/11/05 17:53:45 by thzeribi         ###   ########.fr       */
+/*   Updated: 2020/12/30 09:36:34 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isalpha(int c)
+int	ft_isalpha(int c)
 {
 	if (c < 65 || (c > 90 && c < 97) || c > 122)
 		return (0);

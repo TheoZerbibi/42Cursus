@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 00:30:25 by thzeribi          #+#    #+#             */
-/*   Updated: 2019/11/07 00:35:06 by thzeribi         ###   ########.fr       */
+/*   Updated: 2021/01/01 13:18:19 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int i;
+	int	i;
 
 	i = ft_strlen((char *)s);
 	while (s[i] != s[0])

@@ -6,7 +6,7 @@
 #    By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/19 12:13:48 by thzeribi          #+#    #+#              #
-#    Updated: 2020/12/19 12:18:49 by thzeribi         ###   ########.fr        #
+#    Updated: 2020/12/30 09:21:18 by thzeribi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,6 +78,7 @@ clean:
 
 fclean: clean
 	@make -C libft fclean
+	@printf "$(INFO_COLOR)LibFt $(NO_COLOR)Removed $(INFO_COLOR)Libft$(NO_COLOR).\n"
 	@rm -f $(NAME)
 	@rm -rf $(OBJECTS_FOLDER)
 	@printf "$(INFO_COLOR)$(PROJECT_NAME) $(NO_COLOR)Removed $(INFO_COLOR)$(NAME)$(NO_COLOR).\n"

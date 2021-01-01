@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 17:35:02 by thzeribi          #+#    #+#             */
-/*   Updated: 2019/11/15 05:31:29 by thzeribi         ###   ########.fr       */
+/*   Updated: 2021/01/01 13:13:07 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t i;
-	size_t j;
+	size_t	i;
+	size_t	j;
 
 	if (!src)
 		return (0);

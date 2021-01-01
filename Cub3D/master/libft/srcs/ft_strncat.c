@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 15:37:39 by thzeribi          #+#    #+#             */
-/*   Updated: 2019/11/12 15:48:53 by thzeribi         ###   ########.fr       */
+/*   Updated: 2021/01/01 13:16:53 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
-	int i;
+	int	i;
 
 	i = ft_strlen(s1);
 	while (*s2 && n-- > 0)

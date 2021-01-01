@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 06:23:43 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/01/31 06:32:44 by thzeribi         ###   ########.fr       */
+/*   Updated: 2021/01/01 13:17:56 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ char	*ft_strndup(const char *s1, size_t n)
 	size_t	i;
 
 	i = 0;
-	if (!(s2 = ft_strnew(n)))
+	s2 = ft_strnew(n);
+	if (!s2)
 		return (NULL);
 	while (s1[i] && i < n)
 	{

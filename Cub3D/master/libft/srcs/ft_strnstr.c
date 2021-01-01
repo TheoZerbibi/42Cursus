@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 09:37:29 by thzeribi          #+#    #+#             */
-/*   Updated: 2019/11/06 14:38:43 by thzeribi         ###   ########.fr       */
+/*   Updated: 2021/01/01 13:18:08 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t i;
-	size_t size;
+	size_t	i;
+	size_t	size;
 
 	size = 0;
 	if (needle[0] == '\0')

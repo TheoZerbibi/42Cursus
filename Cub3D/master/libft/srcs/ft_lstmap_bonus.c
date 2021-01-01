@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 05:22:48 by thzeribi          #+#    #+#             */
-/*   Updated: 2019/11/15 06:30:52 by thzeribi         ###   ########.fr       */
+/*   Updated: 2021/01/01 13:07:23 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	if (!lst || !f)
 		return (NULL);
 	tmp = lst;
-	if (!(begin = ft_lstnew(f((void *)tmp->content))))
+	begin = ft_lstnew(f((void *)tmp->content));
+	if (!begin)
 	{
 		ft_lstclear(&begin, del);
 		return (NULL);
@@ -28,7 +29,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	lst = lst->next;
 	while (lst)
 	{
-		if (!(tmp = ft_lstnew(f((void *)lst->content))))
+		tmp = ft_lstnew(f((void *)lst->content));
+		if (!tmp)
 		{
 			ft_lstclear(&begin, del);
 			return (NULL);

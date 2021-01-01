@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 20:17:44 by thzeribi          #+#    #+#             */
-/*   Updated: 2019/11/07 00:52:20 by thzeribi         ###   ########.fr       */
+/*   Updated: 2021/01/01 13:16:19 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s[i] != '\0')

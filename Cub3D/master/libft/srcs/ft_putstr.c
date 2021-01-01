@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 17:27:03 by thzeribi          #+#    #+#             */
-/*   Updated: 2019/11/05 10:32:12 by thzeribi         ###   ########.fr       */
+/*   Updated: 2021/01/01 13:12:00 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putstr(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (str == NULL)
