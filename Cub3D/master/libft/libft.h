@@ -6,7 +6,7 @@
 /*   By: thzeribi <thzeribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 01:25:18 by thzeribi          #+#    #+#             */
-/*   Updated: 2020/10/15 00:54:00 by thzeribi         ###   ########.fr       */
+/*   Updated: 2021/01/01 13:29:22 by thzeribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <string.h>
 
-typedef struct	s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
@@ -39,10 +39,8 @@ void			*ft_calloc(size_t count, size_t size);
 void			*ft_memset(void *b, int c, size_t len);
 char			*ft_strcpy(char *dest, char *src);
 void			*ft_memcpy(void *dst, const void *src, size_t n);
-char			*ft_strnstr(const char *haystack, const char *needle,
-				size_t len);
-int				ft_putlnbr_base(unsigned long int nbr, const char *base,
-				int upper, int print);
+char			*ft_strnstr(char *haystack, char *needle, size_t len);
+int				ft_putlnbr_base(unsigned long int nbr, char *base, int upper, int print);
 char			*ft_strchr(const char *s, int c);
 char			*ft_strrchr(const char *s, int c);
 void			*ft_memccpy(void *dst, const void *src, int c, size_t n);
@@ -81,7 +79,6 @@ void			ft_lstdelone(t_list *lst, void (*del)(void*));
 void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 void			ft_putnbrmax_fd(long int n, int fd);
-t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
-					void (*del)(void *));
+t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), void(*del)(void *));
 
 #endif
